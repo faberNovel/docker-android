@@ -1,74 +1,64 @@
-FROM openjdk:8-jdk
+FROM ubuntu:18.04
 
-MAINTAINER Vincent Brison <vincent.brison@fabernovel.com>
+## Set timezone to UTC by default
+RUN ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime
 
-## Setup Bash
-# Import bash config
-COPY .bash* root/
+## Use unicode
+RUN locale-gen C.UTF-8 || true
+ENV LANG=C.UTF-8
 
-# Load bash config for non interactive bash
-ENV BASH_ENV "~/.bashrc"
+## Update package lists
+RUN apt update
 
-# Use bash
-SHELL ["/bin/bash", "-l", "-c"]
-
-## Setup apt
-RUN apt update -y
-
-## Setup gcloud SDK
-RUN apt install -y \
+## Install dependencies
+RUN apt-get install --no-install-recommends -y \
+  openjdk-8-jdk \
+  git \
   wget \
-  tar
-
-RUN curl https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz > /tmp/google-cloud-sdk.tar.gz
-
-RUN mkdir -p /usr/local/gcloud \
-  && tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz \
-  && /usr/local/gcloud/google-cloud-sdk/install.sh
-
-ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
-
-## Setup Android SDK
-RUN apt install -y \
-  wget \
+  build-essential \
+  zlib1g-dev \
+  libssl-dev \
+  libreadline-dev \
   unzip
 
-# Setup env
-ENV PATH "$PATH:$PWD/.android/platform-tools/"
-ENV PATH "$PATH:$PWD/.android/tools/bin"
-ENV ANDROID_HOME "$PWD/.android"
-ENV ANDROID_COMPILE_SDK "29"
-ENV ANDROID_BUILD_TOOLS "29.0.3"
-
-RUN wget --quiet --output-document=/tmp/sdk-tools-linux.zip https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip \
-    && unzip /tmp/sdk-tools-linux.zip -d ${ANDROID_HOME} \
-    && rm -rf /tmp/sdk-tools-linux.zip
-
-# Install platform tools and Android SDK for the compile target
-RUN ${ANDROID_HOME}/tools/bin/sdkmanager --update
-RUN yes | ${ANDROID_HOME}/tools/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}"
-RUN yes | ${ANDROID_HOME}/tools/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS}"
-RUN yes | ${ANDROID_HOME}/tools/bin/sdkmanager "extras;google;m2repository"
-RUN ${ANDROID_HOME}/tools/bin/sdkmanager "extras;android;m2repository"
-
-## Setup Ruby/Bundler
-# Install RVM to get ruby
-RUN mkdir ~/.gnupg
-RUN echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf
-RUN gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-RUN curl -sSL https://get.rvm.io | bash -s stable --ruby
-ENV PATH "$PATH:/usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-
-# Install rubys envs
-# RVM bundled with Ruby 2.6.3. To install additional ruby envs do :
-# - rvm install X.Y.Z
-
-# Install bundler
-RUN gem install bundler -NV -f
-
-## Clean
+## Clean dependencies
 RUN apt clean
 RUN rm -rf /var/lib/apt/lists/*
 
-## Run commands in logged in session, to support RVM
-CMD ["bash", "-l"]
+## Install rbenv
+ENV RBENV_HOME "/root/.rbenv"
+RUN git clone https://github.com/rbenv/rbenv.git $RBENV_HOME
+ENV PATH "$PATH:$RBENV_HOME/bin"
+ENV PATH "$PATH:$RBENV_HOME/shims"
+
+# Install ruby-build (rbenv plugin)
+RUN mkdir -p "$RBENV_HOME"/plugins
+RUN git clone https://github.com/rbenv/ruby-build.git "$RBENV_HOME"/plugins/ruby-build
+
+# Install default ruby env
+RUN rbenv install 2.6.5
+RUN rbenv global 2.6.5
+RUN gem install bundler:2.1.4
+
+## Install Android SDK
+ARG sdk_version=sdk-tools-linux-4333796.zip
+ARG android_home=/opt/android/sdk
+RUN mkdir -p ${android_home} && \
+    wget --quiet --output-document=/tmp/${sdk_version} https://dl.google.com/android/repository/${sdk_version} && \
+    unzip -q /tmp/${sdk_version} -d ${android_home} && \
+    rm /tmp/${sdk_version}
+
+# Set environmental variables
+ENV ANDROID_HOME ${android_home}
+ENV PATH=${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools:${PATH}
+
+RUN mkdir ~/.android && echo '### User Sources for Android SDK Manager' > ~/.android/repositories.cfg
+
+RUN yes | sdkmanager --licenses && yes | sdkmanager --update
+
+# Update SDK manager and install system image, platform and build tools
+RUN sdkmanager \
+  "tools" \
+  "platform-tools" \
+  "build-tools;29.0.2" \
+  "platforms;android-28"
