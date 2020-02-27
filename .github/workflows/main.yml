@@ -1,0 +1,11 @@
+name: Test image
+on: [push]
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build
+      run: docker build .
+    - name: Test
+      run: docker-compose -f docker-compose.test.yml up --exit-code-from sut
