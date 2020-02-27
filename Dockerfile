@@ -61,4 +61,4 @@ RUN sdkmanager \
   "tools" \
   "platform-tools" \
   "build-tools;29.0.2" \
-  "platforms;android-28"
+  "platforms;android-29"
