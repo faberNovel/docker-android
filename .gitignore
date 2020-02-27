@@ -1,1 +1,3 @@
 .DS_Store
+tests/test-app/fastlane/README.md
+tests/test-app/fastlane/report.xml

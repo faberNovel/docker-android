@@ -6,6 +6,7 @@ rbenv -v
 ruby -v
 
 cd ./tests/test-app
-./gradlew app:assemble
+bundle install
+bundle exec fastlane android build
 
 exit 0
