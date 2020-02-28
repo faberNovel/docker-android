@@ -1,4 +1,4 @@
-# exit when any command fails
+# Exit immediately if a command returns a non-zero status.
 set -e
 
 java -version
