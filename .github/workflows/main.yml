@@ -3,9 +3,12 @@ on: [push]
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        android_api: [android-28, android-29]
     steps:
     - uses: actions/checkout@v1
     - name: Build
-      run: docker build .
+      run: docker build --build-arg android_api=${{ matrix.android_api }} .
     - name: Test
       run: docker-compose -f docker-compose.test.yml up --exit-code-from sut
