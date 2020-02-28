@@ -43,6 +43,7 @@ RUN gem install bundler:2.1.4
 ## Install Android SDK
 ARG sdk_version=commandlinetools-linux-6200805_latest.zip
 ARG android_home=/opt/android/sdk
+ARG android_api=android-29
 RUN mkdir -p ${android_home} && \
     wget --quiet --output-document=/tmp/${sdk_version} https://dl.google.com/android/repository/${sdk_version} && \
     unzip -q /tmp/${sdk_version} -d ${android_home} && \
@@ -58,4 +59,4 @@ RUN yes | sdkmanager --sdk_root=$ANDROID_HOME --licenses
 RUN sdkmanager --sdk_root=$ANDROID_HOME --install \
   "platform-tools" \
   "build-tools;29.0.2" \
-  "platforms;android-29"
+  "platforms;${android_api}"
