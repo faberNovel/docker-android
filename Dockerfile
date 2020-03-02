@@ -58,5 +58,5 @@ RUN mkdir ~/.android && echo '### User Sources for Android SDK Manager' > ~/.and
 RUN yes | sdkmanager --sdk_root=$ANDROID_HOME --licenses
 RUN sdkmanager --sdk_root=$ANDROID_HOME --install \
   "platform-tools" \
-  "build-tools;29.0.2" \
+  "build-tools;29.0.3" \
   "platforms;${android_api}"
