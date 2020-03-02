@@ -1,11 +1,17 @@
-name: Test image
+name: Build and test images
 on: [push]
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        android_api: [android-28, android-29]
     steps:
-    - uses: actions/checkout@v1
-    - name: Build
-      run: docker build .
-    - name: Test
-      run: docker-compose -f docker-compose.test.yml up --exit-code-from sut
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Build
+        run: ./ci.sh --build --android_api ${{ matrix.android_api }}
+
+      - name: Test
+        run: ./ci.sh --test --android_api ${{ matrix.android_api }}
