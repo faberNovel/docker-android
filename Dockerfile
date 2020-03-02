@@ -38,7 +38,6 @@ RUN git clone https://github.com/rbenv/ruby-build.git "$RBENV_HOME"/plugins/ruby
 # Install default ruby env
 RUN rbenv install 2.6.5
 RUN rbenv global 2.6.5
-RUN gem install bundler:2.1.4
 
 ## Install Android SDK
 ARG sdk_version=commandlinetools-linux-6200805_latest.zip

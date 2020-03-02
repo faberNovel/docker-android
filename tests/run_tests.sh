@@ -6,6 +6,7 @@ rbenv -v
 ruby -v
 
 cd ./tests/test-app
+gem install bundler:2.1.4
 bundle install
 bundle exec fastlane android build
 
