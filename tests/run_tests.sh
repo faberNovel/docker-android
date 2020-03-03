@@ -27,7 +27,7 @@ else
   echo "Running tests"
   cd ./tests/test-app
 fi
-gem install --no-document bundler:2.1.4
+gem install bundler:2.1.4
 bundle install
 bundle exec fastlane android build
 

@@ -6,8 +6,8 @@ program_name=$0
 function usage {
   echo "usage: $program_name [--android_api 29] [--build] [--test]"
   echo "  --android_api androidVersion Use specific Android version from \`sdkmanager --list\`"
-  echo " --android_ndk Install Android NDK"
-  echo " --ndk_version <version> Install a specific Android NDK version from \`sdkmanager --list\`"
+  echo "  --android_ndk                Install Android NDK"
+  echo "  --ndk_version <version>      Install a specific Android NDK version from \`sdkmanager --list\`"
   echo "  --build                      Build image"
   echo "  --test                       Test image"
   exit 1
