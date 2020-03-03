@@ -12,8 +12,6 @@ function usage {
 }
 
 # Parameters parsing
-OPTS=`getopt --long android_api,build,test: -n 'parse-options' -- "$@"`
-
 while true; do
   case "$1" in
     --android_api ) android_api="$2"; shift 2 ;;
