@@ -2,9 +2,9 @@
 set -e
 
 # Usage of this script
-programname=$0
+program_name=$0
 function usage {
-    echo "usage: $programname [--android_api android-29] [--build] [--test]"
+    echo "usage: $program_name [--android_api 29] [--build] [--test]"
     echo "  --android_api androidVersion Use specific Android version from \`sdkmanager --list\`"
     echo "  --build                      Build image"
     echo "  --test                       Test image"
@@ -28,21 +28,23 @@ if [[ -z "$android_api" ]]; then
   exit 1
 fi
 
+image_name=android:api-$android_api
+
 # CI business
 tasks=0
 if [[ $build == true ]]; then
   tasks=$((tasks+1))
-  echo "Building image $android_api"
+  echo "Building image $image_name"
   set -x
-  docker build --build-arg android_api=$android_api --tag $android_api .
+  docker build --build-arg android_api=android-$android_api --tag $image_name .
   set +x
 fi
 
 if [[ $test == true ]]; then
   tasks=$((tasks+1))
-  echo "Testing image $android_api"
+  echo "Testing image $image_name"
   set -x
-  docker run -v $PWD/tests:/tests --rm $android_api sh tests/run_tests.sh
+  docker run -v $PWD/tests:/tests --rm $image_name sh tests/run_tests.sh
   set +x
 fi
 
