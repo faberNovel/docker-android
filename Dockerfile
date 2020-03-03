@@ -45,6 +45,9 @@ RUN rbenv global 2.6.5
 ARG sdk_version=commandlinetools-linux-6200805_latest.zip
 ARG android_home=/opt/android/sdk
 ARG android_api=android-29
+ARG android_ndk=false
+ARG ndk_version=21.0.6113669
+ARG cmake=3.10.2.4988404
 RUN mkdir -p ${android_home} && \
     wget --quiet --output-document=/tmp/${sdk_version} https://dl.google.com/android/repository/${sdk_version} && \
     unzip -q /tmp/${sdk_version} -d ${android_home} && \
@@ -61,3 +64,12 @@ RUN sdkmanager --sdk_root=$ANDROID_HOME --install \
   "platform-tools" \
   "build-tools;29.0.3" \
   "platforms;${android_api}"
+RUN if [ "$android_ndk" = true ] ; \
+  then \
+    echo "Installing Android NDK ($ndk_version, cmake: $cmake)"; \
+    sdkmanager --sdk_root="$ANDROID_HOME" --install \
+    "ndk;${ndk_version}" \
+    "cmake;${cmake}" ; \
+  else \
+  echo "Skipping NDK installation"; \
+  fi
