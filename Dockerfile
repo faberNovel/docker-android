@@ -71,5 +71,5 @@ RUN if [ "$android_ndk" = true ] ; \
     "ndk;${ndk_version}" \
     "cmake;${cmake}" ; \
   else \
-  echo "Skipping NDK installation"; \
+    echo "Skipping NDK installation"; \
   fi
