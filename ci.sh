@@ -23,7 +23,6 @@ done
 
 if [[ -z "$android_api" ]]; then
   usage
-  exit 1
 fi
 
 image_name=android:api-$android_api
@@ -49,5 +48,4 @@ fi
 if [[ $tasks == 0 ]]; then
   echo "No task was executed"
   usage
-  exit 1
 fi
