@@ -9,9 +9,6 @@ usage() {
     exit 1
 }
 
-# Parameters parsing
-OPTS=`getopt --long android_ndk: -n 'parse-options' -- "$@"`
-
 while true; do
   case "$1" in
     --android_ndk ) android_ndk=true; shift ;;
