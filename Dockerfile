@@ -36,6 +36,8 @@ RUN mkdir -p "$RBENV_HOME"/plugins
 RUN git clone https://github.com/rbenv/ruby-build.git "$RBENV_HOME"/plugins/ruby-build
 
 # Install default ruby env
+RUN echo “install: --no-document” > ~/.gemrc
+ENV RUBY_CONFIGURE_OPTS=--disable-install-doc
 RUN rbenv install 2.6.5
 RUN rbenv global 2.6.5
 
