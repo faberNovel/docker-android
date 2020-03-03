@@ -4,11 +4,11 @@ set -e
 # Usage of this script
 program_name=$0
 function usage {
-    echo "usage: $program_name [--android_api 29] [--build] [--test]"
-    echo "  --android_api androidVersion Use specific Android version from \`sdkmanager --list\`"
-    echo "  --build                      Build image"
-    echo "  --test                       Test image"
-    exit 1
+  echo "usage: $program_name [--android_api 29] [--build] [--test]"
+  echo "  --android_api androidVersion Use specific Android version from \`sdkmanager --list\`"
+  echo "  --build                      Build image"
+  echo "  --test                       Test image"
+  exit 1
 }
 
 # Parameters parsing
