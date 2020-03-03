@@ -56,9 +56,14 @@ fi
 
 if [[ $test == true ]]; then
   tasks=$((tasks+1))
+  if [[ "$android_ndk" == true ]]; then
+    test_options="--android_ndk"
+  fi
   echo "Testing image $image_name"
   set -x
-  docker run -v $PWD/tests:/tests --rm $image_name sh tests/run_tests.sh
+  docker run -v $PWD/tests:/tests \
+    --rm $image_name \
+    sh tests/run_tests.sh $test_options
   set +x
 fi
 
