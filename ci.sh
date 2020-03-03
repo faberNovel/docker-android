@@ -35,7 +35,7 @@ fi
 
 # Compute image tag
 image_name=fabernovel/android:api-$android_api
-branch=$(git symbolic-ref --short HEAD)
+branch=${GITHUB_REF##*/}
 if [[ $deploy == true ]]; then
   if [[ $branch == "develop" ]]; then
     image_name="$image_name-snapshot"
