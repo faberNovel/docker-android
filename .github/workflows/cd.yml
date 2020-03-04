@@ -1,7 +1,8 @@
 name: Build test and deploy images
-on: [push]
-  branches:
-    - develop
+on:
+  push:
+    branches:
+      - develop
 jobs:
   build_and_test:
     runs-on: ubuntu-18.04
