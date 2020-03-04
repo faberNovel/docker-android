@@ -1,5 +1,9 @@
 name: Build and test images
-on: [push]
+on:
+  push:
+    branches-ignore:
+      - develop
+      - master  
 jobs:
   build_and_test:
     runs-on: ubuntu-18.04
