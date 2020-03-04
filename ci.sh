@@ -39,10 +39,8 @@ if [[ $android_ndk == true ]]; then
   image_name="$image_name-ndk"
 fi
 branch=${GITHUB_REF##*/}
-if [[ $deploy == true ]]; then
-  if [[ $branch == "develop" ]]; then
-    image_name="$image_name-snapshot"
-  fi
+if [[ $branch == "develop" ]]; then
+  image_name="$image_name-snapshot"
 fi
 
 # CI business
