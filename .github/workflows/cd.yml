@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-18.04
     strategy:
       matrix:
-        android_api: [28, 29]
+        android_api: [29]
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -20,4 +20,6 @@ jobs:
         run: ./ci.sh --test --android_api ${{ matrix.android_api }}
 
       - name: Deploy
+        env:
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
         run: ./ci.sh --deploy --android_api ${{ matrix.android_api }}
