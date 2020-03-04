@@ -1,0 +1,23 @@
+name: Build test and deploy images
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  build_and_test:
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        android_api: [28, 29]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Build
+        run: ./ci.sh --build --android_api ${{ matrix.android_api }}
+
+      - name: Test
+        run: ./ci.sh --test --android_api ${{ matrix.android_api }}
+
+      - name: Deploy
+        run: ./ci.sh --deploy --android_api ${{ matrix.android_api }}

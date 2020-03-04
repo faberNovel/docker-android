@@ -10,6 +10,7 @@ function usage {
   echo "  --ndk_version <version>      Install a specific Android NDK version from \`sdkmanager --list\`"
   echo "  --build                      Build image"
   echo "  --test                       Test image"
+  echo "  --deploy                     Deploy image"
   exit 1
 }
 
@@ -23,6 +24,7 @@ while true; do
     --test ) test=true; shift ;;
     --android_ndk ) android_ndk=true; shift ;;
     --ndk_version ) ndk_version="$2"; shift 2 ;;
+    --deploy ) deploy=true; shift ;;
     * ) break ;;
   esac
 done
@@ -31,13 +33,19 @@ if [[ -z "$android_api" ]]; then
   usage
 fi
 
-image_name=android:api-$android_api
+# Compute image tag
+image_name=fabernovel/android:api-$android_api
+if [[ $android_ndk == true ]]; then
+  image_name="$image_name-ndk"
+fi
+branch=${GITHUB_REF##*/}
+if [[ $deploy == true ]]; then
+  if [[ $branch == "develop" ]]; then
+    image_name="$image_name-snapshot"
+  fi
+fi
 
 # CI business
-tag="$android_api"
-if [[ "$android_ndk" == true ]]; then
-  tag="$tag:ndk"
-fi
 tasks=0
 if [[ $build == true ]]; then
   tasks=$((tasks+1))
@@ -65,6 +73,13 @@ if [[ $test == true ]]; then
     --rm $image_name \
     sh tests/run_tests.sh $test_options
   set +x
+fi
+
+if [[ $deploy == true ]]; then
+  tasks=$((tasks+1))
+  echo "Deploy image $image_name"
+  echo "$DOCKERHUB_TOKEN" | docker login --username vincentbrison --password-stdin
+  docker push $image_name
 fi
 
 if [[ $tasks == 0 ]]; then
