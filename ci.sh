@@ -35,6 +35,9 @@ fi
 
 # Compute image tag
 image_name=fabernovel/android:api-$android_api
+if [[ $android_ndk == true ]]; then
+  image_name="$image_name-ndk"
+fi
 branch=${GITHUB_REF##*/}
 if [[ $deploy == true ]]; then
   if [[ $branch == "develop" ]]; then
@@ -43,10 +46,6 @@ if [[ $deploy == true ]]; then
 fi
 
 # CI business
-tag="$android_api"
-if [[ "$android_ndk" == true ]]; then
-  tag="$tag:ndk"
-fi
 tasks=0
 if [[ $build == true ]]; then
   tasks=$((tasks+1))
