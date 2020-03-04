@@ -9,6 +9,7 @@ jobs:
     strategy:
       matrix:
         android_api: [28, 29]
+        android_ndk: ["--android_ndk",""]
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -16,4 +17,4 @@ jobs:
       - name: Build test & deploy
         env:
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-        run: ./ci.sh --build --test --deploy --android_api ${{ matrix.android_api }}
+        run: ./ci.sh --build --test --deploy --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
