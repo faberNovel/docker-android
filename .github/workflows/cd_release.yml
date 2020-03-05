@@ -1,8 +1,7 @@
 name: Build test and deploy release images
 on:
-  push:
-    tags:
-      - v*
+  release:
+    types: [published]
 jobs:
   build_and_test:
     runs-on: ubuntu-18.04
@@ -12,11 +11,9 @@ jobs:
         android_ndk: ["--android_ndk",""]
     steps:
       - name: Checkout
-        if: github.event.action == 'published'
         uses: actions/checkout@v1
 
       - name: Build test & deploy
-        if: github.event.action == 'published'
         env:
           GIT_REF: ${{ github.ref }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
