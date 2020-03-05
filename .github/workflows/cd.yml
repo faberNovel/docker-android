@@ -16,5 +16,6 @@ jobs:
 
       - name: Build test & deploy
         env:
+          GIT_REF: ${{ GITHUB_REF }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
         run: ./ci_cd.sh --build --test --deploy --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}

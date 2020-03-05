@@ -38,7 +38,7 @@ image_name=fabernovel/android:api-$android_api
 if [[ $android_ndk == true ]]; then
   image_name="$image_name-ndk"
 fi
-branch=${GITHUB_REF##*/}
+branch=${GIT_REF##*/}
 if [[ $branch == "develop" ]]; then
   image_name="$image_name-snapshot"
 fi
