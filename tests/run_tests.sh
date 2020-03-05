@@ -18,7 +18,6 @@ done
 
 java -version
 rbenv -v
-ruby -v
 
 if [ "$android_ndk" = true ]; then
   echo "Running tests with ndk"
@@ -27,6 +26,8 @@ else
   echo "Running tests"
   cd ./tests/test-app
 fi
+
+ruby -v
 gem install bundler:2.1.4
 bundle install
 bundle exec fastlane android build
