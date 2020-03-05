@@ -17,4 +17,4 @@ jobs:
       - name: Build test & deploy
         env:
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-        run: ./ci.sh --build --test --deploy --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
+        run: ./ci_cd.sh --build --test --deploy --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
