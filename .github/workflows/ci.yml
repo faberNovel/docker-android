@@ -15,8 +15,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Build
-        run: ./ci_cd.sh --build --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
-
-      - name: Test
-        run: ./ci_cd.sh --test --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
+      - name: Build and test
+        run: ./ci_cd.sh --build --test --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
