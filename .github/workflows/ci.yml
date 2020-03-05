@@ -1,0 +1,19 @@
+name: Build and test images
+on:
+  push:
+    branches-ignore:
+      - develop
+      - master
+jobs:
+  build_and_test:
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        android_api: [28, 29]
+        android_ndk: ["--android_ndk",""]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Build and test
+        run: ./ci_cd.sh --build --test --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}

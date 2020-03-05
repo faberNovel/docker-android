@@ -1,0 +1,21 @@
+name: Build test and deploy snapshot images
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  build_and_test:
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        android_api: [28, 29]
+        android_ndk: ["--android_ndk",""]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Build test & deploy
+        env:
+          GIT_REF: ${{ github.ref }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+        run: ./ci_cd.sh --build --test --deploy --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}

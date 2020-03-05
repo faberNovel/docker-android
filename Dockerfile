@@ -36,13 +36,18 @@ RUN mkdir -p "$RBENV_HOME"/plugins
 RUN git clone https://github.com/rbenv/ruby-build.git "$RBENV_HOME"/plugins/ruby-build
 
 # Install default ruby env
+RUN echo “install: --no-document” > ~/.gemrc
+ENV RUBY_CONFIGURE_OPTS=--disable-install-doc
+RUN rbenv install 2.7.0
 RUN rbenv install 2.6.5
-RUN rbenv global 2.6.5
-RUN gem install bundler:2.1.4
 
 ## Install Android SDK
-ARG sdk_version=sdk-tools-linux-4333796.zip
+ARG sdk_version=commandlinetools-linux-6200805_latest.zip
 ARG android_home=/opt/android/sdk
+ARG android_api=android-29
+ARG android_ndk=false
+ARG ndk_version=21.0.6113669
+ARG cmake=3.10.2.4988404
 RUN mkdir -p ${android_home} && \
     wget --quiet --output-document=/tmp/${sdk_version} https://dl.google.com/android/repository/${sdk_version} && \
     unzip -q /tmp/${sdk_version} -d ${android_home} && \
@@ -54,11 +59,17 @@ ENV PATH=${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bi
 
 RUN mkdir ~/.android && echo '### User Sources for Android SDK Manager' > ~/.android/repositories.cfg
 
-RUN yes | sdkmanager --licenses && yes | sdkmanager --update
-
-# Update SDK manager and install system image, platform and build tools
-RUN sdkmanager \
-  "tools" \
+RUN yes | sdkmanager --sdk_root=$ANDROID_HOME --licenses
+RUN sdkmanager --sdk_root=$ANDROID_HOME --install \
   "platform-tools" \
-  "build-tools;29.0.2" \
-  "platforms;android-28"
+  "build-tools;29.0.3" \
+  "platforms;${android_api}"
+RUN if [ "$android_ndk" = true ] ; \
+  then \
+    echo "Installing Android NDK ($ndk_version, cmake: $cmake)"; \
+    sdkmanager --sdk_root="$ANDROID_HOME" --install \
+    "ndk;${ndk_version}" \
+    "cmake;${cmake}" ; \
+  else \
+    echo "Skipping NDK installation"; \
+  fi
