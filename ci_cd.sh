@@ -1,5 +1,14 @@
+#!/bin/bash
+
 # Exit immediately if a command returns a non-zero status.
 set -e
+
+# Semver regex
+nat='0|[1-9][0-9]*'
+alphanum='[0-9]*[A-Za-z-][0-9A-Za-z-]*'
+ident="$nat|$alphanum"
+field='[0-9A-Za-z-]+'
+semver_regex="^[vV]?($nat)\\.($nat)\\.($nat)(\\-(${ident})(\\.(${ident}))*)?(\\+${field}(\\.${field})*)?$"
 
 # Usage of this script
 program_name=$0
@@ -38,9 +47,13 @@ image_name=fabernovel/android:api-$android_api
 if [[ $android_ndk == true ]]; then
   image_name="$image_name-ndk"
 fi
-branch=${GITHUB_REF##*/}
-if [[ $branch == "develop" ]]; then
+branch=${GIT_REF##refs/heads/}
+if [[ $git_ref_short == "develop" ]]; then
   image_name="$image_name-snapshot"
+fi
+tag=${GIT_REF##refs/tags/}
+if [[ $tag =~ $semver_regex ]]; then
+  image_name="$image_name-$tag"
 fi
 
 # CI business

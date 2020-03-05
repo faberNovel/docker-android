@@ -3,7 +3,7 @@ on:
   push:
     branches-ignore:
       - develop
-      - master  
+      - master
 jobs:
   build_and_test:
     runs-on: ubuntu-18.04
@@ -15,8 +15,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Build
-        run: ./ci.sh --build --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
-
-      - name: Test
-        run: ./ci.sh --test --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
+      - name: Build and test
+        run: ./ci_cd.sh --build --test --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}

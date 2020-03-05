@@ -1,8 +1,8 @@
-name: Build test and deploy images
+name: Build test and deploy release images
 on:
   push:
-    branches:
-      - develop
+    tags:
+      - v*
 jobs:
   build_and_test:
     runs-on: ubuntu-18.04
@@ -12,9 +12,12 @@ jobs:
         android_ndk: ["--android_ndk",""]
     steps:
       - name: Checkout
+        if: github.event.action == 'published'
         uses: actions/checkout@v1
 
       - name: Build test & deploy
+        if: github.event.action == 'published'
         env:
+          GIT_REF: ${{ GITHUB_REF }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-        run: ./ci.sh --build --test --deploy --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
+        run: ./ci_cd.sh --build --test --deploy --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
