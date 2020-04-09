@@ -3,6 +3,9 @@
 # Exit immediately if a command returns a non-zero status.
 set -e
 
+# Supported android builds tools
+android_build_tools="29.0.3"
+
 # Semver regex
 nat='0|[1-9][0-9]*'
 alphanum='[0-9]*[A-Za-z-][0-9A-Za-z-]*'
@@ -75,8 +78,9 @@ fi
 
 if [[ $test == true ]]; then
   tasks=$((tasks+1))
+  test_options="--android_api $android_api --android_build_tools $android_build_tools"
   if [[ "$android_ndk" == true ]]; then
-    test_options="--android_ndk"
+    test_options="$test_options --android_ndk"
   fi
   echo "Testing image $image_name"
   set -x
