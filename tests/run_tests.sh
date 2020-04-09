@@ -21,6 +21,16 @@ done
 java -version
 rbenv -v
 
+# Setup test app environment variables
+export KOTLIN_VERSION="1.3.71"
+export ANDROID_GRADLE_TOOLS_VERSION="3.6.1"
+export COMPILE_SDK_VERSION=29
+export BUILD_TOOLS_VERSION="29.0.2"
+export MIN_SDK_VERSION=21
+export TARGET_SDK_VERSION=29
+export NDK_VERSION="21.0.6113669"
+
+
 if [ "$android_ndk" = true ]; then
   echo "Running tests with ndk"
   cd "$script_path"/test-app-ndk

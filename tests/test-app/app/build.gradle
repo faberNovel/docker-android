@@ -3,13 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion versions.COMPILE_SDK_VERSION as Integer
-    buildToolsVersion versions.BUILD_TOOLS_VERSION
+    compileSdkVersion System.getenv("COMPILE_SDK_VERSION") as Integer
+    buildToolsVersion System.getenv("BUILD_TOOLS_VERSION")
 
     defaultConfig {
         applicationId "com.fabernovel.testapp"
-        minSdkVersion versions.MIN_SDK_VERSION as Integer
-        targetSdkVersion versions.TARGET_SDK_VERSION as Integer
+        minSdkVersion System.getenv("MIN_SDK_VERSION") as Integer
+        targetSdkVersion System.getenv("TARGET_SDK_VERSION") as Integer
         versionCode 1
         versionName "1.0"
 
