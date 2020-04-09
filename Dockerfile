@@ -12,7 +12,7 @@ RUN apt update
 
 ## Install dependencies
 RUN apt-get install --no-install-recommends -y \
-  openjdk-8-jdk \
+  openjdk-11-jdk \
   git \
   wget \
   build-essential \
