@@ -1,10 +1,12 @@
 # Exit immediately if a command returns a non-zero status.
 set -e
 
+script_path="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+
 # Usage of this script
-programname=$0
+script_name=$0
 usage() {
-    echo "usage: $programname [--android_ndk]"
+    echo "usage: $script_name [--android_ndk]"
     echo " --android_ndk Test with NDK application"
     exit 1
 }
@@ -21,10 +23,10 @@ rbenv -v
 
 if [ "$android_ndk" = true ]; then
   echo "Running tests with ndk"
-  cd ./tests/test-app-ndk
+  cd "$script_path"/test-app-ndk
 else
   echo "Running tests"
-  cd ./tests/test-app
+  cd "$script_path"/test-app
 fi
 
 ruby -v
