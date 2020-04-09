@@ -3,13 +3,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileSdkVersion versions.COMPILE_SDK_VERSION as Integer
+    buildToolsVersion versions.BUILD_TOOLS_VERSION
 
     defaultConfig {
         applicationId "com.fabernovel.testndkapp"
-        minSdkVersion 21
-        targetSdkVersion 29
+        minSdkVersion versions.MIN_SDK_VERSION as Integer
+        targetSdkVersion versions.TARGET_SDK_VERSION as Integer
+
         versionCode 1
         versionName "1.0"
 
@@ -30,7 +31,7 @@ android {
         }
     }
 
-    ndkVersion "21.0.6113669"
+    ndkVersion versions.NDK_VERSION
 
     externalNativeBuild {
         cmake {
