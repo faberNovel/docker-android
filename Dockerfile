@@ -46,6 +46,7 @@ RUN gem install bundler:2.1.4
 ARG sdk_version=commandlinetools-linux-6200805_latest.zip
 ARG android_home=/opt/android/sdk
 ARG android_api=android-29
+ARG android_build_tools=29.0.3
 ARG android_ndk=false
 ARG ndk_version=21.0.6113669
 ARG cmake=3.10.2.4988404
@@ -63,7 +64,7 @@ RUN mkdir ~/.android && echo '### User Sources for Android SDK Manager' > ~/.and
 RUN yes | sdkmanager --sdk_root=$ANDROID_HOME --licenses
 RUN sdkmanager --sdk_root=$ANDROID_HOME --install \
   "platform-tools" \
-  "build-tools;29.0.3" \
+  "build-tools;${android_build_tools}" \
   "platforms;${android_api}"
 RUN if [ "$android_ndk" = true ] ; \
   then \
