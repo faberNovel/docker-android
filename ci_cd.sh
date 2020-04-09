@@ -48,7 +48,7 @@ if [[ $android_ndk == true ]]; then
   image_name="$image_name-ndk"
 fi
 branch=${GIT_REF##refs/heads/}
-if [[ $git_ref_short == "develop" ]]; then
+if [[ $branch == "develop" ]]; then
   image_name="$image_name-snapshot"
 fi
 tag=${GIT_REF##refs/tags/}
