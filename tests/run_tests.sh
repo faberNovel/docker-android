@@ -33,6 +33,9 @@ fi
 java -version
 rbenv -v
 
+# Check if gcloud sdk is installed
+gcloud --version
+
 # Setup test app environment variables
 export KOTLIN_VERSION="1.3.71"
 export ANDROID_GRADLE_TOOLS_VERSION="3.6.1"
