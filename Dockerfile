@@ -3,12 +3,13 @@ FROM ubuntu:19.10
 ## Set timezone to UTC by default
 RUN ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime
 
-## Use unicode
-RUN locale-gen C.UTF-8 || true
-ENV LANG=C.UTF-8
-
 ## Update package lists
 RUN apt update
+
+## Use unicode
+RUN apt-get -y install locales && \
+    locale-gen en_US.UTF-8 || true
+ENV LANG=en_US.UTF-8
 
 ## Install dependencies
 RUN apt-get install --no-install-recommends -y \
@@ -19,7 +20,9 @@ RUN apt-get install --no-install-recommends -y \
   zlib1g-dev \
   libssl-dev \
   libreadline-dev \
-  unzip
+  unzip \
+# needed by google cloud sdk
+  python
 
 ## Clean dependencies
 RUN apt clean
@@ -41,6 +44,17 @@ ENV RUBY_CONFIGURE_OPTS=--disable-install-doc
 RUN rbenv install 2.7.0
 RUN rbenv global 2.7.0
 RUN gem install bundler:2.1.4
+
+# Install Google Cloud CLI
+ARG gcloud_url=https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
+ARG gcloud_home=/usr/local/gcloud
+ARG gcloud_install_script=${gcloud_home}/google-cloud-sdk/install.sh
+ARG gcloud_bin=${gcloud_home}/google-cloud-sdk/bin
+RUN mkdir -p ${gcloud_home} && \
+    wget --quiet --output-document=/tmp/gcloud-sdk.tar.gz ${gcloud_url} && \
+    tar -C ${gcloud_home} -xvf /tmp/gcloud-sdk.tar.gz && \
+    ${gcloud_install_script}
+ENV PATH=${gcloud_bin}:${PATH}
 
 ## Install Android SDK
 ARG sdk_version=commandlinetools-linux-6200805_latest.zip
