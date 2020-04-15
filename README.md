@@ -8,6 +8,7 @@ docker-android images are hosted on [DockerHub](https://hub.docker.com/repositor
 Images comes with:
 * Last two major Ruby versions
 * `rbenv`
+* Latestes version of the Google Cloud SDK, it can be used for Firebase Test Lab.
 * android api version described by image tag
 * android ndk described by image tag
 
