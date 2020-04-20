@@ -3,16 +3,14 @@ FROM ubuntu:19.10
 ## Set timezone to UTC by default
 RUN ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime
 
-## Update package lists
-RUN apt update
 
 ## Use unicode
-RUN apt-get -y install locales && \
+RUN apt update && apt-get -y install locales && \
     locale-gen en_US.UTF-8 || true
 ENV LANG=en_US.UTF-8
 
 ## Install dependencies
-RUN apt-get install --no-install-recommends -y \
+RUN apt update && apt-get install --no-install-recommends -y \
   openjdk-11-jdk \
   git \
   wget \
