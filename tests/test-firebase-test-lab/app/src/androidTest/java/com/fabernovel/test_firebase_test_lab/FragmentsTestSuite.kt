@@ -26,6 +26,6 @@ class FragmentsTestSuite {
 
     @Test fun testSlideshowFragment() {
         launchFragmentInContainer<SlideshowFragment>()
-        onView(withId(R.id.text_gallery)).check(matches(withText("This is slideshow Fragment")))
+        onView(withId(R.id.text_slideshow)).check(matches(withText("This is slideshow Fragment")))
     }
 }
