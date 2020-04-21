@@ -22,12 +22,14 @@ function usage {
   echo "  --ndk_version <version>      Install a specific Android NDK version from \`sdkmanager --list\`"
   echo "  --build                      Build image"
   echo "  --test                       Test image"
+  echo "  --large-test                 Run large tests on the image (Firebase Test Lab for example)"
   echo "  --deploy                     Deploy image"
   exit 1
 }
 
 # Parameters parsing
 android_ndk=false
+large_test=false
 
 while true; do
   case "$1" in
@@ -35,6 +37,7 @@ while true; do
     --build ) build=true; shift ;;
     --test ) test=true; shift ;;
     --android_ndk ) android_ndk=true; shift ;;
+    --large-test ) large_test=true; shift ;;
     --ndk_version ) ndk_version="$2"; shift 2 ;;
     --deploy ) deploy=true; shift ;;
     * ) break ;;
@@ -77,17 +80,22 @@ if [[ $build == true ]]; then
 fi
 
 if [[ $test == true ]]; then
-  tasks=$((tasks+1))
-  test_options="--android_api $android_api --android_build_tools $android_build_tools"
-  if [[ "$android_ndk" == true ]]; then
-    test_options="$test_options --android_ndk"
-  fi
-  echo "Testing image $image_name"
-  set -x
-  docker run -v $PWD/tests:/tests \
-    --rm $image_name \
-    sh tests/run_tests.sh $test_options
-  set +x
+    tasks=$((tasks+1))
+    echo "Testing image $image_name"
+    test_options="--android_api $android_api --android_build_tools $android_build_tools"
+    if [[ "$android_ndk" == true ]]; then
+      test_options="$test_options --android_ndk"
+    fi
+    if [[ $large_test == true ]]; then
+        tasks=$((tasks+1))
+        test_options="$test_options --large-test"
+    fi
+    set -x
+    docker run -v $PWD/tests:/tests \
+      --rm \
+      "$image_name" \
+      sh tests/run_tests.sh $test_options
+    set +x
 fi
 
 if [[ $deploy == true ]]; then

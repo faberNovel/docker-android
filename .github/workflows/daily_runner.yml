@@ -1,0 +1,29 @@
+name: Run test and firebase test lab integration daily
+on:
+  schedule:
+    - cron: '* 22 * * *'
+jobs:
+  build_and_test:
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        android_api: [28, 29]
+        android_ndk: ["--android_ndk",""]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: develop
+
+      - name: Build test
+        env:
+          GIT_REF: ${{ github.ref }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+        run: ./ci_cd.sh --build --test --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
+      - name: Build then test Firebase Test Lab's integration
+        env:
+          GIT_REF: ${{ github.ref }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+          GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+        run: ./ci_cd.sh --build --test --android_api 29 --large-test
