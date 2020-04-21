@@ -10,7 +10,7 @@ usage() {
     echo " --android_ndk Test with NDK application"
     echo " --android_api Tests apps compile and target SDK"
     echo " --android_build_tools Used android builds tools"
-    echo " --large-test Run tests on Firebase Test Lab"
+    echo "  --large-test Run large tests on the image (Firebase Test Lab for example)"
     exit 1
 }
 

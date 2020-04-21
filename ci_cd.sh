@@ -22,7 +22,7 @@ function usage {
   echo "  --ndk_version <version>      Install a specific Android NDK version from \`sdkmanager --list\`"
   echo "  --build                      Build image"
   echo "  --test                       Test image"
-  echo "  --large-test                   Test instrumented tests on Firebase Test Lab"
+  echo "  --large-test                 Run large tests on the image (Firebase Test Lab for example)"
   echo "  --deploy                     Deploy image"
   exit 1
 }
