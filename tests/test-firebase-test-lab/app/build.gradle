@@ -5,17 +5,17 @@ plugins {
 }
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion System.getenv("COMPILE_SDK_VERSION") as Integer
+    buildToolsVersion System.getenv("BUILD_TOOLS_VERSION")
 
     adbOptions {
         installOptions "-g", "-r"
     }
 
     defaultConfig {
-        applicationId "com.fabernovel.test_firebase_test_lab"
-        minSdkVersion 21
-        targetSdkVersion 29
+        applicationId "com.fabernovel.testapp"
+        minSdkVersion System.getenv("MIN_SDK_VERSION") as Integer
+        targetSdkVersion System.getenv("TARGET_SDK_VERSION") as Integer
         versionCode 1
         versionName "1.0"
 
