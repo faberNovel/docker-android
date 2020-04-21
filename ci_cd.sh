@@ -108,7 +108,10 @@ if [[ $deploy == true ]]; then
 fi
 
 if [[ $desc == true ]]; then
-  echo "Generating image desc.md"
+  echo "Generating image desc.md for $image_name"
+  docker run -v $PWD/desc:/desc \
+    --rm $image_name \
+    sh desc/desc.sh | tee desc.txt
 fi
 
 if [[ $tasks == 0 ]]; then
