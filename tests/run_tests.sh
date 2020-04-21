@@ -10,7 +10,7 @@ usage() {
     echo " --android_ndk Test with NDK application"
     echo " --android_api Tests apps compile and target SDK"
     echo " --android_build_tools Used android builds tools"
-    echo " --test-lab Run tests on Firebase Test Lab"
+    echo " --large-test Run tests on Firebase Test Lab"
     exit 1
 }
 
@@ -24,7 +24,7 @@ while true; do
     --android_ndk ) android_ndk=true; shift ;;
     --android_api ) android_api=$2; shift 2 ;;
     --android_build_tools ) android_build_tools=$2; shift 2 ;;
-    --test-lab ) test_lab=true; shift ;;
+    --large-test ) large_test=true; shift ;;
     * ) break ;;
   esac
 done
@@ -65,7 +65,7 @@ setup_bundler
 bundle install
 bundle exec fastlane android build
 
-if [ "$test_lab" = true ]; then
+if [ "$large_test" = true ]; then
     echo "Run android tests on Firebase Test Lab"
     cd "$script_path"/test-firebase-test-lab
 

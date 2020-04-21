@@ -22,14 +22,14 @@ function usage {
   echo "  --ndk_version <version>      Install a specific Android NDK version from \`sdkmanager --list\`"
   echo "  --build                      Build image"
   echo "  --test                       Test image"
-  echo "  --test-lab                   Test instrumented tests on Firebase Test Lab"
+  echo "  --large-test                   Test instrumented tests on Firebase Test Lab"
   echo "  --deploy                     Deploy image"
   exit 1
 }
 
 # Parameters parsing
 android_ndk=false
-test_lab=false
+large_test=false
 
 while true; do
   case "$1" in
@@ -37,7 +37,7 @@ while true; do
     --build ) build=true; shift ;;
     --test ) test=true; shift ;;
     --android_ndk ) android_ndk=true; shift ;;
-    --test-lab ) test_lab=true; shift ;;
+    --large-test ) large_test=true; shift ;;
     --ndk_version ) ndk_version="$2"; shift 2 ;;
     --deploy ) deploy=true; shift ;;
     * ) break ;;
@@ -86,9 +86,9 @@ if [[ $test == true ]]; then
     if [[ "$android_ndk" == true ]]; then
       test_options="$test_options --android_ndk"
     fi
-    if [[ $test_lab == true ]]; then
+    if [[ $large_test == true ]]; then
         tasks=$((tasks+1))
-        test_options="$test_options --test-lab"
+        test_options="$test_options --large-test"
     fi
     set -x
     docker run -v $PWD/tests:/tests \
