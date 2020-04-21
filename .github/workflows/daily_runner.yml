@@ -1,7 +1,7 @@
-name: Build test and deploy release images
+name: Run test and firebase test lab integration daily
 on:
   schedule:
-    - cron: '* 22 * * * *'
+    - cron: '* 22 * * *'
 jobs:
   build_and_test:
     runs-on: ubuntu-18.04
@@ -11,17 +11,16 @@ jobs:
         android_ndk: ["--android_ndk",""]
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
-            with:
-                ref: develop
+        uses: actions/checkout@v2
+        with:
+          ref: develop
 
       - name: Build test
         env:
           GIT_REF: ${{ github.ref }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
         run: ./ci_cd.sh --build --test --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
-
-    - name: Build then test Firebase Test Lab's integration
+      - name: Build then test Firebase Test Lab's integration
         env:
           GIT_REF: ${{ github.ref }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
