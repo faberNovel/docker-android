@@ -1,4 +1,4 @@
-name: Build test and deploy release images
+name: Run test and firebase test lab integration daily 
 on:
   schedule:
     - cron: '* 22 * * * *'
@@ -11,9 +11,9 @@ jobs:
         android_ndk: ["--android_ndk",""]
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
-            with:
-                ref: develop
+        uses: actions/checkout@v2
+        with:
+          ref: develop
 
       - name: Build test
         env:
