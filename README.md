@@ -1,4 +1,6 @@
 # docker-android
+![.github/workflows/daily_runner.yml](https://github.com/faberNovel/docker-android/workflows/.github/workflows/daily_runner.yml/badge.svg?branch=develop&event=schedule)
+
 docker-android is aiming to provide general purpose docker images to run CI steps of Android project.
 
 ## Usage
