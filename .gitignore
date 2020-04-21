@@ -4,3 +4,4 @@ tests/**/fastlane/report.xml
 tests/**/firebase/
 **/client-secret.json
 tests/**/instrumentation_output.txt
+desc.txt
