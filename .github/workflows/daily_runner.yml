@@ -1,4 +1,4 @@
-name: Run test and firebase test lab integration daily
+name: Run test & large tests daily
 on:
   schedule:
     - cron: '0 22 * * *'
