@@ -67,11 +67,6 @@ if [[ $tag =~ $semver_regex ]]; then
   simple_image_name="$simple_image_name-$tag"
 fi
 
-if [[ $print_image_name == true ]]; then
-  echo $simple_image_name
-  exit 0
-fi
-
 full_image_name="$org_name/android:$simple_image_name"
 
 # CI business
@@ -120,10 +115,16 @@ if [[ $deploy == true ]]; then
 fi
 
 if [[ $desc == true ]]; then
+  tasks=$((tasks+1))
   echo "Generating image desc.md for $full_image_name"
   docker run -v $PWD/desc:/desc \
     --rm $full_image_name \
     sh desc/desc.sh | tee desc.txt
+fi
+
+if [[ $print_image_name == true ]]; then
+  tasks=$((tasks+1))
+  echo $simple_image_name
 fi
 
 if [[ $tasks == 0 ]]; then
