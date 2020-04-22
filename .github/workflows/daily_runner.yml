@@ -1,7 +1,7 @@
 name: Run test and firebase test lab integration daily
 on:
   schedule:
-    - cron: '* 22 * * *'
+    - cron: '0 22 * * *'
 jobs:
   build_and_test:
     runs-on: ubuntu-18.04
