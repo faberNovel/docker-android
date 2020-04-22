@@ -1,0 +1,72 @@
+name: Create pull request release
+on:
+  push:
+    branches:
+    - 'releases/**'
+jobs:
+  build_test_and_generate_desc:
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        android_api: [28, 29]
+        android_ndk: ["--android_ndk", ""]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build and test image
+        # run: ./ci_cd.sh --build --test --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
+        run: echo "Building and testing image..."
+
+      - name: Generate image description
+        # run: ./ci_cd.sh --desc --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
+        run: |
+          touch desc.txt
+          echo ${{ matrix.android_api }} ${{ matrix.android_ndk }} > desc.txt
+
+      - name: Print image description
+        run: cat desc.txt
+
+      - name: Set image name
+        id: set_image_name
+        run: |
+          image_name=$(./ci_cd.sh --image-name --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }})
+          echo "::set-output name=image_name::$image_name"
+
+      - name: Upload image description
+        uses: actions/upload-artifact@v1
+        with:
+          name: ${{ steps.set_image_name.outputs.image_name }}.txt
+          path: desc.txt
+
+  create_pr:
+    runs-on: ubuntu-18.04
+    needs: build_test_and_generate_desc
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Fetch images descriptions
+        uses: actions/download-artifact@v2-preview
+        with:
+          path: image-descriptions
+
+      - run: ls -a image-descriptions
+
+      - name: Commit and push image descriptions
+        uses: stefanzweifel/git-auto-commit-action@v4.1.4
+        with:
+          commit_message: Add images description
+
+      - name: Set release name
+        id: set_release_name
+        env:
+          GIT_REF: ${{ github.ref }}
+        run: echo "::set-output name=release_name::${GIT_REF#refs/heads/releases/}"
+
+      - name: Create pull request
+        uses: vsoch/pull-request-action@1.0.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_BRANCH: "master"
+          PULL_REQUEST_TITLE: "Release ${{ steps.compute_release_name.outputs.release_name }}"
