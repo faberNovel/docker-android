@@ -24,6 +24,7 @@ function usage {
   echo "  --test                       Test image"
   echo "  --large-test                 Run large tests on the image (Firebase Test Lab for example)"
   echo "  --deploy                     Deploy image"
+  echo "  --desc                       Generate a desc.txt file describing the builded image, on host machine"
   exit 1
 }
 
@@ -40,6 +41,7 @@ while true; do
     --large-test ) large_test=true; shift ;;
     --ndk_version ) ndk_version="$2"; shift 2 ;;
     --deploy ) deploy=true; shift ;;
+    --desc ) desc=true; shift ;;
     * ) break ;;
   esac
 done
@@ -103,6 +105,13 @@ if [[ $deploy == true ]]; then
   echo "Deploy image $image_name"
   echo "$DOCKERHUB_TOKEN" | docker login --username vincentbrison --password-stdin
   docker push $image_name
+fi
+
+if [[ $desc == true ]]; then
+  echo "Generating image desc.md for $image_name"
+  docker run -v $PWD/desc:/desc \
+    --rm $image_name \
+    sh desc/desc.sh | tee desc.txt
 fi
 
 if [[ $tasks == 0 ]]; then
