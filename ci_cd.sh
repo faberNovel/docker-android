@@ -25,6 +25,7 @@ function usage {
   echo "  --large-test                 Run large tests on the image (Firebase Test Lab for example)"
   echo "  --deploy                     Deploy image"
   echo "  --desc                       Generate a desc.txt file describing the builded image, on host machine"
+  echo "  --image-name                 Print the image name base on parameters"
   exit 1
 }
 
@@ -42,6 +43,7 @@ while true; do
     --ndk_version ) ndk_version="$2"; shift 2 ;;
     --deploy ) deploy=true; shift ;;
     --desc ) desc=true; shift ;;
+    --image-name ) print_image_name=true; shift ;;
     * ) break ;;
   esac
 done
@@ -51,24 +53,32 @@ if [[ -z "$android_api" ]]; then
 fi
 
 # Compute image tag
-image_name=fabernovel/android:api-$android_api
+org_name=fabernovel
+simple_image_name=api-$android_api
 if [[ $android_ndk == true ]]; then
-  image_name="$image_name-ndk"
+  simple_image_name="$simple_image_name-ndk"
 fi
 branch=${GIT_REF##refs/heads/}
 if [[ $branch == "develop" ]]; then
-  image_name="$image_name-snapshot"
+  simple_image_name="$simple_image_name-snapshot"
 fi
 tag=${GIT_REF##refs/tags/}
 if [[ $tag =~ $semver_regex ]]; then
-  image_name="$image_name-$tag"
+  simple_image_name="$simple_image_name-$tag"
 fi
+
+if [[ $print_image_name == true ]]; then
+  echo $simple_image_name
+  exit 0
+fi
+
+full_image_name="$org_name/android:$simple_image_name"
 
 # CI business
 tasks=0
 if [[ $build == true ]]; then
   tasks=$((tasks+1))
-  echo "Building image $image_name"
+  echo "Building image $full_image_name"
   if [[ -n "$ndk_version" ]]; then
     ndk_version_build_arg="--build-arg ndk_version=\"$ndk_version\""
   fi
@@ -77,13 +87,13 @@ if [[ $build == true ]]; then
     --build-arg android_api=android-$android_api \
     --build-arg android_ndk="$android_ndk" \
     $ndk_version_build_arg \
-    --tag $image_name .
+    --tag $full_image_name .
   set +x
 fi
 
 if [[ $test == true ]]; then
     tasks=$((tasks+1))
-    echo "Testing image $image_name"
+    echo "Testing image $full_image_name"
     test_options="--android_api $android_api --android_build_tools $android_build_tools"
     if [[ "$android_ndk" == true ]]; then
       test_options="$test_options --android_ndk"
@@ -97,22 +107,22 @@ if [[ $test == true ]]; then
     set -x
     docker run -v $PWD/tests:/tests \
       --rm \
-      "$image_name" \
+      "$full_image_name" \
       sh tests/run_tests.sh $test_options
     set +x
 fi
 
 if [[ $deploy == true ]]; then
   tasks=$((tasks+1))
-  echo "Deploy image $image_name"
+  echo "Deploy image $full_image_name"
   echo "$DOCKERHUB_TOKEN" | docker login --username vincentbrison --password-stdin
-  docker push $image_name
+  docker push $full_image_name
 fi
 
 if [[ $desc == true ]]; then
-  echo "Generating image desc.md for $image_name"
+  echo "Generating image desc.md for $full_image_name"
   docker run -v $PWD/desc:/desc \
-    --rm $image_name \
+    --rm $full_image_name \
     sh desc/desc.sh | tee desc.txt
 fi
 
