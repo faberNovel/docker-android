@@ -1,0 +1,575 @@
+apt packages:
+Listing...
+adduser/now 3.118ubuntu1 all [installed,local]
+apt/now 1.9.4 amd64 [installed,local]
+base-files/now 10.2ubuntu7.19.10.0 amd64 [installed,local]
+base-passwd/now 3.5.46 amd64 [installed,local]
+bash/now 5.0-4ubuntu1 amd64 [installed,local]
+binutils-common/now 2.33-2ubuntu1.2 amd64 [installed,local]
+binutils-x86-64-linux-gnu/now 2.33-2ubuntu1.2 amd64 [installed,local]
+binutils/now 2.33-2ubuntu1.2 amd64 [installed,local]
+bsdutils/now 1:2.34-0.1ubuntu2.3 amd64 [installed,local]
+build-essential/now 12.8ubuntu1 amd64 [installed,local]
+bzip2/now 1.0.6-9.2 amd64 [installed,local]
+ca-certificates-java/now 20190405ubuntu1 all [installed,local]
+ca-certificates/now 20190110 all [installed,local]
+coreutils/now 8.30-3ubuntu2 amd64 [installed,local]
+cpp-9/now 9.2.1-9ubuntu2 amd64 [installed,local]
+cpp/now 4:9.2.1-3.1ubuntu1 amd64 [installed,local]
+dash/now 0.5.10.2-6 amd64 [installed,local]
+debconf/now 1.5.73 all [installed,local]
+debianutils/now 4.8.6.3 amd64 [installed,local]
+diffutils/now 1:3.7-3 amd64 [installed,local]
+dpkg-dev/now 1.19.7ubuntu2 all [installed,local]
+dpkg/now 1.19.7ubuntu2 amd64 [installed,local]
+e2fsprogs/now 1.45.3-4ubuntu2.1 amd64 [installed,local]
+fdisk/now 2.34-0.1ubuntu2.3 amd64 [installed,local]
+findutils/now 4.6.0+git+20190209-2ubuntu1 amd64 [installed,local]
+fontconfig-config/now 2.13.1-2ubuntu2 all [installed,local]
+fonts-dejavu-core/now 2.37-1 all [installed,local]
+g++-9/now 9.2.1-9ubuntu2 amd64 [installed,local]
+g++/now 4:9.2.1-3.1ubuntu1 amd64 [installed,local]
+gcc-9-base/now 9.2.1-9ubuntu2 amd64 [installed,local]
+gcc-9/now 9.2.1-9ubuntu2 amd64 [installed,local]
+gcc/now 4:9.2.1-3.1ubuntu1 amd64 [installed,local]
+git-man/now 1:2.20.1-2ubuntu1.19.10.3 all [installed,local]
+git/now 1:2.20.1-2ubuntu1.19.10.3 amd64 [installed,local]
+gpgv/now 2.2.12-1ubuntu3 amd64 [installed,local]
+grep/now 3.3-1build1 amd64 [installed,local]
+gzip/now 1.10-0ubuntu3.1 amd64 [installed,local]
+hostname/now 3.22 amd64 [installed,local]
+init-system-helpers/now 1.57 all [installed,local]
+java-common/now 0.72 all [installed,local]
+libacl1/now 2.2.53-4 amd64 [installed,local]
+libapt-pkg5.90/now 1.9.4 amd64 [installed,local]
+libasan5/now 9.2.1-9ubuntu2 amd64 [installed,local]
+libasn1-8-heimdal/now 7.5.0+dfsg-3build1 amd64 [installed,local]
+libasound2-data/now 1.1.9-0ubuntu1.3 all [installed,local]
+libasound2/now 1.1.9-0ubuntu1.3 amd64 [installed,local]
+libatomic1/now 9.2.1-9ubuntu2 amd64 [installed,local]
+libattr1/now 1:2.4.48-4 amd64 [installed,local]
+libaudit-common/now 1:2.8.5-2ubuntu1 all [installed,local]
+libaudit1/now 1:2.8.5-2ubuntu1 amd64 [installed,local]
+libavahi-client3/now 0.7-4ubuntu5 amd64 [installed,local]
+libavahi-common-data/now 0.7-4ubuntu5 amd64 [installed,local]
+libavahi-common3/now 0.7-4ubuntu5 amd64 [installed,local]
+libbinutils/now 2.33-2ubuntu1.2 amd64 [installed,local]
+libblkid1/now 2.34-0.1ubuntu2.3 amd64 [installed,local]
+libbsd0/now 0.10.0-1 amd64 [installed,local]
+libbz2-1.0/now 1.0.6-9.2 amd64 [installed,local]
+libc-bin/now 2.30-0ubuntu2.1 amd64 [installed,local]
+libc-dev-bin/now 2.30-0ubuntu2.1 amd64 [installed,local]
+libc6-dev/now 2.30-0ubuntu2.1 amd64 [installed,local]
+libc6/now 2.30-0ubuntu2.1 amd64 [installed,local]
+libcap-ng0/now 0.7.9-2 amd64 [installed,local]
+libcc1-0/now 9.2.1-9ubuntu2 amd64 [installed,local]
+libcom-err2/now 1.45.3-4ubuntu2.1 amd64 [installed,local]
+libcups2/now 2.2.12-2ubuntu1 amd64 [installed,local]
+libcurl3-gnutls/now 7.65.3-1ubuntu3 amd64 [installed,local]
+libdb5.3/now 5.3.28+dfsg1-0.6ubuntu1 amd64 [installed,local]
+libdbus-1-3/now 1.12.14-1ubuntu2 amd64 [installed,local]
+libdebconfclient0/now 0.249ubuntu1 amd64 [installed,local]
+libdpkg-perl/now 1.19.7ubuntu2 all [installed,local]
+libdrm-amdgpu1/now 2.4.99-1ubuntu1 amd64 [installed,local]
+libdrm-common/now 2.4.99-1ubuntu1 all [installed,local]
+libdrm-intel1/now 2.4.99-1ubuntu1 amd64 [installed,local]
+libdrm-nouveau2/now 2.4.99-1ubuntu1 amd64 [installed,local]
+libdrm-radeon1/now 2.4.99-1ubuntu1 amd64 [installed,local]
+libdrm2/now 2.4.99-1ubuntu1 amd64 [installed,local]
+libedit2/now 3.1-20190324-1 amd64 [installed,local]
+libelf1/now 0.176-1.1 amd64 [installed,local]
+liberror-perl/now 0.17028-1 all [installed,local]
+libexpat1/now 2.2.7-2 amd64 [installed,local]
+libext2fs2/now 1.45.3-4ubuntu2.1 amd64 [installed,local]
+libfdisk1/now 2.34-0.1ubuntu2.3 amd64 [installed,local]
+libffi6/now 3.2.1-9 amd64 [installed,local]
+libfontconfig1/now 2.13.1-2ubuntu2 amd64 [installed,local]
+libfreetype6/now 2.9.1-4 amd64 [installed,local]
+libgcc-9-dev/now 9.2.1-9ubuntu2 amd64 [installed,local]
+libgcc1/now 1:9.2.1-9ubuntu2 amd64 [installed,local]
+libgcrypt20/now 1.8.4-5ubuntu2.1 amd64 [installed,local]
+libgdbm-compat4/now 1.18.1-5 amd64 [installed,local]
+libgdbm6/now 1.18.1-5 amd64 [installed,local]
+libgif7/now 5.1.4-3ubuntu1 amd64 [installed,local]
+libgl1-mesa-dri/now 19.2.8-0ubuntu0~19.10.3 amd64 [installed,local]
+libgl1/now 1.1.1-0ubuntu1 amd64 [installed,local]
+libglapi-mesa/now 19.2.8-0ubuntu0~19.10.3 amd64 [installed,local]
+libglvnd0/now 1.1.1-0ubuntu1 amd64 [installed,local]
+libglx-mesa0/now 19.2.8-0ubuntu0~19.10.3 amd64 [installed,local]
+libglx0/now 1.1.1-0ubuntu1 amd64 [installed,local]
+libgmp10/now 2:6.1.2+dfsg-4 amd64 [installed,local]
+libgnutls30/now 3.6.9-5ubuntu1 amd64 [installed,local]
+libgomp1/now 9.2.1-9ubuntu2 amd64 [installed,local]
+libgpg-error0/now 1.36-7 amd64 [installed,local]
+libgssapi-krb5-2/now 1.17-6 amd64 [installed,local]
+libgssapi3-heimdal/now 7.5.0+dfsg-3build1 amd64 [installed,local]
+libhcrypto4-heimdal/now 7.5.0+dfsg-3build1 amd64 [installed,local]
+libheimbase1-heimdal/now 7.5.0+dfsg-3build1 amd64 [installed,local]
+libheimntlm0-heimdal/now 7.5.0+dfsg-3build1 amd64 [installed,local]
+libhogweed4/now 3.4.1-1 amd64 [installed,local]
+libhx509-5-heimdal/now 7.5.0+dfsg-3build1 amd64 [installed,local]
+libidn2-0/now 2.2.0-2 amd64 [installed,local]
+libisl21/now 0.21-2 amd64 [installed,local]
+libitm1/now 9.2.1-9ubuntu2 amd64 [installed,local]
+libjpeg-turbo8/now 2.0.3-0ubuntu1 amd64 [installed,local]
+libjpeg8/now 8c-2ubuntu8 amd64 [installed,local]
+libk5crypto3/now 1.17-6 amd64 [installed,local]
+libkeyutils1/now 1.6-6 amd64 [installed,local]
+libkrb5-26-heimdal/now 7.5.0+dfsg-3build1 amd64 [installed,local]
+libkrb5-3/now 1.17-6 amd64 [installed,local]
+libkrb5support0/now 1.17-6 amd64 [installed,local]
+liblcms2-2/now 2.9-4 amd64 [installed,local]
+libldap-2.4-2/now 2.4.48+dfsg-1ubuntu1 amd64 [installed,local]
+libldap-common/now 2.4.48+dfsg-1ubuntu1 all [installed,local]
+libllvm9/now 1:9-2 amd64 [installed,local]
+liblsan0/now 9.2.1-9ubuntu2 amd64 [installed,local]
+liblz4-1/now 1.9.1-1 amd64 [installed,local]
+liblzma5/now 5.2.4-1 amd64 [installed,local]
+libmount1/now 2.34-0.1ubuntu2.3 amd64 [installed,local]
+libmpc3/now 1.1.0-1 amd64 [installed,local]
+libmpfr6/now 4.0.2-1 amd64 [installed,local]
+libncurses-dev/now 6.1+20190803-1ubuntu1 amd64 [installed,local]
+libncurses6/now 6.1+20190803-1ubuntu1 amd64 [installed,local]
+libncursesw6/now 6.1+20190803-1ubuntu1 amd64 [installed,local]
+libnettle6/now 3.4.1-1 amd64 [installed,local]
+libnghttp2-14/now 1.39.2-1 amd64 [installed,local]
+libnspr4/now 2:4.21-2build1 amd64 [installed,local]
+libnss3/now 2:3.45-1ubuntu2.2 amd64 [installed,local]
+libp11-kit0/now 0.23.17-2 amd64 [installed,local]
+libpam-modules-bin/now 1.3.1-5ubuntu1.19.10.1 amd64 [installed,local]
+libpam-modules/now 1.3.1-5ubuntu1.19.10.1 amd64 [installed,local]
+libpam-runtime/now 1.3.1-5ubuntu1.19.10.1 all [installed,local]
+libpam0g/now 1.3.1-5ubuntu1.19.10.1 amd64 [installed,local]
+libpciaccess0/now 0.16-0ubuntu1 amd64 [installed,local]
+libpcre2-8-0/now 10.32-5 amd64 [installed,local]
+libpcre3/now 2:8.39-12 amd64 [installed,local]
+libpcsclite1/now 1.8.25-2ubuntu1 amd64 [installed,local]
+libperl5.28/now 5.28.1-6build1 amd64 [installed,local]
+libpng16-16/now 1.6.37-1 amd64 [installed,local]
+libprocps7/now 2:3.3.15-2ubuntu3 amd64 [installed,local]
+libpsl5/now 0.20.2-2 amd64 [installed,local]
+libpython-stdlib/now 2.7.17-1 amd64 [installed,local]
+libpython2-stdlib/now 2.7.17-1 amd64 [installed,local]
+libpython2.7-minimal/now 2.7.17-1~19.10 amd64 [installed,local]
+libpython2.7-stdlib/now 2.7.17-1~19.10 amd64 [installed,local]
+libquadmath0/now 9.2.1-9ubuntu2 amd64 [installed,local]
+libreadline-dev/now 8.0-3 amd64 [installed,local]
+libreadline8/now 8.0-3 amd64 [installed,local]
+libroken18-heimdal/now 7.5.0+dfsg-3build1 amd64 [installed,local]
+librtmp1/now 2.4+20151223.gitfa8646d.1-2 amd64 [installed,local]
+libsasl2-2/now 2.1.27+dfsg-1ubuntu0.1 amd64 [installed,local]
+libsasl2-modules-db/now 2.1.27+dfsg-1ubuntu0.1 amd64 [installed,local]
+libseccomp2/now 2.4.1-0ubuntu0.19.10.3 amd64 [installed,local]
+libselinux1/now 2.9-2 amd64 [installed,local]
+libsemanage-common/now 2.9-3 all [installed,local]
+libsemanage1/now 2.9-3 amd64 [installed,local]
+libsensors-config/now 1:3.5.0-3ubuntu1 all [installed,local]
+libsensors5/now 1:3.5.0-3ubuntu1 amd64 [installed,local]
+libsepol1/now 2.9-2 amd64 [installed,local]
+libsmartcols1/now 2.34-0.1ubuntu2.3 amd64 [installed,local]
+libsqlite3-0/now 3.29.0-2ubuntu0.2 amd64 [installed,local]
+libss2/now 1.45.3-4ubuntu2.1 amd64 [installed,local]
+libssh-4/now 0.9.0-1ubuntu1.4 amd64 [installed,local]
+libssl-dev/now 1.1.1c-1ubuntu4 amd64 [installed,local]
+libssl1.1/now 1.1.1c-1ubuntu4 amd64 [installed,local]
+libstdc++-9-dev/now 9.2.1-9ubuntu2 amd64 [installed,local]
+libstdc++6/now 9.2.1-9ubuntu2 amd64 [installed,local]
+libsystemd0/now 242-7ubuntu3.7 amd64 [installed,local]
+libtasn1-6/now 4.14-3 amd64 [installed,local]
+libtinfo6/now 6.1+20190803-1ubuntu1 amd64 [installed,local]
+libtsan0/now 9.2.1-9ubuntu2 amd64 [installed,local]
+libubsan1/now 9.2.1-9ubuntu2 amd64 [installed,local]
+libudev1/now 242-7ubuntu3.7 amd64 [installed,local]
+libunistring2/now 0.9.10-2 amd64 [installed,local]
+libuuid1/now 2.34-0.1ubuntu2.3 amd64 [installed,local]
+libwind0-heimdal/now 7.5.0+dfsg-3build1 amd64 [installed,local]
+libx11-6/now 2:1.6.8-1 amd64 [installed,local]
+libx11-data/now 2:1.6.8-1 all [installed,local]
+libx11-xcb1/now 2:1.6.8-1 amd64 [installed,local]
+libxau6/now 1:1.0.9-0ubuntu1 amd64 [installed,local]
+libxcb-dri2-0/now 1.13.1-2 amd64 [installed,local]
+libxcb-dri3-0/now 1.13.1-2 amd64 [installed,local]
+libxcb-glx0/now 1.13.1-2 amd64 [installed,local]
+libxcb-present0/now 1.13.1-2 amd64 [installed,local]
+libxcb-sync1/now 1.13.1-2 amd64 [installed,local]
+libxcb1/now 1.13.1-2 amd64 [installed,local]
+libxdamage1/now 1:1.1.5-1 amd64 [installed,local]
+libxdmcp6/now 1:1.1.3-0ubuntu1 amd64 [installed,local]
+libxext6/now 2:1.3.4-0ubuntu1 amd64 [installed,local]
+libxfixes3/now 1:5.0.3-1 amd64 [installed,local]
+libxi6/now 2:1.7.10-0ubuntu1 amd64 [installed,local]
+libxrender1/now 1:0.9.10-1 amd64 [installed,local]
+libxshmfence1/now 1.3-1 amd64 [installed,local]
+libxtst6/now 2:1.2.3-1 amd64 [installed,local]
+libxxf86vm1/now 1:1.1.4-1build1 amd64 [installed,local]
+libzstd1/now 1.4.3+dfsg-1 amd64 [installed,local]
+linux-libc-dev/now 5.3.0-46.38 amd64 [installed,local]
+locales/now 2.30-0ubuntu2.1 all [installed,local]
+login/now 1:4.5-1.1ubuntu4 amd64 [installed,local]
+logsave/now 1.45.3-4ubuntu2.1 amd64 [installed,local]
+lsb-base/now 11.0.1ubuntu1 all [installed,local]
+make/now 4.2.1-1.2 amd64 [installed,local]
+mawk/now 1.3.3-17ubuntu3 amd64 [installed,local]
+mime-support/now 3.63ubuntu1 all [installed,local]
+mount/now 2.34-0.1ubuntu2.3 amd64 [installed,local]
+ncurses-base/now 6.1+20190803-1ubuntu1 all [installed,local]
+ncurses-bin/now 6.1+20190803-1ubuntu1 amd64 [installed,local]
+openjdk-11-jdk-headless/now 11.0.6+10-1ubuntu1~19.10.1 amd64 [installed,local]
+openjdk-11-jdk/now 11.0.6+10-1ubuntu1~19.10.1 amd64 [installed,local]
+openjdk-11-jre-headless/now 11.0.6+10-1ubuntu1~19.10.1 amd64 [installed,local]
+openjdk-11-jre/now 11.0.6+10-1ubuntu1~19.10.1 amd64 [installed,local]
+openssl/now 1.1.1c-1ubuntu4 amd64 [installed,local]
+passwd/now 1:4.5-1.1ubuntu4 amd64 [installed,local]
+patch/now 2.7.6-6 amd64 [installed,local]
+perl-base/now 5.28.1-6build1 amd64 [installed,local]
+perl-modules-5.28/now 5.28.1-6build1 all [installed,local]
+perl/now 5.28.1-6build1 amd64 [installed,local]
+procps/now 2:3.3.15-2ubuntu3 amd64 [installed,local]
+python-minimal/now 2.7.17-1 amd64 [installed,local]
+python2-minimal/now 2.7.17-1 amd64 [installed,local]
+python2.7-minimal/now 2.7.17-1~19.10 amd64 [installed,local]
+python2.7/now 2.7.17-1~19.10 amd64 [installed,local]
+python2/now 2.7.17-1 amd64 [installed,local]
+python/now 2.7.17-1 amd64 [installed,local]
+readline-common/now 8.0-3 all [installed,local]
+sed/now 4.7-1 amd64 [installed,local]
+sensible-utils/now 0.0.12 all [installed,local]
+sysvinit-utils/now 2.95-5ubuntu2 amd64 [installed,local]
+tar/now 1.30+dfsg-6 amd64 [installed,local]
+ubuntu-keyring/now 2018.09.18.1 all [installed,local]
+ucf/now 3.0038+nmu1 all [installed,local]
+unzip/now 6.0-25ubuntu1 amd64 [installed,local]
+util-linux/now 2.34-0.1ubuntu2.3 amd64 [installed,local]
+wget/now 1.20.3-1ubuntu1 amd64 [installed,local]
+x11-common/now 1:7.7+19ubuntu12 all [installed,local]
+xz-utils/now 5.2.4-1 amd64 [installed,local]
+zlib1g-dev/now 1:1.2.11.dfsg-1ubuntu3 amd64 [installed,local]
+zlib1g/now 1:1.2.11.dfsg-1ubuntu3 amd64 [installed,local]
+
+rbenv:
+rbenv 1.1.2-28-gc2cfbd1
+
+Default ruby version:
+ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x86_64-linux]
+
+Installed gems:
+benchmark (default: 0.1.0)
+bigdecimal (default: 2.0.0)
+bundler (2.1.4, default: 2.1.2)
+cgi (default: 0.1.0)
+csv (default: 3.1.2)
+date (default: 3.0.0)
+delegate (default: 0.1.0)
+did_you_mean (default: 1.4.0)
+etc (default: 1.1.0)
+fcntl (default: 1.0.0)
+fiddle (default: 1.0.0)
+fileutils (default: 1.4.1)
+forwardable (default: 1.3.1)
+getoptlong (default: 0.1.0)
+io-console (default: 0.5.3)
+ipaddr (default: 1.2.2)
+irb (default: 1.2.1)
+json (default: 2.3.0)
+logger (default: 1.4.2)
+matrix (default: 0.2.0)
+minitest (5.13.0)
+mutex_m (default: 0.1.0)
+net-pop (default: 0.1.0)
+net-smtp (default: 0.1.0)
+net-telnet (0.2.0)
+observer (default: 0.1.0)
+open3 (default: 0.1.0)
+openssl (default: 2.1.2)
+ostruct (default: 0.2.0)
+power_assert (1.1.5)
+prime (default: 0.1.1)
+pstore (default: 0.1.0)
+psych (default: 3.1.0)
+racc (default: 1.4.16)
+rake (13.0.1)
+rdoc (default: 6.2.1)
+readline (default: 0.0.2)
+readline-ext (default: 0.1.0)
+reline (default: 0.1.2)
+rexml (default: 3.2.3)
+rss (default: 0.2.8)
+sdbm (default: 1.0.0)
+singleton (default: 0.1.0)
+stringio (default: 0.1.0)
+strscan (default: 1.0.3)
+test-unit (3.3.4)
+timeout (default: 0.1.0)
+tracer (default: 0.1.0)
+uri (default: 0.10.0)
+webrick (default: 1.6.0)
+xmlrpc (0.3.0)
+yaml (default: 0.1.0)
+zlib (default: 1.1.0)
+
+gcloud env:
+Google Cloud SDK 289.0.0
+bq 2.0.56
+core 2020.04.10
+gsutil 4.49
+
+Android env:
+Loading package information...                                                  Loading local repository...                                                     [=========                              ] 25% Loading local repository...       [=========                              ] 25% Fetch remote repository...        [==========                             ] 27% Fetch remote repository...        [============                           ] 32% Fetch remote repository...        [=============                          ] 34% Fetch remote repository...        [==============                         ] 36% Fetch remote repository...        [===============                        ] 38% Fetch remote repository...        [================                       ] 40% Fetch remote repository...        [================                       ] 42% Fetch remote repository...        [=================                      ] 44% Fetch remote repository...        [==================                     ] 46% Fetch remote repository...        [===================                    ] 48% Fetch remote repository...        [====================                   ] 50% Fetch remote repository...        [====================                   ] 52% Fetch remote repository...        [=====================                  ] 55% Fetch remote repository...        [======================                 ] 57% Fetch remote repository...        [=======================                ] 59% Fetch remote repository...        [========================               ] 61% Fetch remote repository...        [=========================              ] 63% Fetch remote repository...        [=========================              ] 65% Fetch remote repository...        [==========================             ] 67% Fetch remote repository...        [===========================            ] 69% Fetch remote repository...        [============================           ] 71% Fetch remote repository...        [=============================          ] 73% Fetch remote repository...        [=============================          ] 75% Fetch remote repository...        [=============================          ] 75% Computing updates...              [=======================================] 100% Computing updates...             Installed packages:
+  Path                 | Version | Description                    | Location             
+  -------              | ------- | -------                        | -------              
+  build-tools;29.0.3   | 29.0.3  | Android SDK Build-Tools 29.0.3 | build-tools/29.0.3/  
+  platform-tools       | 29.0.6  | Android SDK Platform-Tools     | platform-tools/      
+  platforms;android-29 | 4       | Android SDK Platform 29        | platforms/android-29/
+  tools                | 1.0.0   | Android SDK Tools 1            | tools/               
+
+Available Packages:
+  Path                                                                                     | Version      | Description                                                         
+  -------                                                                                  | -------      | -------                                                             
+  add-ons;addon-google_apis-google-15                                                      | 3            | Google APIs                                                         
+  add-ons;addon-google_apis-google-16                                                      | 4            | Google APIs                                                         
+  add-ons;addon-google_apis-google-17                                                      | 4            | Google APIs                                                         
+  add-ons;addon-google_apis-google-18                                                      | 4            | Google APIs                                                         
+  add-ons;addon-google_apis-google-19                                                      | 20           | Google APIs                                                         
+  add-ons;addon-google_apis-google-21                                                      | 1            | Google APIs                                                         
+  add-ons;addon-google_apis-google-22                                                      | 1            | Google APIs                                                         
+  add-ons;addon-google_apis-google-23                                                      | 1            | Google APIs                                                         
+  add-ons;addon-google_apis-google-24                                                      | 1            | Google APIs                                                         
+  build-tools;19.1.0                                                                       | 19.1.0       | Android SDK Build-Tools 19.1                                        
+  build-tools;20.0.0                                                                       | 20.0.0       | Android SDK Build-Tools 20                                          
+  build-tools;21.1.2                                                                       | 21.1.2       | Android SDK Build-Tools 21.1.2                                      
+  build-tools;22.0.1                                                                       | 22.0.1       | Android SDK Build-Tools 22.0.1                                      
+  build-tools;23.0.1                                                                       | 23.0.1       | Android SDK Build-Tools 23.0.1                                      
+  build-tools;23.0.2                                                                       | 23.0.2       | Android SDK Build-Tools 23.0.2                                      
+  build-tools;23.0.3                                                                       | 23.0.3       | Android SDK Build-Tools 23.0.3                                      
+  build-tools;24.0.0                                                                       | 24.0.0       | Android SDK Build-Tools 24                                          
+  build-tools;24.0.1                                                                       | 24.0.1       | Android SDK Build-Tools 24.0.1                                      
+  build-tools;24.0.2                                                                       | 24.0.2       | Android SDK Build-Tools 24.0.2                                      
+  build-tools;24.0.3                                                                       | 24.0.3       | Android SDK Build-Tools 24.0.3                                      
+  build-tools;25.0.0                                                                       | 25.0.0       | Android SDK Build-Tools 25                                          
+  build-tools;25.0.1                                                                       | 25.0.1       | Android SDK Build-Tools 25.0.1                                      
+  build-tools;25.0.2                                                                       | 25.0.2       | Android SDK Build-Tools 25.0.2                                      
+  build-tools;25.0.3                                                                       | 25.0.3       | Android SDK Build-Tools 25.0.3                                      
+  build-tools;26.0.0                                                                       | 26.0.0       | Android SDK Build-Tools 26                                          
+  build-tools;26.0.1                                                                       | 26.0.1       | Android SDK Build-Tools 26.0.1                                      
+  build-tools;26.0.2                                                                       | 26.0.2       | Android SDK Build-Tools 26.0.2                                      
+  build-tools;26.0.3                                                                       | 26.0.3       | Android SDK Build-Tools 26.0.3                                      
+  build-tools;27.0.0                                                                       | 27.0.0       | Android SDK Build-Tools 27                                          
+  build-tools;27.0.1                                                                       | 27.0.1       | Android SDK Build-Tools 27.0.1                                      
+  build-tools;27.0.2                                                                       | 27.0.2       | Android SDK Build-Tools 27.0.2                                      
+  build-tools;27.0.3                                                                       | 27.0.3       | Android SDK Build-Tools 27.0.3                                      
+  build-tools;28.0.0                                                                       | 28.0.0       | Android SDK Build-Tools 28                                          
+  build-tools;28.0.1                                                                       | 28.0.1       | Android SDK Build-Tools 28.0.1                                      
+  build-tools;28.0.2                                                                       | 28.0.2       | Android SDK Build-Tools 28.0.2                                      
+  build-tools;28.0.3                                                                       | 28.0.3       | Android SDK Build-Tools 28.0.3                                      
+  build-tools;29.0.0                                                                       | 29.0.0       | Android SDK Build-Tools 29                                          
+  build-tools;29.0.1                                                                       | 29.0.1       | Android SDK Build-Tools 29.0.1                                      
+  build-tools;29.0.2                                                                       | 29.0.2       | Android SDK Build-Tools 29.0.2                                      
+  build-tools;29.0.3                                                                       | 29.0.3       | Android SDK Build-Tools 29.0.3                                      
+  build-tools;30.0.0-rc1                                                                   | 30.0.0 rc1   | Android SDK Build-Tools 30-rc1                                      
+  build-tools;30.0.0-rc2                                                                   | 30.0.0 rc2   | Android SDK Build-Tools 30-rc2                                      
+  cmake;3.10.2.4988404                                                                     | 3.10.2       | CMake 3.10.2.4988404                                                
+  cmake;3.6.4111459                                                                        | 3.6.4111459  | CMake 3.6.4111459                                                   
+  cmdline-tools;1.0                                                                        | 1.0          | Android SDK Command-line Tools                                      
+  cmdline-tools;latest                                                                     | 1.0          | Android SDK Command-line Tools (latest)                             
+  docs                                                                                     | 1            | Documentation for Android SDK                                       
+  emulator                                                                                 | 30.0.5       | Android Emulator                                                    
+  extras;android;gapid;1                                                                   | 1.0.3        | GPU Debugging tools                                                 
+  extras;android;gapid;3                                                                   | 3.1.0        | GPU Debugging tools                                                 
+  extras;android;m2repository                                                              | 47.0.0       | Android Support Repository                                          
+  extras;google;auto                                                                       | 1.1          | Android Auto Desktop Head Unit emulator                             
+  extras;google;google_play_services                                                       | 49           | Google Play services                                                
+  extras;google;instantapps                                                                | 1.9.0        | Google Play Instant Development SDK                                 
+  extras;google;m2repository                                                               | 58           | Google Repository                                                   
+  extras;google;market_apk_expansion                                                       | 1            | Google Play APK Expansion library                                   
+  extras;google;market_licensing                                                           | 1            | Google Play Licensing Library                                       
+  extras;google;simulators                                                                 | 1            | Android Auto API Simulators                                         
+  extras;google;webdriver                                                                  | 2            | Google Web Driver                                                   
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0        | 1            | Solver for ConstraintLayout 1.0.0                                   
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-alpha4 | 1            | com.android.support.constraint:constraint-layout-solver:1.0.0-alpha4
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-alpha8 | 1            | Solver for ConstraintLayout 1.0.0-alpha8                            
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-beta1  | 1            | Solver for ConstraintLayout 1.0.0-beta1                             
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-beta2  | 1            | Solver for ConstraintLayout 1.0.0-beta2                             
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-beta3  | 1            | Solver for ConstraintLayout 1.0.0-beta3                             
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-beta4  | 1            | Solver for ConstraintLayout 1.0.0-beta4                             
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-beta5  | 1            | Solver for ConstraintLayout 1.0.0-beta5                             
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.1        | 1            | Solver for ConstraintLayout 1.0.1                                   
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2        | 1            | Solver for ConstraintLayout 1.0.2                                   
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0               | 1            | ConstraintLayout for Android 1.0.0                                  
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-alpha4        | 1            | com.android.support.constraint:constraint-layout:1.0.0-alpha4       
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-alpha8        | 1            | ConstraintLayout for Android 1.0.0-alpha8                           
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-beta1         | 1            | ConstraintLayout for Android 1.0.0-beta1                            
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-beta2         | 1            | ConstraintLayout for Android 1.0.0-beta2                            
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-beta3         | 1            | ConstraintLayout for Android 1.0.0-beta3                            
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-beta4         | 1            | ConstraintLayout for Android 1.0.0-beta4                            
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-beta5         | 1            | ConstraintLayout for Android 1.0.0-beta5                            
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.1               | 1            | ConstraintLayout for Android 1.0.1                                  
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2               | 1            | ConstraintLayout for Android 1.0.2                                  
+  lldb;2.0                                                                                 | 2.0.2558144  | LLDB 2.0                                                            
+  lldb;2.1                                                                                 | 2.1.2852477  | LLDB 2.1                                                            
+  lldb;2.2                                                                                 | 2.2.3271982  | LLDB 2.2                                                            
+  lldb;2.3                                                                                 | 2.3.3614996  | LLDB 2.3                                                            
+  lldb;3.0                                                                                 | 3.0.4213617  | LLDB 3.0                                                            
+  lldb;3.1                                                                                 | 3.1.4508709  | LLDB 3.1                                                            
+  ndk-bundle                                                                               | 21.1.6352462 | NDK                                                                 
+  ndk;16.1.4479499                                                                         | 16.1.4479499 | NDK (Side by side) 16.1.4479499                                     
+  ndk;17.2.4988734                                                                         | 17.2.4988734 | NDK (Side by side) 17.2.4988734                                     
+  ndk;18.1.5063045                                                                         | 18.1.5063045 | NDK (Side by side) 18.1.5063045                                     
+  ndk;19.2.5345600                                                                         | 19.2.5345600 | NDK (Side by side) 19.2.5345600                                     
+  ndk;20.0.5594570                                                                         | 20.0.5594570 | NDK (Side by side) 20.0.5594570                                     
+  ndk;20.1.5948944                                                                         | 20.1.5948944 | NDK (Side by side) 20.1.5948944                                     
+  ndk;21.0.6113669                                                                         | 21.0.6113669 | NDK (Side by side) 21.0.6113669                                     
+  ndk;21.1.6352462                                                                         | 21.1.6352462 | NDK (Side by side) 21.1.6352462                                     
+  patcher;v4                                                                               | 1            | SDK Patch Applier v4                                                
+  platform-tools                                                                           | 29.0.6       | Android SDK Platform-Tools                                          
+  platforms;android-10                                                                     | 2            | Android SDK Platform 10                                             
+  platforms;android-11                                                                     | 2            | Android SDK Platform 11                                             
+  platforms;android-12                                                                     | 3            | Android SDK Platform 12                                             
+  platforms;android-13                                                                     | 1            | Android SDK Platform 13                                             
+  platforms;android-14                                                                     | 4            | Android SDK Platform 14                                             
+  platforms;android-15                                                                     | 5            | Android SDK Platform 15                                             
+  platforms;android-16                                                                     | 5            | Android SDK Platform 16                                             
+  platforms;android-17                                                                     | 3            | Android SDK Platform 17                                             
+  platforms;android-18                                                                     | 3            | Android SDK Platform 18                                             
+  platforms;android-19                                                                     | 4            | Android SDK Platform 19                                             
+  platforms;android-20                                                                     | 2            | Android SDK Platform 20                                             
+  platforms;android-21                                                                     | 2            | Android SDK Platform 21                                             
+  platforms;android-22                                                                     | 2            | Android SDK Platform 22                                             
+  platforms;android-23                                                                     | 3            | Android SDK Platform 23                                             
+  platforms;android-24                                                                     | 2            | Android SDK Platform 24                                             
+  platforms;android-25                                                                     | 3            | Android SDK Platform 25                                             
+  platforms;android-26                                                                     | 2            | Android SDK Platform 26                                             
+  platforms;android-27                                                                     | 3            | Android SDK Platform 27                                             
+  platforms;android-28                                                                     | 6            | Android SDK Platform 28                                             
+  platforms;android-29                                                                     | 4            | Android SDK Platform 29                                             
+  platforms;android-7                                                                      | 3            | Android SDK Platform 7                                              
+  platforms;android-8                                                                      | 3            | Android SDK Platform 8                                              
+  platforms;android-9                                                                      | 2            | Android SDK Platform 9                                              
+  platforms;android-R                                                                      | 2            | Android SDK Platform R                                              
+  sources;android-15                                                                       | 2            | Sources for Android 15                                              
+  sources;android-16                                                                       | 2            | Sources for Android 16                                              
+  sources;android-17                                                                       | 1            | Sources for Android 17                                              
+  sources;android-18                                                                       | 1            | Sources for Android 18                                              
+  sources;android-19                                                                       | 2            | Sources for Android 19                                              
+  sources;android-20                                                                       | 1            | Sources for Android 20                                              
+  sources;android-21                                                                       | 1            | Sources for Android 21                                              
+  sources;android-22                                                                       | 1            | Sources for Android 22                                              
+  sources;android-23                                                                       | 1            | Sources for Android 23                                              
+  sources;android-24                                                                       | 1            | Sources for Android 24                                              
+  sources;android-25                                                                       | 1            | Sources for Android 25                                              
+  sources;android-26                                                                       | 1            | Sources for Android 26                                              
+  sources;android-27                                                                       | 1            | Sources for Android 27                                              
+  sources;android-28                                                                       | 1            | Sources for Android 28                                              
+  sources;android-29                                                                       | 1            | Sources for Android 29                                              
+  system-images;android-10;default;armeabi-v7a                                             | 5            | ARM EABI v7a System Image                                           
+  system-images;android-10;default;x86                                                     | 5            | Intel x86 Atom System Image                                         
+  system-images;android-10;google_apis;armeabi-v7a                                         | 6            | Google APIs ARM EABI v7a System Image                               
+  system-images;android-10;google_apis;x86                                                 | 6            | Google APIs Intel x86 Atom System Image                             
+  system-images;android-14;default;armeabi-v7a                                             | 2            | ARM EABI v7a System Image                                           
+  system-images;android-15;default;armeabi-v7a                                             | 5            | ARM EABI v7a System Image                                           
+  system-images;android-15;default;x86                                                     | 5            | Intel x86 Atom System Image                                         
+  system-images;android-15;google_apis;armeabi-v7a                                         | 6            | Google APIs ARM EABI v7a System Image                               
+  system-images;android-15;google_apis;x86                                                 | 6            | Google APIs Intel x86 Atom System Image                             
+  system-images;android-16;default;armeabi-v7a                                             | 6            | ARM EABI v7a System Image                                           
+  system-images;android-16;default;mips                                                    | 1            | MIPS System Image                                                   
+  system-images;android-16;default;x86                                                     | 6            | Intel x86 Atom System Image                                         
+  system-images;android-16;google_apis;armeabi-v7a                                         | 6            | Google APIs ARM EABI v7a System Image                               
+  system-images;android-16;google_apis;x86                                                 | 6            | Google APIs Intel x86 Atom System Image                             
+  system-images;android-17;default;armeabi-v7a                                             | 6            | ARM EABI v7a System Image                                           
+  system-images;android-17;default;mips                                                    | 1            | MIPS System Image                                                   
+  system-images;android-17;default;x86                                                     | 4            | Intel x86 Atom System Image                                         
+  system-images;android-17;google_apis;armeabi-v7a                                         | 6            | Google APIs ARM EABI v7a System Image                               
+  system-images;android-17;google_apis;x86                                                 | 6            | Google APIs Intel x86 Atom System Image                             
+  system-images;android-18;default;armeabi-v7a                                             | 5            | ARM EABI v7a System Image                                           
+  system-images;android-18;default;x86                                                     | 4            | Intel x86 Atom System Image                                         
+  system-images;android-18;google_apis;armeabi-v7a                                         | 6            | Google APIs ARM EABI v7a System Image                               
+  system-images;android-18;google_apis;x86                                                 | 6            | Google APIs Intel x86 Atom System Image                             
+  system-images;android-19;default;armeabi-v7a                                             | 5            | ARM EABI v7a System Image                                           
+  system-images;android-19;default;x86                                                     | 6            | Intel x86 Atom System Image                                         
+  system-images;android-19;google_apis;armeabi-v7a                                         | 38           | Google APIs ARM EABI v7a System Image                               
+  system-images;android-19;google_apis;x86                                                 | 38           | Google APIs Intel x86 Atom System Image                             
+  system-images;android-21;android-tv;armeabi-v7a                                          | 3            | Android TV ARM EABI v7a System Image                                
+  system-images;android-21;android-tv;x86                                                  | 3            | Android TV Intel x86 Atom System Image                              
+  system-images;android-21;default;armeabi-v7a                                             | 4            | ARM EABI v7a System Image                                           
+  system-images;android-21;default;x86                                                     | 5            | Intel x86 Atom System Image                                         
+  system-images;android-21;default;x86_64                                                  | 5            | Intel x86 Atom_64 System Image                                      
+  system-images;android-21;google_apis;armeabi-v7a                                         | 30           | Google APIs ARM EABI v7a System Image                               
+  system-images;android-21;google_apis;x86                                                 | 30           | Google APIs Intel x86 Atom System Image                             
+  system-images;android-21;google_apis;x86_64                                              | 30           | Google APIs Intel x86 Atom_64 System Image                          
+  system-images;android-22;android-tv;x86                                                  | 3            | Android TV Intel x86 Atom System Image                              
+  system-images;android-22;default;armeabi-v7a                                             | 2            | ARM EABI v7a System Image                                           
+  system-images;android-22;default;x86                                                     | 6            | Intel x86 Atom System Image                                         
+  system-images;android-22;default;x86_64                                                  | 6            | Intel x86 Atom_64 System Image                                      
+  system-images;android-22;google_apis;armeabi-v7a                                         | 24           | Google APIs ARM EABI v7a System Image                               
+  system-images;android-22;google_apis;x86                                                 | 24           | Google APIs Intel x86 Atom System Image                             
+  system-images;android-22;google_apis;x86_64                                              | 24           | Google APIs Intel x86 Atom_64 System Image                          
+  system-images;android-23;android-tv;armeabi-v7a                                          | 12           | Android TV ARM EABI v7a System Image                                
+  system-images;android-23;android-tv;x86                                                  | 19           | Android TV Intel x86 Atom System Image                              
+  system-images;android-23;android-wear;armeabi-v7a                                        | 6            | Android Wear ARM EABI v7a System Image                              
+  system-images;android-23;android-wear;x86                                                | 6            | Android Wear Intel x86 Atom System Image                            
+  system-images;android-23;default;armeabi-v7a                                             | 6            | ARM EABI v7a System Image                                           
+  system-images;android-23;default;x86                                                     | 10           | Intel x86 Atom System Image                                         
+  system-images;android-23;default;x86_64                                                  | 10           | Intel x86 Atom_64 System Image                                      
+  system-images;android-23;google_apis;armeabi-v7a                                         | 31           | Google APIs ARM EABI v7a System Image                               
+  system-images;android-23;google_apis;x86                                                 | 31           | Google APIs Intel x86 Atom System Image                             
+  system-images;android-23;google_apis;x86_64                                              | 31           | Google APIs Intel x86 Atom_64 System Image                          
+  system-images;android-24;android-tv;x86                                                  | 20           | Android TV Intel x86 Atom System Image                              
+  system-images;android-24;default;arm64-v8a                                               | 7            | ARM 64 v8a System Image                                             
+  system-images;android-24;default;armeabi-v7a                                             | 7            | ARM EABI v7a System Image                                           
+  system-images;android-24;default;x86                                                     | 8            | Intel x86 Atom System Image                                         
+  system-images;android-24;default;x86_64                                                  | 8            | Intel x86 Atom_64 System Image                                      
+  system-images;android-24;google_apis;arm64-v8a                                           | 25           | Google APIs ARM 64 v8a System Image                                 
+  system-images;android-24;google_apis;armeabi-v7a                                         | 25           | Google APIs ARM EABI v7a System Image                               
+  system-images;android-24;google_apis;x86                                                 | 25           | Google APIs Intel x86 Atom System Image                             
+  system-images;android-24;google_apis;x86_64                                              | 25           | Google APIs Intel x86 Atom_64 System Image                          
+  system-images;android-24;google_apis_playstore;x86                                       | 19           | Google Play Intel x86 Atom System Image                             
+  system-images;android-25;android-tv;x86                                                  | 14           | Android TV Intel x86 Atom System Image                              
+  system-images;android-25;android-wear-cn;armeabi-v7a                                     | 4            | China version of Android Wear ARM EABI v7a System Image             
+  system-images;android-25;android-wear-cn;x86                                             | 4            | China version of Android Wear Intel x86 Atom System Image           
+  system-images;android-25;android-wear;armeabi-v7a                                        | 3            | Android Wear ARM EABI v7a System Image                              
+  system-images;android-25;android-wear;x86                                                | 3            | Android Wear Intel x86 Atom System Image                            
+  system-images;android-25;default;x86                                                     | 1            | Intel x86 Atom System Image                                         
+  system-images;android-25;default;x86_64                                                  | 1            | Intel x86 Atom_64 System Image                                      
+  system-images;android-25;google_apis;arm64-v8a                                           | 16           | Google APIs ARM 64 v8a System Image                                 
+  system-images;android-25;google_apis;armeabi-v7a                                         | 16           | Google APIs ARM EABI v7a System Image                               
+  system-images;android-25;google_apis;x86                                                 | 16           | Google APIs Intel x86 Atom System Image                             
+  system-images;android-25;google_apis;x86_64                                              | 16           | Google APIs Intel x86 Atom_64 System Image                          
+  system-images;android-25;google_apis_playstore;x86                                       | 9            | Google Play Intel x86 Atom System Image                             
+  system-images;android-26;android-tv;x86                                                  | 12           | Android TV Intel x86 Atom System Image                              
+  system-images;android-26;android-wear-cn;x86                                             | 4            | China version of Android Wear Intel x86 Atom System Image           
+  system-images;android-26;android-wear;x86                                                | 4            | Android Wear Intel x86 Atom System Image                            
+  system-images;android-26;default;x86                                                     | 1            | Intel x86 Atom System Image                                         
+  system-images;android-26;default;x86_64                                                  | 1            | Intel x86 Atom_64 System Image                                      
+  system-images;android-26;google_apis;x86                                                 | 14           | Google APIs Intel x86 Atom System Image                             
+  system-images;android-26;google_apis;x86_64                                              | 14           | Google APIs Intel x86 Atom_64 System Image                          
+  system-images;android-26;google_apis_playstore;x86                                       | 7            | Google Play Intel x86 Atom System Image                             
+  system-images;android-27;android-tv;x86                                                  | 7            | Android TV Intel x86 Atom System Image                              
+  system-images;android-27;default;x86                                                     | 1            | Intel x86 Atom System Image                                         
+  system-images;android-27;default;x86_64                                                  | 1            | Intel x86 Atom_64 System Image                                      
+  system-images;android-27;google_apis;x86                                                 | 9            | Google APIs Intel x86 Atom System Image                             
+  system-images;android-27;google_apis_playstore;x86                                       | 3            | Google Play Intel x86 Atom System Image                             
+  system-images;android-28;android-tv;x86                                                  | 8            | Android TV Intel x86 Atom System Image                              
+  system-images;android-28;android-wear-cn;x86                                             | 3            | China version of Wear OS Intel x86 Atom System Image                
+  system-images;android-28;android-wear;x86                                                | 3            | Wear OS Intel x86 Atom System Image                                 
+  system-images;android-28;default;x86                                                     | 4            | Intel x86 Atom System Image                                         
+  system-images;android-28;default;x86_64                                                  | 4            | Intel x86 Atom_64 System Image                                      
+  system-images;android-28;google_apis;x86                                                 | 10           | Google APIs Intel x86 Atom System Image                             
+  system-images;android-28;google_apis;x86_64                                              | 9            | Google APIs Intel x86 Atom_64 System Image                          
+  system-images;android-28;google_apis_playstore;x86                                       | 9            | Google Play Intel x86 Atom System Image                             
+  system-images;android-28;google_apis_playstore;x86_64                                    | 8            | Google Play Intel x86 Atom_64 System Image                          
+  system-images;android-29;default;x86                                                     | 7            | Intel x86 Atom System Image                                         
+  system-images;android-29;default;x86_64                                                  | 7            | Intel x86 Atom_64 System Image                                      
+  system-images;android-29;google_apis;x86                                                 | 9            | Google APIs Intel x86 Atom System Image                             
+  system-images;android-29;google_apis;x86_64                                              | 9            | Google APIs Intel x86 Atom_64 System Image                          
+  system-images;android-29;google_apis_playstore;x86                                       | 8            | Google Play Intel x86 Atom System Image                             
+  system-images;android-29;google_apis_playstore;x86_64                                    | 8            | Google Play Intel x86 Atom_64 System Image                          
+  system-images;android-Q;android-tv;x86                                                   | 1            | Android TV Intel x86 Atom System Image                              
+  system-images;android-R;google_apis;x86                                                  | 2            | Google APIs Intel x86 Atom System Image                             
+  system-images;android-R;google_apis;x86_64                                               | 2            | Google APIs Intel x86 Atom_64 System Image                          
+  system-images;android-R;google_apis_playstore;x86                                        | 2            | Google Play Intel x86 Atom System Image                             
+  system-images;android-R;google_apis_playstore;x86_64                                     | 2            | Google Play Intel x86 Atom_64 System Image                          
+
+Available Updates:
+  ID      | Installed | Available
+  ------- | -------   | -------  
+
+
