@@ -90,7 +90,9 @@ if [[ $test == true ]]; then
     fi
     if [[ $large_test == true ]]; then
         tasks=$((tasks+1))
-        test_options="$test_options --large-test"
+        test_options="$test_options --large-test \
+            --env GCLOUD_SERVICE_KEY=${GCLOUD_SERVICE_KEY} \
+            --env FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}"
     fi
     set -x
     docker run -v $PWD/tests:/tests \
