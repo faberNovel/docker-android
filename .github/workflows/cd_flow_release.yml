@@ -1,8 +1,8 @@
-name: Create pull request release
+name: Prepare release
 on:
   push:
     branches:
-    - 'releases/**'
+    - 'release/**'
 jobs:
   build_test_and_generate_desc:
     runs-on: ubuntu-18.04
