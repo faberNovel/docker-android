@@ -52,6 +52,21 @@ if [[ -z "$android_api" ]]; then
   usage
 fi
 
+if [[ $large_test == true ]]; then
+    failed=false
+    if [[ -z $GCLOUD_SERVICE_KEY ]]; then
+        echo "GCLOUD_SERVICE_KEY environment variable is need to run large tests"
+        failed=true
+    fi
+    if [[ -z $FIREBASE_PROJECT_ID ]]; then
+        echo "FIREBASE_PROJECT_ID environment variable is need to run large tests"
+        failed=true
+    fi
+    if [[ "$failed" == true ]]; then
+        exit 1
+    fi
+fi
+
 # Compute image tag
 org_name=fabernovel
 simple_image_name=api-$android_api
@@ -86,25 +101,36 @@ if [[ $build == true ]]; then
   set +x
 fi
 
+
 if [[ $test == true ]]; then
     tasks=$((tasks+1))
     echo "Testing image $full_image_name"
     test_options="--android_api $android_api --android_build_tools $android_build_tools"
     if [[ "$android_ndk" == true ]]; then
-      test_options="$test_options --android_ndk"
+        test_options="$test_options --android_ndk"
     fi
+    docker_options=""
     if [[ $large_test == true ]]; then
+        echo "Large test: $FIREBASE_PROJECT_ID"
         tasks=$((tasks+1))
-        test_options="$test_options --large-test \
-            --env GCLOUD_SERVICE_KEY=${GCLOUD_SERVICE_KEY} \
-            --env FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}"
+        set -x
+        docker run \
+        --env FIREBASE_PROJECT_ID="${FIREBASE_PROJECT_ID}" \
+        --env GCLOUD_SERVICE_KEY="${GCLOUD_SERVICE_KEY}" \
+        -v $PWD/tests:/tests \
+        --rm \
+        "$full_image_name" \
+        sh tests/run_tests.sh $test_options --large-test
+        set +x
+    else
+        set -x
+        docker run \
+        -v $PWD/tests:/tests \
+        --rm \
+        "$full_image_name" \
+        sh tests/run_tests.sh $test_options
+        set +x
     fi
-    set -x
-    docker run -v $PWD/tests:/tests \
-      --rm \
-      "$full_image_name" \
-      sh tests/run_tests.sh $test_options
-    set +x
 fi
 
 if [[ $deploy == true ]]; then
