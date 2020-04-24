@@ -77,9 +77,9 @@ branch=${GIT_REF##refs/heads/}
 if [[ $branch == "develop" ]]; then
   simple_image_name="$simple_image_name-snapshot"
 fi
-tag=${GIT_REF##refs/tags/}
-if [[ $tag =~ $semver_regex ]]; then
-  simple_image_name="$simple_image_name-$tag"
+release_name=$RELEASE_NAME
+if [[ $release_name =~ $semver_regex ]]; then
+  simple_image_name="$simple_image_name-$release_name"
 fi
 
 full_image_name="$org_name/android:$simple_image_name"

@@ -5,6 +5,7 @@ on:
       - develop
       - master
       - 'release/**'
+      - 'release/**'
 jobs:
   build_and_test:
     runs-on: ubuntu-18.04
