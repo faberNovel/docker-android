@@ -25,22 +25,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Build test deploy image
+      - name: Build test deploy describe image
         env:
           RELEASE_NAME: ${{ needs.job_compute_release_name.outputs.release_name }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
           GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
-        run: ./ci_cd.sh --build --test --deploy --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
-        # For debug purpose, keep while not stable
-        # run: echo "Building, testing, describing, deloying image..."
-
-      - name: Generate image description
-        run: ./ci_cd.sh --desc --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
+        run: ./ci_cd.sh --build --test --deploy --desc --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
         # For debug purpose, keep while not stable
         # run: |
-        #  touch desc.txt
-        #  echo ${{ matrix.android_api }} ${{ matrix.android_ndk }} > desc.txt
+          #echo "Building, testing, describing, deloying image..."
+          #touch desc.txt
+          #echo ${{ matrix.android_api }} ${{ matrix.android_ndk }} > desc.txt
 
       - id: get_image_name
         env:
