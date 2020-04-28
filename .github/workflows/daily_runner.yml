@@ -4,7 +4,10 @@ on:
     - cron: '0 22 * * *'
 jobs:
   build_and_test:
-    runs-on: ubuntu-18.04
+    runs-on: [self-hosted, docker]
+    container:
+      image: docker://docker:stable-git
+      options: --name=runner
     strategy:
       matrix:
         android_api: [28, 29]

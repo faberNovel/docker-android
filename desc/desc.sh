@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+
 echo "apt packages:"
 apt list --installed
 echo

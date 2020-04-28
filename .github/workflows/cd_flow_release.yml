@@ -5,7 +5,10 @@ on:
     - 'release/**'
 jobs:
   job_compute_release_name:
-    runs-on: ubuntu-18.04
+    runs-on: [self-hosted, docker]
+    container:
+      image: docker://docker:stable-git
+      options: --name=runner
     outputs:
       release_name: ${{ steps.step_compute_release_name.outputs.release_name }}
     steps:
@@ -16,7 +19,10 @@ jobs:
 
   job_build_test_deploy_and_generate_desc:
     needs: job_compute_release_name
-    runs-on: ubuntu-18.04
+    runs-on: [self-hosted, docker]
+    container:
+      image: docker://docker:stable-git
+      options: --name=runner
     strategy:
       matrix:
         android_api: [28, 29]
@@ -56,7 +62,10 @@ jobs:
 
   job_create_release:
     needs: [job_compute_release_name, job_build_test_deploy_and_generate_desc]
-    runs-on: ubuntu-18.04
+    runs-on: [self-hosted, docker]
+    container:
+      image: docker://docker:stable-git
+      options: --name=runner
     steps:
       - name: Create release
         id: step_create_release
