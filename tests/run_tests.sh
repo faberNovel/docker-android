@@ -8,10 +8,10 @@ script_path="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 # Usage of this script
 script_name=$0
 usage() {
-    echo "usage: $script_name [--android_ndk] --android_api <api> --android_build_tools <build tools version>"
-    echo " --android_ndk Test with NDK application"
-    echo " --android_api Tests apps compile and target SDK"
-    echo " --android_build_tools Used android builds tools"
+    echo "usage: $script_name [--android-ndk] --android-api <api> --android-build-tools <build tools version>"
+    echo " --android-ndk Test with NDK application"
+    echo " --android-api Tests apps compile and target SDK"
+    echo " --android-build-tools Used android builds tools"
     echo "  --large-test Run large tests on the image (Firebase Test Lab for example)"
     exit 1
 }
@@ -23,9 +23,9 @@ setup_bundler() {
 
 while true; do
   case "$1" in
-    --android_ndk ) android_ndk=true; shift ;;
-    --android_api ) android_api=$2; shift 2 ;;
-    --android_build_tools ) android_build_tools=$2; shift 2 ;;
+    --android-ndk ) android_ndk=true; shift ;;
+    --android-api ) android_api=$2; shift 2 ;;
+    --android-build-tools ) android_build_tools=$2; shift 2 ;;
     --large-test ) large_test=true; shift ;;
     * ) break ;;
   esac

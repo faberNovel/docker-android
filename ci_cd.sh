@@ -9,16 +9,16 @@ android_build_tools="29.0.3"
 # Usage of this script
 program_name=$0
 function usage {
-  echo "usage: $program_name [--android_api 29] [--build] [--test]"
-  echo "  --android_api androidVersion Use specific Android version from \`sdkmanager --list\`"
-  echo "  --android_ndk                Install Android NDK"
-  echo "  --ndk_version <version>      Install a specific Android NDK version from \`sdkmanager --list\`"
-  echo "  --build                      Build image"
-  echo "  --test                       Test image"
-  echo "  --large-test                 Run large tests on the image (Firebase Test Lab for example)"
-  echo "  --deploy                     Deploy image"
-  echo "  --desc                       Generate a desc.txt file describing the builded image, on host machine"
-  echo "  --image-name                 Print the image name base on parameters"
+  echo "usage: $program_name [--android-api 29] [--build] [--test]"
+  echo "  --android-api <androidVersion> Use specific Android version from \`sdkmanager --list\`"
+  echo "  --android-ndk                  Install Android NDK"
+  echo "  --ndk-version <version>        Install a specific Android NDK version from \`sdkmanager --list\`"
+  echo "  --build                        Build image"
+  echo "  --test                         Test image"
+  echo "  --large-test                   Run large tests on the image (Firebase Test Lab for example)"
+  echo "  --deploy                       Deploy image"
+  echo "  --desc                         Generate a desc.txt file describing the builded image, on host machine"
+  echo "  --image-name                   Print the image name base on parameters"
   exit 1
 }
 
@@ -28,12 +28,12 @@ large_test=false
 
 while true; do
   case "$1" in
-    --android_api ) android_api="$2"; shift 2 ;;
+    --android-api ) android_api="$2"; shift 2 ;;
     --build ) build=true; shift ;;
     --test ) test=true; shift ;;
-    --android_ndk ) android_ndk=true; shift ;;
+    --android-ndk ) android_ndk=true; shift ;;
     --large-test ) large_test=true; shift ;;
-    --ndk_version ) ndk_version="$2"; shift 2 ;;
+    --ndk-version ) ndk_version="$2"; shift 2 ;;
     --deploy ) deploy=true; shift ;;
     --desc ) desc=true; shift ;;
     --image-name ) print_image_name=true; shift ;;
@@ -105,9 +105,9 @@ fi
 if [ "$test" = true ]; then
     tasks=$((tasks+1))
     echo "Testing image $full_image_name"
-    test_options="--android_api $android_api --android_build_tools $android_build_tools"
+    test_options="--android-api $android_api --android-build-tools $android_build_tools"
     if [ "$android_ndk" = true ]; then
-        test_options="$test_options --android_ndk"
+        test_options="$test_options --android-ndk"
     fi
     if [ "$large_test" = true ]; then
         echo "Large test: $FIREBASE_PROJECT_ID"
