@@ -141,7 +141,7 @@ fi
 
 if [ "$desc" = true ]; then
   tasks=$((tasks+1))
-  echo "Generating image desc.md for $full_image_name"
+  echo "Generating image desc.txt for $full_image_name"
   docker run \
     $volume_options \
     --rm $full_image_name \
