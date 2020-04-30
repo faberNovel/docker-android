@@ -18,7 +18,6 @@ usage () {
   echo "  --large-test                   Run large tests on the image (Firebase Test Lab for example)"
   echo "  --deploy                       Deploy image"
   echo "  --desc                         Generate a desc.txt file describing the builded image, on host machine"
-  echo "  --image-name                   Print the image name base on parameters"
   exit 1
 }
 
@@ -36,7 +35,6 @@ while true; do
     --ndk-version ) ndk_version="$2"; shift 2 ;;
     --deploy ) deploy=true; shift ;;
     --desc ) desc=true; shift ;;
-    --image-name ) print_image_name=true; shift ;;
     * ) break ;;
   esac
 done
@@ -45,7 +43,7 @@ if [ -z "$android_api" ]; then
   usage
 fi
 
-if [ $large_test == true ]; then
+if [ $large_test = true ]; then
     failed=false
     if [ -z "$GCLOUD_SERVICE_KEY" ]; then
         echo "GCLOUD_SERVICE_KEY environment variable is need to run large tests"
@@ -94,7 +92,7 @@ if [ "$build" = true ]; then
 fi
 
 ci=${CI:-false}
-if [ $ci == true ]; then
+if [ "$ci" = true ]; then
   echo "Running in CI"
   volume_options="--volumes-from runner --workdir $GITHUB_WORKSPACE"
 else
@@ -141,16 +139,11 @@ fi
 
 if [ "$desc" = true ]; then
   tasks=$((tasks+1))
-  echo "Generating image desc.txt for $full_image_name"
+  echo "Generating image description $simple_image_name.txt"
   docker run \
     $volume_options \
     --rm $full_image_name \
-    sh desc/desc.sh | tee desc.txt
-fi
-
-if [ "$print_image_name" = true ]; then
-  tasks=$((tasks+1))
-  echo $simple_image_name
+    sh desc/desc.sh | tee desc/output/$simple_image_name.txt
 fi
 
 if [ "$tasks" = 0 ]; then

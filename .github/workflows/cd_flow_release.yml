@@ -15,7 +15,10 @@ jobs:
       - id: step_compute_release_name
         env:
           GIT_REF: ${{ github.ref }}
-        run: echo "::set-output name=release_name::${GIT_REF#refs/heads/release/}"
+        run: |
+          release_name=${GIT_REF#refs/heads/release/}
+          echo "Release name=$release_name"
+          echo "::set-output name=release_name::$release_name"
 
   job_build_test_deploy_and_generate_desc:
     needs: job_compute_release_name
@@ -38,26 +41,11 @@ jobs:
           GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
         run: ./ci_cd.sh --build --test --deploy --desc --android-api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
-        # For debug purpose, keep while not stable
-        # run: |
-          #echo "Building, testing, describing, deloying image..."
-          #touch desc.txt
-          #echo ${{ matrix.android_api }} ${{ matrix.android_ndk }} > desc.txt
-
-      - id: get_image_name
-        env:
-          RELEASE_NAME: ${{ needs.job_compute_release_name.outputs.release_name }}
-        run: |
-          image_name=$(./ci_cd.sh --image-name --android-api ${{ matrix.android_api }} ${{ matrix.android_ndk }})
-          echo "::set-output name=image_name::$image_name"
-
-      - name: Rename desc file
-        run: mv desc.txt ${{ steps.get_image_name.outputs.image_name }}.txt
 
       - name: Upload image description
         uses: actions/upload-artifact@v2-preview
         with:
-          path: ${{ steps.get_image_name.outputs.image_name }}.txt
+          path: desc/output/*.txt
           name: images_description
 
   job_create_release:
