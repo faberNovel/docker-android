@@ -8,7 +8,7 @@ android_build_tools="29.0.3"
 
 # Usage of this script
 program_name=$0
-function usage {
+usage () {
   echo "usage: $program_name [--android-api 29] [--build] [--test]"
   echo "  --android-api <androidVersion> Use specific Android version from \`sdkmanager --list\`"
   echo "  --android-ndk                  Install Android NDK"
