@@ -1,0 +1,35 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+default_platform(:android)
+
+platform :android do
+    lane :build do
+        gradle(task: "assemble")
+    end
+    lane :test do
+        gradle(task: "test")
+    end
+    lane :integrated_test do
+        gradle(task: "assemble")
+        gradle(task: "assembleAndroidTest")
+        run_tests_firebase_testlab(
+            project_id: ENV["FIREBASE_PROJECT_ID"],
+            devices: [{
+                model: "Nexus6P",
+                version: "27"
+                }]
+            );
+            end
+        end

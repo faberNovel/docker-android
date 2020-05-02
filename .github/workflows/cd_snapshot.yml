@@ -5,17 +5,20 @@ on:
       - develop
 jobs:
   build_and_test:
-    runs-on: ubuntu-18.04
+    runs-on: [self-hosted, docker]
+    container:
+      image: docker://docker:stable-git
+      options: --name=runner
     strategy:
       matrix:
         android_api: [28, 29]
         android_ndk: ["--android_ndk",""]
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Build test & deploy
         env:
           GIT_REF: ${{ github.ref }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-        run: ./ci_cd.sh --build --test --deploy --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
+        run: ./ci_cd.sh --build --test --deploy --android-api ${{ matrix.android_api }} ${{ matrix.android_ndk }}

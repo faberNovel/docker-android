@@ -1,25 +1,26 @@
-FROM ubuntu:18.04
+FROM ubuntu:19.10
 
 ## Set timezone to UTC by default
 RUN ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime
 
-## Use unicode
-RUN locale-gen C.UTF-8 || true
-ENV LANG=C.UTF-8
 
-## Update package lists
-RUN apt update
+## Use unicode
+RUN apt update && apt-get -y install locales && \
+    locale-gen en_US.UTF-8 || true
+ENV LANG=en_US.UTF-8
 
 ## Install dependencies
-RUN apt-get install --no-install-recommends -y \
-  openjdk-8-jdk \
+RUN apt update && apt-get install --no-install-recommends -y \
+  openjdk-11-jdk \
   git \
   wget \
   build-essential \
   zlib1g-dev \
   libssl-dev \
   libreadline-dev \
-  unzip
+  unzip \
+# needed by google cloud sdk
+  python
 
 ## Clean dependencies
 RUN apt clean
@@ -39,12 +40,25 @@ RUN git clone https://github.com/rbenv/ruby-build.git "$RBENV_HOME"/plugins/ruby
 RUN echo “install: --no-document” > ~/.gemrc
 ENV RUBY_CONFIGURE_OPTS=--disable-install-doc
 RUN rbenv install 2.7.0
-RUN rbenv install 2.6.5
+RUN rbenv global 2.7.0
+RUN gem install bundler:2.1.4
+
+# Install Google Cloud CLI
+ARG gcloud_url=https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
+ARG gcloud_home=/usr/local/gcloud
+ARG gcloud_install_script=${gcloud_home}/google-cloud-sdk/install.sh
+ARG gcloud_bin=${gcloud_home}/google-cloud-sdk/bin
+RUN mkdir -p ${gcloud_home} && \
+    wget --quiet --output-document=/tmp/gcloud-sdk.tar.gz ${gcloud_url} && \
+    tar -C ${gcloud_home} -xvf /tmp/gcloud-sdk.tar.gz && \
+    ${gcloud_install_script}
+ENV PATH=${gcloud_bin}:${PATH}
 
 ## Install Android SDK
 ARG sdk_version=commandlinetools-linux-6200805_latest.zip
 ARG android_home=/opt/android/sdk
 ARG android_api=android-29
+ARG android_build_tools=29.0.3
 ARG android_ndk=false
 ARG ndk_version=21.0.6113669
 ARG cmake=3.10.2.4988404
@@ -62,7 +76,7 @@ RUN mkdir ~/.android && echo '### User Sources for Android SDK Manager' > ~/.and
 RUN yes | sdkmanager --sdk_root=$ANDROID_HOME --licenses
 RUN sdkmanager --sdk_root=$ANDROID_HOME --install \
   "platform-tools" \
-  "build-tools;29.0.3" \
+  "build-tools;${android_build_tools}" \
   "platforms;${android_api}"
 RUN if [ "$android_ndk" = true ] ; \
   then \
