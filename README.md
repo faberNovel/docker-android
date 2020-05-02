@@ -1,8 +1,11 @@
+# docker-android
+![docker-android](logo.png)
+
 ![Run test & large tests daily](https://github.com/faberNovel/docker-android/workflows/Run%20test%20&%20large%20tests%20daily/badge.svg?branch=develop)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![Release](https://img.shields.io/github/v/release/fabernovel/docker-android)
 
-# docker-android
+
 docker-android is aiming to provide general purpose docker images to run CI steps of Android project.
 Docker allow you to provide a replicable environment, which does not change with the host machine or the CI service.
 It should work out of the box on any CI/CD service providing docker support.
