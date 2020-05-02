@@ -2,7 +2,7 @@
 ![docker-android](logo.png)
 
 ![Run test & large tests daily](https://github.com/faberNovel/docker-android/workflows/Run%20test%20&%20large%20tests%20daily/badge.svg?branch=develop)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-green.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![Release](https://img.shields.io/github/v/release/fabernovel/docker-android)
 
 
@@ -15,7 +15,7 @@ The image is providing standard tools to build and test Android application:
 * Java JDK
 * Google Cloud CLI, to support [Firebase Test Lab](https://firebase.google.com/docs/test-lab)
 
-## CI/CD service support:
+## CI/CD service support
 | CI/CD service | Tested |
 | ------------- | ------ |
 | [GitHub Actions](https://help.github.com/en/actions) | ✅ |
@@ -79,7 +79,7 @@ We use the following tagging policy:
 `API-NDK-VERSION`
 * `API` the Android API to use, like `api-28`, `api-29`
 * `NDK` is the presence or not of the [Android NDK](https://developer.android.com/ndk) in the image
-* `VERSION` is the image version. Check [Versions](https://github.com/faberNovel/docker-android/tree/feature/documentation#versions)
+* `VERSION` is the image version. Check [Versions](https://github.com/faberNovel/docker-android/tree/master#versions)
 
 ## 🔢 Versions
 * `snapshot` versions are build on each push on `develop` branch
@@ -91,8 +91,8 @@ Image description (software and theirs versions) is provided as asset with each 
 ## ✏️ Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-You can change image settings via its [Dockerfile](https://github.com/faberNovel/docker-android/blob/feature/documentation/Dockerfile).
-You can build, test, and deploy image using [ci_cd.sh](https://github.com/faberNovel/docker-android/blob/feature/documentation/ci_cd.sh) script. You need to install docker first.
+You can change image settings via its [Dockerfile](https://github.com/faberNovel/docker-android/blob/master/Dockerfile).
+You can build, test, and deploy image using [ci_cd.sh](https://github.com/faberNovel/docker-android/blob/master/ci_cd.sh) script. You need to install docker first.
 All scripts must be POSIX compliants.
 ```sh
 usage: ./ci_cd.sh [--android-api 29] [--build] [--test]
