@@ -1,9 +1,18 @@
-# docker-android
 ![Run test & large tests daily](https://github.com/faberNovel/docker-android/workflows/Run%20test%20&%20large%20tests%20daily/badge.svg?branch=develop)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+![Release](https://img.shields.io/github/v/release/fabernovel/docker-android)
 
+# docker-android
 docker-android is aiming to provide general purpose docker images to run CI steps of Android project.
+Docker allow you to provide a replicable environment, which does not change with the host machine or the CI service.
 It should work out of the box on any CI/CD service providing docker support.
-CI/CD service status:
+The image is providing standard tools to build and test Android application:
+* Android SDK (optionally Android NDK)
+* Default Ruby env through [rbenv](https://github.com/rbenv/rbenv) (for [Fastlane](https://fastlane.tools/) for instance)
+* Java JDK
+* Google Cloud CLI, to support [Firebase Test Lab](https://firebase.google.com/docs/test-lab)
+
+## CI/CD service support:
 | CI/CD service | Tested |
 | ------------- | ------ |
 | [GitHub Actions](https://help.github.com/en/actions) | ✅ |
@@ -11,10 +20,57 @@ CI/CD service status:
 | [Circle CI](https://circleci.com/docs/2.0/executor-types/#using-docker) | 🚧 |
 | [Travis CI](https://travis-ci.com/) | 🚧 |
 
+## GitHub Action Sample
+```yml
+name: GitHub Action sample
 
-## Usage
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build_test_and_deploy:
+    runs-on: ubuntu-18.04 # Works also with self hosted runner supporting docker
+    container:
+      image: docker://fabernovel/android:api-29-v1.0.0
+
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v2.1.0
+
+    - name: Ruby cache
+      uses: actions/cache@v1.1.2
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    - name: Gradle cache
+      uses: actions/cache@v1.1.2
+      with:
+        path: /root/.gradle
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle
+
+    - name: Bundle install
+      run: |
+        bundle config path vendor/bundle
+        bundle check || bundle install
+
+    - name: Fastlane
+      run: bundle exec fastlane my_lane
+
+    - name: Cache workaround # https://github.com/actions/cache/issues/133
+      run: chmod -R a+rwx .
+```
+
+## Container Registry
 docker-android images are hosted on [DockerHub](https://hub.docker.com/repository/docker/fabernovel/android).
 
+## Naming
 We provide stable and snapshot variants for latest Android API levels, including or not native SDK.
 We use the following tagging policy:
 `API-NDK-VERSION`
@@ -26,15 +82,16 @@ We use the following tagging policy:
 * `snapshot` versions are build on each push on `develop` branch
 * Release versions `v*` on each [GitHub Release](https://github.com/faberNovel/docker-android/releases)
 
-## Images
-Image description is provided as asset with each [GitHub Release](https://github.com/faberNovel/docker-android/releases).
+## Image description
+Image description (software and theirs versions) is provided as asset with each [GitHub Release](https://github.com/faberNovel/docker-android/releases).
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 You can change image settings via its [Dockerfile](https://github.com/faberNovel/docker-android/blob/feature/documentation/Dockerfile).
 You can build, test, and deploy image using [ci_cd.sh](https://github.com/faberNovel/docker-android/blob/feature/documentation/ci_cd.sh) script. You need to install docker first.
-```bash
+All scripts must be POSIX compliants.
+```sh
 usage: ./ci_cd.sh [--android-api 29] [--build] [--test]
   --android-api <androidVersion> Use specific Android version from `sdkmanager --list`
   --android-ndk                  Install Android NDK
