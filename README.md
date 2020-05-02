@@ -23,7 +23,7 @@ The image is providing standard tools to build and test Android application:
 | [Circle CI](https://circleci.com/docs/2.0/executor-types/#using-docker) | 🚧 |
 | [Travis CI](https://travis-ci.com/) | 🚧 |
 
-## GitHub Action Sample
+## 🐙 GitHub Action Sample
 ```yml
 name: GitHub Action sample
 
@@ -70,10 +70,10 @@ jobs:
       run: chmod -R a+rwx .
 ```
 
-## Container Registry
+## 📦 Container Registry
 docker-android images are hosted on [DockerHub](https://hub.docker.com/repository/docker/fabernovel/android).
 
-## Naming
+## 🔤 Naming
 We provide stable and snapshot variants for latest Android API levels, including or not native SDK.
 We use the following tagging policy:
 `API-NDK-VERSION`
@@ -81,14 +81,14 @@ We use the following tagging policy:
 * `NDK` is the presence or not of the [Android NDK](https://developer.android.com/ndk) in the image
 * `VERSION` is the image version. Check [Versions](https://github.com/faberNovel/docker-android/tree/feature/documentation#versions)
 
-## Versions
+## 🔢 Versions
 * `snapshot` versions are build on each push on `develop` branch
 * Release versions `v*` on each [GitHub Release](https://github.com/faberNovel/docker-android/releases)
 
-## Image description
+## 📝 Image description
 Image description (software and theirs versions) is provided as asset with each [GitHub Release](https://github.com/faberNovel/docker-android/releases).
 
-## Contributing
+## ✏️ Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 You can change image settings via its [Dockerfile](https://github.com/faberNovel/docker-android/blob/feature/documentation/Dockerfile).
