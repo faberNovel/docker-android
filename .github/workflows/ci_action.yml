@@ -1,0 +1,20 @@
+name: Test action
+on:
+  push:
+    branches-ignore:
+      - develop
+      - master
+      - 'release/**'
+jobs:
+  build_and_test:
+    runs-on: [self-hosted, docker]
+    container:
+      image: docker://docker:stable-git
+      options: --name=runner
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Test action
+        uses: ./action
+        id: docker-android-action
