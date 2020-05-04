@@ -6,8 +6,8 @@
 ![Release](https://img.shields.io/github/v/release/fabernovel/docker-android)
 
 
-docker-android is aiming to provide general purpose docker images to run CI steps of Android project.
-Docker allow you to provide a replicable environment, which does not change with the host machine or the CI service.
+docker-android provides general purpose docker images to run CI steps of Android project.
+Docker allows you to provide a replicable environment, which does not change with the host machine or the CI service.
 It should work out of the box on any CI/CD service providing docker support.
 The image is providing standard tools to build and test Android application:
 * Android SDK (optionally Android NDK)
@@ -86,7 +86,7 @@ We use the following tagging policy:
 * Release versions `v*` on each [GitHub Release](https://github.com/faberNovel/docker-android/releases)
 
 ## 📝 Image description
-Image description (software and theirs versions) is provided as asset with each [GitHub Release](https://github.com/faberNovel/docker-android/releases).
+Image description (software and their versions) is provided as asset with each [GitHub Release](https://github.com/faberNovel/docker-android/releases).
 
 ## ✏️ Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
