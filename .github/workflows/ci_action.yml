@@ -10,7 +10,6 @@ jobs:
     runs-on: [self-hosted, docker]
     container:
       image: docker://docker:stable-git
-      options: --name=runner
     steps:
       - name: Checkout
         uses: actions/checkout@v2
