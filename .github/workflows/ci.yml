@@ -7,7 +7,7 @@ on:
       - 'release/**'
 jobs:
   build_and_test:
-    runs-on: [self-hosted, docker]
+    runs-on: ubuntu-18.04
     container:
       image: docker://docker:stable-git
       options: --name=runner
