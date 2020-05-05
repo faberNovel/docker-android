@@ -5,7 +5,7 @@ on:
     - 'release/**'
 jobs:
   job_compute_release_name:
-    runs-on: [self-hosted, docker]
+    runs-on: ubuntu-18.04
     container:
       image: docker://ubuntu:20.04
     outputs:
@@ -21,7 +21,7 @@ jobs:
 
   job_build_test_deploy_and_generate_desc:
     needs: job_compute_release_name
-    runs-on: [self-hosted, docker]
+    runs-on: ubuntu-18.04
     container:
       image: docker://docker:stable-git
       options: --name=runner
@@ -49,7 +49,7 @@ jobs:
 
   job_create_release:
     needs: [job_compute_release_name, job_build_test_deploy_and_generate_desc]
-    runs-on: [self-hosted, docker]
+    runs-on: ubuntu-18.04
     container:
       image: docker://ubuntu:20.04
     steps:
