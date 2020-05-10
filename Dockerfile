@@ -5,12 +5,12 @@ RUN ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime
 
 
 ## Use unicode
-RUN apt update && apt-get -y install locales && \
+RUN apt-get update && apt-get -y install locales && \
     locale-gen en_US.UTF-8 || true
 ENV LANG=en_US.UTF-8
 
 ## Install dependencies
-RUN apt update && apt-get install --no-install-recommends -y \
+RUN apt-get update && apt-get install --no-install-recommends -y \
   openjdk-11-jdk \
   git \
   wget \
@@ -23,7 +23,7 @@ RUN apt update && apt-get install --no-install-recommends -y \
   python
 
 ## Clean dependencies
-RUN apt clean
+RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 
 ## Install rbenv
