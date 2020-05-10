@@ -3,7 +3,6 @@ FROM ubuntu:20.04
 ## Set timezone to UTC by default
 RUN ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime
 
-
 ## Use unicode
 RUN apt-get update && apt-get -y install locales && \
     locale-gen en_US.UTF-8 || true
@@ -20,7 +19,11 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   libreadline-dev \
   unzip \
 # needed by google cloud sdk
-  python
+  gcc \
+  python3 \
+  python3-dev \
+  python3-setuptools \
+  python3-pip
 
 ## Clean dependencies
 RUN apt-get clean
@@ -53,6 +56,8 @@ RUN mkdir -p ${gcloud_home} && \
     tar -C ${gcloud_home} -xvf /tmp/gcloud-sdk.tar.gz && \
     ${gcloud_install_script}
 ENV PATH=${gcloud_bin}:${PATH}
+RUN pip3 uninstall crcmod
+RUN pip3 install --no-cache-dir -U crcmod
 
 ## Install Android SDK
 ARG sdk_version=commandlinetools-linux-6200805_latest.zip
