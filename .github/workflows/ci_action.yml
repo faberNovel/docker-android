@@ -18,4 +18,4 @@ jobs:
         uses: ./action
         id: docker-android-action
         with:
-          exec: echo "Hello world "
+          exec: sh tests/run_tests.sh --android-api 29 --android-ndk --android-build-tools 29.0.3

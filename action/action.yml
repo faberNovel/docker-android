@@ -4,7 +4,7 @@ inputs:
   docker-android-tag:  # id of input
     description: 'The docker-android tag to use (https://hub.docker.com/repository/docker/fabernovel/android/tags)'
     required: false
-    default: 'api-29-ndk-v1.0.0-alpha04'
+    default: 'api-29-ndk-v1.0.0'
   exec:
     description: "Shell action to execute. (e.g 'sh echo Hello world'). Must be POSIX compliant."
     required: true
