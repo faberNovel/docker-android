@@ -1,0 +1,39 @@
+name: Publish release
+on:
+  release:
+    types: [published]
+jobs:
+  job_compute_release_name:
+    runs-on: ubuntu-18.04
+    container:
+      image: docker://alpine/git:v2.24.3
+    outputs:
+      release_name: ${{ steps.step_compute_release_name.outputs.release_name }}
+    steps:
+      - id: step_compute_release_name
+        env:
+          GIT_REF: ${{ github.ref }}
+        run: |
+          release_name=${GIT_REF#refs/tags/release/}
+          echo "Release name=$release_name"
+          echo "::set-output name=release_name::$release_name"
+
+  job_publish_release:
+    needs: [job_compute_release_name]
+    runs-on: ubuntu-18.04
+    container:
+      image: docker://docker:stable-git
+      options: --name=runner
+    strategy:
+      matrix:
+        android_api: [28, 29]
+        android_ndk: ["--android_ndk",""]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build test & deploy
+        env:
+          RELEASE_NAME: ${{ needs.job_compute_release_name.outputs.release_name }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+        run: ./ci_cd.sh --build --test --deploy --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
