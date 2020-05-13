@@ -14,7 +14,7 @@ jobs:
         env:
           GIT_REF: ${{ github.ref }}
         run: |
-          release_name=${GIT_REF#refs/tags/release/}
+          release_name=${GIT_REF#refs/tags/}
           echo "Release name=$release_name"
           echo "::set-output name=release_name::$release_name"
 
@@ -27,7 +27,7 @@ jobs:
     strategy:
       matrix:
         android_api: [28, 29]
-        android_ndk: ["--android_ndk",""]
+        android_ndk: ["--android-ndk",""]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -36,4 +36,4 @@ jobs:
         env:
           RELEASE_NAME: ${{ needs.job_compute_release_name.outputs.release_name }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-        run: ./ci_cd.sh --build --test --deploy --android_api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
+        run: ./ci_cd.sh --build --test --deploy --android-api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
