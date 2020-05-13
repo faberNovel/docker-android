@@ -72,8 +72,8 @@ jobs:
 ```
 You can also use the provided Github Action.
 However, caching won't work and you can expect longer build times.
-`docker-android-tag` should be one of the tags found in [Fabernovel Hub Registry Tags](https://hub.docker.com/r/fabernovel/android/tags)
-```
+`docker-android-tag` should be one of the tags found in [Fabernovel Hub Registry Tags](https://hub.docker.com/r/fabernovel/android/tags):
+```yml
 name: GitHub Action sample
 
 on:
