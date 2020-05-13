@@ -34,7 +34,7 @@ on:
       - develop
 
 jobs:
-  build_test_and_deploy:
+  my_android_job:
     runs-on: ubuntu-18.04 # Works also with self hosted runner supporting docker
     container:
       image: docker://fabernovel/android:api-29-v1.0.0
@@ -82,18 +82,15 @@ on:
       - develop
 
 jobs:
-  build_test_and_deploy:
+  my_android_job:
     runs-on: ubuntu-18.04 # Works also with self hosted runner supporting docker
-    container:
-        image: docker://docker:stable-git
 
   steps:
     - name: Checkout
       uses: actions/checkout@v2.1.0
 
-    - name: Test action
+    - name: Exec fastlane
       uses: fabernovel/docker-android
-      id: docker-android-action
       with:
         docker-android-tag: api-29-ndk-v1.0.0
         exec: |
