@@ -90,7 +90,7 @@ jobs:
       uses: actions/checkout@v2.1.0
 
     - name: Test action
-      uses: ./action
+      uses: fabernovel/docker-android
       id: docker-android-action
       with:
         exec: |
