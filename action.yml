@@ -1,5 +1,8 @@
 name: 'Docker Android Action'
 description: 'Build your Android application using docker-android'
+branding:
+  icon: 'smartphone'  
+  color: 'green'
 inputs:
   docker-android-tag:  # id of input
     description: 'The docker-android tag to use (https://hub.docker.com/repository/docker/fabernovel/android/tags)'
