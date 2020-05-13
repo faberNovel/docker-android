@@ -70,7 +70,9 @@ jobs:
     - name: Cache workaround # https://github.com/actions/cache/issues/133
       run: chmod -R a+rwx .
 ```
-You can also use the provided Github Action:
+You can also use the provided Github Action.
+However, caching won't work and you can expect longer build times.
+`docker-android-tag` should be one of the tags found in [Fabernovel Hub Registry Tags](https://hub.docker.com/r/fabernovel/android/tags)
 ```
 name: GitHub Action sample
 
@@ -93,6 +95,7 @@ jobs:
       uses: fabernovel/docker-android
       id: docker-android-action
       with:
+        docker-android-tag: api-29-ndk-v1.0.0
         exec: |
           bundle install;
           bundle exec fastlane my_lane
