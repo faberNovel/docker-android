@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Test action
-        uses: ./action
+        uses: ./
         id: docker-android-action
         with:
           exec: sh tests/run_tests.sh --android-api 29 --android-ndk --android-build-tools 29.0.3
@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Test action
-        uses: ./action
+        uses: ./
         id: docker-android-action
         with:
           exec: |

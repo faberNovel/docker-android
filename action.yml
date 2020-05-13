@@ -10,7 +10,7 @@ inputs:
     required: true
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'action/Dockerfile'
   args:
     - ${{ inputs.docker-android-tag }}
     - ${{ inputs.exec }}
