@@ -139,11 +139,11 @@ fi
 
 if [ "$desc" = true ]; then
   tasks=$((tasks+1))
-  echo "Generating image description $simple_image_name.txt"
+  echo "Generating image description $simple_image_name.md"
   docker run \
     $volume_options \
     --rm $full_image_name \
-    sh desc/desc.sh | tee desc/output/$simple_image_name.txt
+    sh desc/desc.sh | tee desc/output/$simple_image_name.md
 fi
 
 if [ "$tasks" = 0 ]; then

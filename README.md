@@ -23,7 +23,8 @@ The image is providing standard tools to build and test Android application:
 | [Circle CI](https://circleci.com/docs/2.0/executor-types/#using-docker) | 🚧 |
 | [Travis CI](https://travis-ci.com/) | 🚧 |
 
-## 🐙 GitHub Action Sample
+## 🐙 GitHub Workflow Sample
+Github workflows can run inside Docker images using `container` attribute after `runs-on`:
 ```yml
 name: GitHub Action sample
 
@@ -68,6 +69,36 @@ jobs:
 
     - name: Cache workaround # https://github.com/actions/cache/issues/133
       run: chmod -R a+rwx .
+```
+You can also use the provided Github Action.
+However, caching won't work and you can expect longer build times.
+`docker-android-tag` should be one of the tags found in [Fabernovel Hub Registry Tags](https://hub.docker.com/r/fabernovel/android/tags):
+```yml
+name: GitHub Action sample
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build_test_and_deploy:
+    runs-on: ubuntu-18.04 # Works also with self hosted runner supporting docker
+    container:
+        image: docker://docker:stable-git
+
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v2.1.0
+
+    - name: Test action
+      uses: fabernovel/docker-android
+      id: docker-android-action
+      with:
+        docker-android-tag: api-29-ndk-v1.0.0
+        exec: |
+          bundle install;
+          bundle exec fastlane my_lane
 ```
 
 ## 📦 Container Registry
