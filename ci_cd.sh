@@ -17,7 +17,7 @@ usage () {
   echo "  --test                         Test image"
   echo "  --large-test                   Run large tests on the image (Firebase Test Lab for example)"
   echo "  --deploy                       Deploy image"
-  echo "  --desc                         Generate a desc.txt file describing the builded image, on host machine"
+  echo "  --desc                         Generate a .md file in /desc/ouput folder describing the builded image, on host machine"
   exit 1
 }
 

@@ -129,7 +129,9 @@ usage: ./ci_cd.sh [--android-api 29] [--build] [--test]
   --ndk-version <version>        Install a specific Android NDK version from `sdkmanager --list`
   --build                        Build image
   --test                         Test image
+  --large-test                   Run large tests on the image (Firebase Test Lab for example)
   --deploy                       Deploy image
+  --desc                         Generate a .md file in /desc/ouput folder describing the builded image, on host machine
 ```
 
 ## License
