@@ -21,6 +21,20 @@ echo "## APT packages"
 dpkg -l
 echo
 
+echo "## Python environment"
+echo "### Python version"
+python3 --version | cut -d' ' -f2-
+echo "### PIP version"
+pip3 --version | cut -d' ' -f2-
+echo "### Installed PIP packages"
+echo "| Name | Version |"
+echo "|------|---------|"
+pip3 freeze | while read -r lib; do
+    version=$(echo "$lib" | awk -F'=='  '{print $2}')
+    name=$(echo "$lib" | awk -F'=='  '{print $1}')
+    echo "| $name | $version |"
+done
+
 echo "## Ruby environment"
 echo "### Default ruby version"
 ruby -v | cut -d' ' -f2-
