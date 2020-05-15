@@ -34,17 +34,17 @@ on:
       - develop
 
 jobs:
-  build_test_and_deploy:
+  my_android_job:
     runs-on: ubuntu-18.04 # Works also with self hosted runner supporting docker
     container:
-      image: docker://fabernovel/android:api-29-v1.0.0
+      image: docker://fabernovel/android:api-29-v1.1.0
 
   steps:
     - name: Checkout
       uses: actions/checkout@v2.1.0
 
     - name: Ruby cache
-      uses: actions/cache@v1.1.2
+      uses: actions/cache@v1.2.0
       with:
         path: vendor/bundle
         key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
@@ -52,7 +52,7 @@ jobs:
           ${{ runner.os }}-gems-
 
     - name: Gradle cache
-      uses: actions/cache@v1.1.2
+      uses: actions/cache@v1.2.0
       with:
         path: /root/.gradle
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
@@ -67,8 +67,6 @@ jobs:
     - name: Fastlane
       run: bundle exec fastlane my_lane
 
-    - name: Cache workaround # https://github.com/actions/cache/issues/133
-      run: chmod -R a+rwx .
 ```
 You can also use the provided Github Action.
 However, caching won't work and you can expect longer build times.
@@ -82,20 +80,17 @@ on:
       - develop
 
 jobs:
-  build_test_and_deploy:
+  my_android_job:
     runs-on: ubuntu-18.04 # Works also with self hosted runner supporting docker
-    container:
-        image: docker://docker:stable-git
 
   steps:
     - name: Checkout
       uses: actions/checkout@v2.1.0
 
-    - name: Test action
+    - name: Exec fastlane
       uses: fabernovel/docker-android
-      id: docker-android-action
       with:
-        docker-android-tag: api-29-ndk-v1.0.0
+        docker-android-tag: api-29-ndk-v1.1.0
         exec: |
           bundle install;
           bundle exec fastlane my_lane
@@ -132,7 +127,9 @@ usage: ./ci_cd.sh [--android-api 29] [--build] [--test]
   --ndk-version <version>        Install a specific Android NDK version from `sdkmanager --list`
   --build                        Build image
   --test                         Test image
+  --large-test                   Run large tests on the image (Firebase Test Lab for example)
   --deploy                       Deploy image
+  --desc                         Generate a .md file in /desc/ouput folder describing the builded image, on host machine
 ```
 
 ## License
