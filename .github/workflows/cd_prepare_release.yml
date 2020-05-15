@@ -75,3 +75,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           destination_branch: "master"
+          pr_title: "Prepare release ${{ needs.job_compute_release_name.outputs.release_name }}"

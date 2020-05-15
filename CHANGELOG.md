@@ -1,5 +1,20 @@
 # Changelog
 
+## [v1.1.1](https://github.com/faberNovel/docker-android/tree/v1.1.1) (2020-05-15)
+
+[Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.1.0...v1.1.1)
+
+**Closed issues:**
+
+- Add python description to image description [\#63](https://github.com/faberNovel/docker-android/issues/63)
+- Documentation is outdated [\#62](https://github.com/faberNovel/docker-android/issues/62)
+- Clean image description markdown [\#60](https://github.com/faberNovel/docker-android/issues/60)
+
+**Merged pull requests:**
+
+- Cleanup desc script formatting [\#65](https://github.com/faberNovel/docker-android/pull/65) ([sjcqs](https://github.com/sjcqs))
+- Update script usage documentation [\#64](https://github.com/faberNovel/docker-android/pull/64) ([vincentbrison](https://github.com/vincentbrison))
+
 ## [v1.1.0](https://github.com/faberNovel/docker-android/tree/v1.1.0) (2020-05-13)
 
 [Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.0.0...v1.1.0)
@@ -21,6 +36,7 @@
 
 **Merged pull requests:**
 
+- Add action branding [\#59](https://github.com/faberNovel/docker-android/pull/59) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Feature/prepare action release [\#57](https://github.com/faberNovel/docker-android/pull/57) ([vincentbrison](https://github.com/vincentbrison))
 - Document Github Action [\#56](https://github.com/faberNovel/docker-android/pull/56) ([sjcqs](https://github.com/sjcqs))
 - Feature/update release flow [\#54](https://github.com/faberNovel/docker-android/pull/54) ([vincentbrison](https://github.com/vincentbrison))
