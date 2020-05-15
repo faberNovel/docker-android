@@ -47,5 +47,8 @@ done
 echo
 
 echo "## APT packages"
-dpkg --list
-echo
+echo "| Name | Version | Architecture | Description |"
+echo "| ---- | ------- | ------------ | ----------- |"
+dpkg_format='| ${binary:Package} | ${Version} | ${Architecture} | ${binary:Summary} |\n'
+dpkg-query --show --showformat="$dpkg_format"
+done
