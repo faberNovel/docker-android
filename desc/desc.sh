@@ -1,24 +1,54 @@
 #!/bin/sh
 echo "## Image environment"
-cat /etc/*-release
+grep "DISTRIB_DESCRIPTION=.*$" /etc/*-release | # extract only distrib description
+    cut -d= -f2 # get distrib description value only
+
 echo
 echo "## Android environment"
 echo "### Android SDKs"
 sdkmanager --list --sdk_root=$ANDROID_HOME |
     awk '/Installed packages:/{flag=1; next} /Available Packages/{flag=0} flag'
 echo "### Google Cloud SDK"
-gcloud --version
-echo
+echo "| Name | Version |"
+echo "|------|---------|"
+gcloud --version | while read -r lib; do
+    version=$(echo "${lib}" | awk '{ print $NF }')
+    name=$(echo $lib | awk '{$NF=""; print $0}')
+    echo "| $name | $version |"
+done
 
-echo "## APT packages"
-dpkg -l
-echo
+echo "## Python environment"
+echo "### Python version"
+python3 --version | cut -d' ' -f2-
+echo "### PIP version"
+pip3 --version | cut -d' ' -f2-
+echo "### Installed PIP packages"
+echo "| Name | Version |"
+echo "|------|---------|"
+pip3 freeze | while read -r lib; do
+    version=$(echo "$lib" | awk -F'=='  '{print $2}')
+    name=$(echo "$lib" | awk -F'=='  '{print $1}')
+    echo "| $name | $version |"
+done
 
 echo "## Ruby environment"
 echo "### Default ruby version"
-ruby -v
+ruby --version | cut -d' ' -f2-
 echo "### rbenv"
-rbenv -v
+rbenv --version | cut -d' ' -f2-
 echo "### Installed gems:"
-gem list
+echo "| Name | Version |"
+echo "|------|---------|"
+gem list | while read -r lib; do
+    version=$(echo $lib | awk -F"[()]" '{print $2}')
+    name=$(echo $lib | awk -F"[()]" '{print $1}')
+    echo "| $name | $version |"
+done
 echo
+
+echo "## APT packages"
+echo "| Name | Version | Architecture | Description |"
+echo "| ---- | ------- | ------------ | ----------- |"
+dpkg_format='| ${binary:Package} | ${Version} | ${Architecture} | ${binary:Summary} |\n'
+dpkg-query --show --showformat="$dpkg_format"
+done
