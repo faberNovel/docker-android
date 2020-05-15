@@ -1,7 +1,7 @@
 #!/bin/sh
 echo "## Image environment"
 grep "DISTRIB_DESCRIPTION=.*$" /etc/*-release | # extract only distrib description
-cut -d= -f2 # get distrib description value only
+    cut -d= -f2 # get distrib description value only
 
 echo
 echo "## Android environment"
@@ -16,10 +16,6 @@ gcloud --version | while read -r lib; do
     name=$(echo $lib | awk '{$NF=""; print $0}')
     echo "| $name | $version |"
 done
-
-echo "## APT packages"
-dpkg -l
-echo
 
 echo "## Python environment"
 echo "### Python version"
@@ -37,9 +33,9 @@ done
 
 echo "## Ruby environment"
 echo "### Default ruby version"
-ruby -v | cut -d' ' -f2-
+ruby --version | cut -d' ' -f2-
 echo "### rbenv"
-rbenv -v | cut -d' ' -f2-
+rbenv --version | cut -d' ' -f2-
 echo "### Installed gems:"
 echo "| Name | Version |"
 echo "|------|---------|"
@@ -48,4 +44,8 @@ gem list | while read -r lib; do
     name=$(echo $lib | awk -F"[()]" '{print $1}')
     echo "| $name | $version |"
 done
+echo
+
+echo "## APT packages"
+dpkg --list
 echo
