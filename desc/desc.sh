@@ -27,5 +27,11 @@ ruby -v | cut -d' ' -f2-
 echo "### rbenv"
 rbenv -v | cut -d' ' -f2-
 echo "### Installed gems:"
-gem list
+echo "| Name | Version |"
+echo "|------|---------|"
+gem list | while read -r lib; do
+    version=$(echo $lib | awk -F"[()]" '{print $2}')
+    name=$(echo $lib | awk -F"[()]" '{print $1}')
+    echo "| $name | $version |"
+done
 echo
