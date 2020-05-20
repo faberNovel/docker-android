@@ -112,7 +112,7 @@ We use the following tagging policy:
 * Release versions `v*` on each [GitHub Release](https://github.com/faberNovel/docker-android/releases)
 
 ## 📝 Image description
-Image description (software and their versions) is provided as asset with each [GitHub Release](https://github.com/faberNovel/docker-android/releases).
+Image description (software and their versions) is provided as [md files](https://github.com/faberNovel/docker-android/tree/master/images_description).
 
 ## ✏️ Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
