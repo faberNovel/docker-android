@@ -102,9 +102,10 @@ docker-android images are hosted on [DockerHub](https://hub.docker.com/repositor
 ## 🔤 Naming
 We provide stable and snapshot variants for latest Android API levels, including or not native SDK.
 We use the following tagging policy:
-`API-NDK-VERSION`
+`API-NDK-GCLOUD-VERSION`
 * `API` the Android API to use, like `api-28`, `api-29`
 * `NDK` is the presence or not of the [Android NDK](https://developer.android.com/ndk) in the image
+* `GCLOUD` is the presence or not of the [Google Cloud SDK](https://cloud.google.com/sdk) in the image. (the gcloud sdk is needed for Firebase Test Lab for example).
 * `VERSION` is the image version. Check [Versions](https://github.com/faberNovel/docker-android/tree/master#versions)
 
 ## 🔢 Versions
@@ -124,6 +125,7 @@ All scripts must be POSIX compliants.
 usage: ./ci_cd.sh [--android-api 29] [--build] [--test]
   --android-api <androidVersion> Use specific Android version from `sdkmanager --list`
   --android-ndk                  Install Android NDK
+  --gcloud                       Install Google Cloud SDK
   --ndk-version <version>        Install a specific Android NDK version from `sdkmanager --list`
   --build                        Build image
   --test                         Test image
