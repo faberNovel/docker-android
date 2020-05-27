@@ -11,6 +11,7 @@ usage() {
     echo "usage: $script_name [--android-ndk] --android-api <api> --android-build-tools <build tools version>"
     echo " --android-ndk Test with NDK application"
     echo " --android-api Tests apps compile and target SDK"
+    echo " --gcloud Tests if gcloud SDK was installed"
     echo " --android-build-tools Used android builds tools"
     echo "  --large-test Run large tests on the image (Firebase Test Lab for example)"
     exit 1
@@ -24,6 +25,7 @@ setup_bundler() {
 while true; do
   case "$1" in
     --android-ndk ) android_ndk=true; shift ;;
+    --gcloud ) gcloud=true; shift ;;
     --android-api ) android_api=$2; shift 2 ;;
     --android-build-tools ) android_build_tools=$2; shift 2 ;;
     --large-test ) large_test=true; shift ;;
@@ -42,8 +44,10 @@ fi
 java -version
 rbenv -v
 
-# Check if gcloud sdk is installed
-gcloud --version
+if [[ "$gcloud" = true ]]; then
+  # Check if gcloud sdk is installed
+  gcloud --version
+fi
 
 # Setup test app environment variables
 export KOTLIN_VERSION="1.3.71"

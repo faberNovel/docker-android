@@ -114,6 +114,9 @@ if [ "$test" = true ]; then
     if [ "$android_ndk" = true ]; then
         test_options="$test_options --android-ndk"
     fi
+    if [[ "$gcloud" = true ]]; then
+      test_options="$test_options --gcloud"
+    fi
     if [ "$large_test" = true ]; then
         echo "Large test: $FIREBASE_PROJECT_ID"
         tasks=$((tasks+1))
