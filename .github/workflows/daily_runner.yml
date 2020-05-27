@@ -10,8 +10,8 @@ jobs:
       options: --name=runner
     strategy:
       matrix:
-        android_api: [29]
-        android_ndk: [""]
+        android_api: [28,29]
+        android_ndk: ["--android-ndk"]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -22,4 +22,4 @@ jobs:
         env:
           GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
-        run: ./ci_cd.sh --build --test --large-test --android-api ${{ matrix.android_api }} ${{ matrix.android_ndk }}
+        run: ./ci_cd.sh --build --test --large-test --android-api ${{ matrix.android_api }} ${{ matrix.android_ndk }} "--gcloud"
