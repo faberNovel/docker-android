@@ -46,6 +46,7 @@ ARG gcloud_url=https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
 ARG gcloud_home=/usr/local/gcloud
 ARG gcloud_install_script=${gcloud_home}/google-cloud-sdk/install.sh
 ARG gcloud_bin=${gcloud_home}/google-cloud-sdk/bin
+ENV PATH=${gcloud_bin}:${PATH}
 RUN if [ "$gcloud" = true ] ; \
   then \
     echo "Installing GCloud SDK"; \
@@ -61,9 +62,7 @@ RUN if [ "$gcloud" = true ] ; \
     tar -C ${gcloud_home} -xvf /tmp/gcloud-sdk.tar.gz && \
     ${gcloud_install_script} && \
     pip3 uninstall crcmod && \
-    pip3 install --no-cache-dir -U crcmod && \
-    export PATH=${gcloud_bin}:${PATH} && \
-    echo "Updated PATH: $PATH" \
+    pip3 install --no-cache-dir -U crcmod; \
   else \
     echo "Skipping GCloud SDK installation"; \
   fi
