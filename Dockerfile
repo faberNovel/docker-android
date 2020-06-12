@@ -17,7 +17,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   zlib1g-dev \
   libssl-dev \
   libreadline-dev \
-  unzip
+  unzip \
+  ssh
 
 ## Clean dependencies
 RUN apt-get clean
