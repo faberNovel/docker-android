@@ -43,6 +43,7 @@ fi
 
 java -version
 rbenv -v
+ssh -V
 
 if [[ "$gcloud" = true ]]; then
   # Check if gcloud sdk is installed
