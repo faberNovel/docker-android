@@ -110,7 +110,7 @@ fi
 if [ "$test" = true ]; then
     tasks=$((tasks+1))
     echo "Testing image $full_image_name"
-    test_options="--android-api $android_api --android-build-tools $android_build_tools"
+    test_options="--check-base-tools --android-api $android_api --android-build-tools $android_build_tools"
     if [ "$android_ndk" = true ]; then
         test_options="$test_options --android-ndk"
     fi
