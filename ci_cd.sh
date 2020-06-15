@@ -64,7 +64,7 @@ fi
 # Compute image tag
 org_name="fabernovel"
 simple_image_name="api-$android_api"
-if [[ "$gcloud" = true ]]; then
+if [ "$gcloud" = true ]; then
   simple_image_name="$simple_image_name-gcloud"
 fi
 if [ "$android_ndk" = true ]; then
@@ -114,7 +114,7 @@ if [ "$test" = true ]; then
     if [ "$android_ndk" = true ]; then
         test_options="$test_options --android-ndk"
     fi
-    if [[ "$gcloud" = true ]]; then
+    if [ "$gcloud" = true ]; then
       test_options="$test_options --gcloud"
     fi
     if [ "$large_test" = true ]; then
