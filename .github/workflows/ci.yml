@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         android_api: [28, 29]
-        android_ndk: ["--android_ndk",""]
+        android_ndk: ["--android-ndk",""]
         gcloud: ["--gcloud", ""]
     steps:
       - name: Checkout
