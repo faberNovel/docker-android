@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   wget \
   build-essential \
   zlib1g-dev \
+  libcurl4-openssl-dev \
   libssl-dev \
   libreadline-dev \
   unzip \
