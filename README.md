@@ -23,6 +23,14 @@ The image is providing standard tools to build and test Android application:
 | [Circle CI](https://circleci.com/docs/2.0/executor-types/#using-docker) | 🚧 |
 | [Travis CI](https://travis-ci.com/) | 🚧 |
 
+## Fastlane first-class support
+Images are built to have first class support for Fastlane.
+If you are using a Fastlane plugin which requires a native library: 
+- Install it using `apt-get update && apt-get -y install <lib>` in your
+CI workflow.
+- Comment https://github.com/faberNovel/docker-android/issues/78 so that we can
+keep track of missing native libraries and add them to the next image version.
+
 ## 🐙 GitHub Workflow Sample
 Github workflows can run inside Docker images using `container` attribute after `runs-on`:
 ```yml
