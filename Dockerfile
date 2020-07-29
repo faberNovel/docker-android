@@ -28,14 +28,14 @@ RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 
 ## Install rbenv
-ENV RBENV_HOME "/root/.rbenv"
-RUN git clone https://github.com/rbenv/rbenv.git $RBENV_HOME
-ENV PATH "$PATH:$RBENV_HOME/bin"
-ENV PATH "$PATH:$RBENV_HOME/shims"
+ENV RBENV_ROOT "/root/.rbenv"
+RUN git clone https://github.com/rbenv/rbenv.git $RBENV_ROOT
+ENV PATH "$PATH:$RBENV_ROOT/bin"
+ENV PATH "$PATH:$RBENV_ROOT/shims"
 
 # Install ruby-build (rbenv plugin)
-RUN mkdir -p "$RBENV_HOME"/plugins
-RUN git clone https://github.com/rbenv/ruby-build.git "$RBENV_HOME"/plugins/ruby-build
+RUN mkdir -p "$RBENV_ROOT"/plugins
+RUN git clone https://github.com/rbenv/ruby-build.git "$RBENV_ROOT"/plugins/ruby-build
 
 # Install default ruby env
 RUN echo “install: --no-document” > ~/.gemrc
