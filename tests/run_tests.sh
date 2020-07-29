@@ -46,6 +46,12 @@ fi
 if [ "$check_base_tools" = true ]; then
   java -version
   rbenv -v
+  # if HOME is changed, rbenv should still have access to the install plugin
+  (
+    # Changing HOME environment variable in this subshell
+    export HOME="/tmp"
+    rbenv install --skip-existing 2.7.0
+  )
   ssh -V
 fi
 
