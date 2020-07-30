@@ -1,5 +1,35 @@
 # Changelog
 
+## [v1.2.0](https://github.com/faberNovel/docker-android/tree/v1.2.0) (2020-07-30)
+
+[Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.1.1...v1.2.0)
+
+**Implemented enhancements:**
+
+- Improve Action testing [\#79](https://github.com/faberNovel/docker-android/issues/79)
+- Add variants without gcloud / python [\#68](https://github.com/faberNovel/docker-android/issues/68)
+
+**Fixed bugs:**
+
+- Cannot install new ruby version with rbenv [\#80](https://github.com/faberNovel/docker-android/issues/80)
+- Snapshot images with Android NDK are not uploaded [\#74](https://github.com/faberNovel/docker-android/issues/74)
+- Set RBENV\_ROOT [\#81](https://github.com/faberNovel/docker-android/pull/81) ([sjcqs](https://github.com/sjcqs))
+
+**Closed issues:**
+
+- Install libcurl4-openssl-dev [\#76](https://github.com/faberNovel/docker-android/issues/76)
+- Add ssh support [\#72](https://github.com/faberNovel/docker-android/issues/72)
+- Add default Fastlane install [\#49](https://github.com/faberNovel/docker-android/issues/49)
+
+**Merged pull requests:**
+
+- Feature/improve action testing [\#82](https://github.com/faberNovel/docker-android/pull/82) ([vincentbrison](https://github.com/vincentbrison))
+- Install libcurl [\#77](https://github.com/faberNovel/docker-android/pull/77) ([sjcqs](https://github.com/sjcqs))
+- Fix workflows Android NDK parameter [\#75](https://github.com/faberNovel/docker-android/pull/75) ([sjcqs](https://github.com/sjcqs))
+- Feature/ssh [\#73](https://github.com/faberNovel/docker-android/pull/73) ([vincentbrison](https://github.com/vincentbrison))
+- Fix gcloud path [\#71](https://github.com/faberNovel/docker-android/pull/71) ([vincentbrison](https://github.com/vincentbrison))
+- Make Gcloud installation optional [\#69](https://github.com/faberNovel/docker-android/pull/69) ([sjcqs](https://github.com/sjcqs))
+
 ## [v1.1.1](https://github.com/faberNovel/docker-android/tree/v1.1.1) (2020-05-15)
 
 [Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.1.0...v1.1.1)
@@ -12,6 +42,7 @@
 
 **Merged pull requests:**
 
+- Prepare release v1.1.1 [\#67](https://github.com/faberNovel/docker-android/pull/67) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Cleanup desc script formatting [\#65](https://github.com/faberNovel/docker-android/pull/65) ([sjcqs](https://github.com/sjcqs))
 - Update script usage documentation [\#64](https://github.com/faberNovel/docker-android/pull/64) ([vincentbrison](https://github.com/vincentbrison))
 
