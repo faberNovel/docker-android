@@ -18,23 +18,4 @@ jobs:
         uses: ./
         id: docker-android-action
         with:
-          exec: sh tests/run_tests.sh --android-api 29 --android-ndk --android-build-tools 29.0.3
-  build_and_test_multiline:
-    runs-on: ubuntu-18.04
-    container:
-      image: docker://docker:stable-git
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Test action
-        uses: ./
-        id: docker-android-action
-        with:
-          exec: |
-            echo "Running Android 29 NDK Tests";
-            sh tests/run_tests.sh --android-api 29 --android-ndk --android-build-tools 29.0.3;
-            echo "Running Android 29 Tests";
-            sh tests/run_tests.sh --android-api 29 --android-build-tools 29.0.3;
-            echo "Running Android 29 with GCloud Tests";
-            sh tests/run_tests.sh --android-api 29 --android-build-tools 29.0.3 --gcloud;
+          exec: sh action/test_action.sh
