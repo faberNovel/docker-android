@@ -11,8 +11,10 @@ usage() {
     echo "usage: $script_name [--android-ndk] --android-api <api> --android-build-tools <build tools version>"
     echo " --android-ndk Test with NDK application"
     echo " --android-api Tests apps compile and target SDK"
+    echo " --gcloud Tests if gcloud SDK was installed"
+    echo " --check-base-tools Test base tools setup like Java, Ruby and other"
     echo " --android-build-tools Used android builds tools"
-    echo "  --large-test Run large tests on the image (Firebase Test Lab for example)"
+    echo " --large-test Run large tests on the image (Firebase Test Lab for example)"
     exit 1
 }
 
@@ -24,6 +26,8 @@ setup_bundler() {
 while true; do
   case "$1" in
     --android-ndk ) android_ndk=true; shift ;;
+    --gcloud ) gcloud=true; shift ;;
+    --check-base-tools ) check_base_tools=true; shift ;;
     --android-api ) android_api=$2; shift 2 ;;
     --android-build-tools ) android_build_tools=$2; shift 2 ;;
     --large-test ) large_test=true; shift ;;
@@ -39,11 +43,22 @@ if [ -z "$android_build_tools" ]; then
   usage
 fi
 
-java -version
-rbenv -v
+if [ "$check_base_tools" = true ]; then
+  java -version
+  rbenv -v
+  # if HOME is changed, rbenv should still have access to the install plugin
+  (
+    # Changing HOME environment variable in this subshell
+    export HOME="/tmp"
+    rbenv install --skip-existing 2.7.0
+  )
+  ssh -V
+fi
 
-# Check if gcloud sdk is installed
-gcloud --version
+if [ "$gcloud" = true ]; then
+  # Check if gcloud sdk is installed
+  gcloud --version
+fi
 
 # Setup test app environment variables
 export KOTLIN_VERSION="1.3.71"

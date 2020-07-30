@@ -23,6 +23,14 @@ The image is providing standard tools to build and test Android application:
 | [Circle CI](https://circleci.com/docs/2.0/executor-types/#using-docker) | 🚧 |
 | [Travis CI](https://travis-ci.com/) | 🚧 |
 
+## Fastlane first-class support
+Images are built to have first class support for Fastlane.
+If you are using a Fastlane plugin which requires a native library: 
+- Install it using `apt-get update && apt-get -y install <lib>` in your
+CI workflow.
+- Comment https://github.com/faberNovel/docker-android/issues/78 so that we can
+keep track of missing native libraries and add them to the next image version.
+
 ## 🐙 GitHub Workflow Sample
 Github workflows can run inside Docker images using `container` attribute after `runs-on`:
 ```yml
@@ -102,9 +110,10 @@ docker-android images are hosted on [DockerHub](https://hub.docker.com/repositor
 ## 🔤 Naming
 We provide stable and snapshot variants for latest Android API levels, including or not native SDK.
 We use the following tagging policy:
-`API-NDK-VERSION`
+`API-NDK-GCLOUD-VERSION`
 * `API` the Android API to use, like `api-28`, `api-29`
 * `NDK` is the presence or not of the [Android NDK](https://developer.android.com/ndk) in the image
+* `GCLOUD` is the presence or not of the [Google Cloud SDK](https://cloud.google.com/sdk) in the image. (the gcloud sdk is needed for Firebase Test Lab for example).
 * `VERSION` is the image version. Check [Versions](https://github.com/faberNovel/docker-android/tree/master#versions)
 
 ## 🔢 Versions
@@ -112,7 +121,7 @@ We use the following tagging policy:
 * Release versions `v*` on each [GitHub Release](https://github.com/faberNovel/docker-android/releases)
 
 ## 📝 Image description
-Image description (software and their versions) is provided as asset with each [GitHub Release](https://github.com/faberNovel/docker-android/releases).
+Image description (software and their versions) is provided as [md files](https://github.com/faberNovel/docker-android/tree/master/images_description).
 
 ## ✏️ Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
@@ -124,6 +133,7 @@ All scripts must be POSIX compliants.
 usage: ./ci_cd.sh [--android-api 29] [--build] [--test]
   --android-api <androidVersion> Use specific Android version from `sdkmanager --list`
   --android-ndk                  Install Android NDK
+  --gcloud                       Install Google Cloud SDK
   --ndk-version <version>        Install a specific Android NDK version from `sdkmanager --list`
   --build                        Build image
   --test                         Test image

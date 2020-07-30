@@ -13,6 +13,7 @@ usage () {
   echo "  --android-api <androidVersion> Use specific Android version from \`sdkmanager --list\`"
   echo "  --android-ndk                  Install Android NDK"
   echo "  --ndk-version <version>        Install a specific Android NDK version from \`sdkmanager --list\`"
+  echo "  --gcloud                       Install the latest GCloud SDK version"
   echo "  --build                        Build image"
   echo "  --test                         Test image"
   echo "  --large-test                   Run large tests on the image (Firebase Test Lab for example)"
@@ -23,6 +24,7 @@ usage () {
 
 # Parameters parsing
 android_ndk=false
+gcloud=false
 large_test=false
 
 while true; do
@@ -32,6 +34,7 @@ while true; do
     --test ) test=true; shift ;;
     --android-ndk ) android_ndk=true; shift ;;
     --large-test ) large_test=true; shift ;;
+    --gcloud ) gcloud=true; shift ;;
     --ndk-version ) ndk_version="$2"; shift 2 ;;
     --deploy ) deploy=true; shift ;;
     --desc ) desc=true; shift ;;
@@ -59,12 +62,15 @@ if [ $large_test = true ]; then
 fi
 
 # Compute image tag
-org_name=fabernovel
-simple_image_name=api-$android_api
+org_name="fabernovel"
+simple_image_name="api-$android_api"
+if [ "$gcloud" = true ]; then
+  simple_image_name="$simple_image_name-gcloud"
+fi
 if [ "$android_ndk" = true ]; then
   simple_image_name="$simple_image_name-ndk"
 fi
-branch=${GIT_REF##refs/heads/}
+branch="${GIT_REF##refs/heads/}"
 if [ "$branch" = "develop" ]; then
   simple_image_name="$simple_image_name-snapshot"
 fi
@@ -86,6 +92,7 @@ if [ "$build" = true ]; then
   docker build \
     --build-arg android_api=android-$android_api \
     --build-arg android_ndk="$android_ndk" \
+    --build-arg gcloud="$gcloud" \
     $ndk_version_build_arg \
     --tag $full_image_name .
   set +x
@@ -103,9 +110,12 @@ fi
 if [ "$test" = true ]; then
     tasks=$((tasks+1))
     echo "Testing image $full_image_name"
-    test_options="--android-api $android_api --android-build-tools $android_build_tools"
+    test_options="--check-base-tools --android-api $android_api --android-build-tools $android_build_tools"
     if [ "$android_ndk" = true ]; then
         test_options="$test_options --android-ndk"
+    fi
+    if [ "$gcloud" = true ]; then
+      test_options="$test_options --gcloud"
     fi
     if [ "$large_test" = true ]; then
         echo "Large test: $FIREBASE_PROJECT_ID"
