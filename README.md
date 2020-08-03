@@ -11,7 +11,7 @@ Docker allows you to provide a replicable environment, which does not change wit
 It should work out of the box on any CI/CD service providing docker support.
 The image is providing standard tools to build and test Android application:
 * Android SDK (optionally Android NDK)
-* Default Ruby env through [rbenv](https://github.com/rbenv/rbenv) (for [Fastlane](https://fastlane.tools/) for instance)
+* [Fastlane first class support](https://github.com/faberNovel/docker-android#fastlane-first-class-support)
 * Java JDK
 * Google Cloud CLI, to support [Firebase Test Lab](https://firebase.google.com/docs/test-lab)
 
@@ -25,6 +25,7 @@ The image is providing standard tools to build and test Android application:
 
 ## Fastlane first-class support
 Images are built to have first class support for Fastlane.
+Ruby versions in [`normal maintenance`](https://www.ruby-lang.org/en/downloads/branches/) mode are installed using [rbenv](https://github.com/rbenv/rbenv).
 If you are using a Fastlane plugin which requires a native library: 
 - Install it using `apt-get update && apt-get -y install <lib>` in your
 CI workflow.
