@@ -4,6 +4,23 @@ on:
     branches:
     - 'release/**'
 jobs:
+  generate_matrix:
+    runs-on: ubuntu-18.04
+    container:
+      image: docker://alpine/git:v2.24.3
+    outputs:
+      matrix: ${{ steps.read.outputs.matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - id: read
+        run: |
+          json="$(cat images_matrix.json)"
+          # ::set-output requires newlines to be escaped
+          json="${json//'%'/'%25'}"
+          json="${json//$'\n'/'%0A'}"
+          json="${json//$'\r'/'%0D'}"
+          echo "::set-output name=matrix::$json"
   job_compute_release_name:
     runs-on: ubuntu-18.04
     container:
@@ -20,16 +37,13 @@ jobs:
           echo "::set-output name=release_name::$release_name"
 
   job_build_test_and_generate_desc:
-    needs: job_compute_release_name
+    needs: [job_compute_release_name, generate_matrix]
     runs-on: ubuntu-18.04
     container:
       image: docker://docker:stable-git
       options: --name=runner
     strategy:
-      matrix:
-        android_api: [28, 29]
-        android_ndk: ["--android-ndk", ""]
-        gcloud: ["--gcloud", ""]
+      matrix: ${{fromJson(needs.generate_matrix.outputs.matrix)}}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
