@@ -23,13 +23,6 @@ jobs:
           json="${json//$'\n'/'%0A'}"
           json="${json//$'\r'/'%0D'}"
           echo "::set-output name=matrix::$json"
-  print_matrix:
-    needs: generate_matrix
-    runs-on: ubuntu-18.04
-    container:
-      image: docker://alpine/git:v2.24.3
-    steps:
-      - run: echo ${{ needs.job_compute_release_name.outputs.release_name }}
   build_and_test:
     needs: generate_matrix
     runs-on: ubuntu-18.04
