@@ -6,16 +6,38 @@ on:
       - master
       - 'release/**'
 jobs:
+  generate_matrix:
+    runs-on: ubuntu-18.04
+    container:
+      image: docker://alpine/git:v2.24.3
+    outputs:
+      matrix: ${{ steps.read.outputs.matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - id: read
+        run: |
+          json="$(cat images_matrix.json)"
+          # ::set-output requires newlines to be escaped
+          json="${json//'%'/'%25'}"
+          json="${json//$'\n'/'%0A'}"
+          json="${json//$'\r'/'%0D'}"
+          echo "::set-output name=matrix::$json"
+  print_matrix:
+    needs: generate_matrix
+    runs-on: ubuntu-18.04
+    container:
+      image: docker://alpine/git:v2.24.3
+    steps:
+      - run: echo ${{ needs.job_compute_release_name.outputs.release_name }}
   build_and_test:
+    needs: generate_matrix
     runs-on: ubuntu-18.04
     container:
       image: docker://docker:stable-git
       options: --name=runner
     strategy:
-      matrix:
-        android_api: [28, 29]
-        android_ndk: ["--android-ndk",""]
-        gcloud: ["--gcloud", ""]
+      matrix: ${{fromJson(needs.generate_matrix.outputs.matrix)}}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
