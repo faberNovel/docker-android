@@ -4,16 +4,25 @@ on:
     branches:
       - develop
 jobs:
+  generate_matrix:
+    runs-on: ubuntu-18.04
+    container:
+      image: docker://alpine/git:v2.24.3
+    outputs:
+      matrix: ${{ steps.read.outputs.matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+     - id: read
+        run: .ci/extract_github_action_matrix_as.sh matrix
   build_and_test:
+    needs: [generate_matrix]
     runs-on: ubuntu-18.04
     container:
       image: docker://docker:stable-git
       options: --name=runner
     strategy:
-      matrix:
-        android_api: [28, 29]
-        android_ndk: ["--android-ndk",""]
-        gcloud: ["--gcloud", ""]
+      matrix: ${{fromJson(needs.generate_matrix.outputs.matrix)}}
     steps:
       - name: Checkout
         uses: actions/checkout@v2

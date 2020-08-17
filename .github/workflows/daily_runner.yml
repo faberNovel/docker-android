@@ -10,7 +10,7 @@ jobs:
       options: --name=runner
     strategy:
       matrix:
-        android_api: [28,29]
+        android_api: [29,30]
         android_ndk: ["--android-ndk"]
     steps:
       - name: Checkout
