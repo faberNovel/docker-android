@@ -13,14 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - id: read
-        run: |
-          json="$(cat images_matrix.json)"
-          # ::set-output requires newlines to be escaped
-          json="${json//'%'/'%25'}"
-          json="${json//$'\n'/'%0A'}"
-          json="${json//$'\r'/'%0D'}"
-          echo "::set-output name=matrix::$json"
+     - id: read
+        run: .ci/extract_github_action_matrix_as.sh matrix
   build_and_test:
     needs: [generate_matrix]
     runs-on: ubuntu-18.04
