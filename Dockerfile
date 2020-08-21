@@ -37,11 +37,14 @@ ENV PATH "$PATH:$RBENV_ROOT/shims"
 RUN mkdir -p "$RBENV_ROOT"/plugins
 RUN git clone https://github.com/rbenv/ruby-build.git "$RBENV_ROOT"/plugins/ruby-build
 
-# Install default ruby env
+# Install ruby envs
 RUN echo “install: --no-document” > ~/.gemrc
 ENV RUBY_CONFIGURE_OPTS=--disable-install-doc
-RUN rbenv install 2.7.0
-RUN rbenv global 2.7.0
+RUN rbenv install 2.7.1
+RUN rbenv install 2.6.6
+
+# Setup default ruby env
+RUN rbenv global 2.7.1
 RUN gem install bundler:2.1.4
 
 # Install Google Cloud CLI

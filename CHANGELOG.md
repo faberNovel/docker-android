@@ -1,5 +1,27 @@
 # Changelog
 
+## [v1.3.0](https://github.com/faberNovel/docker-android/tree/v1.3.0) (2020-08-21)
+
+[Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.2.0...v1.3.0)
+
+**Implemented enhancements:**
+
+- Add available Ruby versions to images description files [\#87](https://github.com/faberNovel/docker-android/issues/87)
+- Add support for Android SDK 30 [\#86](https://github.com/faberNovel/docker-android/issues/86)
+- Add support for ruby versions in normal maintenance [\#84](https://github.com/faberNovel/docker-android/issues/84)
+- Move scripts back to bash and clean syntax [\#70](https://github.com/faberNovel/docker-android/issues/70)
+- Add support for Android 30 [\#88](https://github.com/faberNovel/docker-android/pull/88) ([sjcqs](https://github.com/sjcqs))
+
+**Closed issues:**
+
+- Rename master to main [\#90](https://github.com/faberNovel/docker-android/issues/90)
+
+**Merged pull requests:**
+
+- Rename master ref to main [\#91](https://github.com/faberNovel/docker-android/pull/91) ([vincentbrison](https://github.com/vincentbrison))
+- Add all available ruby versions in description [\#89](https://github.com/faberNovel/docker-android/pull/89) ([vincentbrison](https://github.com/vincentbrison))
+- Feature/update ruby versions [\#85](https://github.com/faberNovel/docker-android/pull/85) ([vincentbrison](https://github.com/vincentbrison))
+
 ## [v1.2.0](https://github.com/faberNovel/docker-android/tree/v1.2.0) (2020-07-30)
 
 [Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.1.1...v1.2.0)
@@ -23,6 +45,7 @@
 
 **Merged pull requests:**
 
+- Prepare release v1.2.0 [\#83](https://github.com/faberNovel/docker-android/pull/83) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Feature/improve action testing [\#82](https://github.com/faberNovel/docker-android/pull/82) ([vincentbrison](https://github.com/vincentbrison))
 - Install libcurl [\#77](https://github.com/faberNovel/docker-android/pull/77) ([sjcqs](https://github.com/sjcqs))
 - Fix workflows Android NDK parameter [\#75](https://github.com/faberNovel/docker-android/pull/75) ([sjcqs](https://github.com/sjcqs))
