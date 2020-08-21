@@ -83,5 +83,5 @@ jobs:
         uses: repo-sync/pull-request@v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          destination_branch: "master"
+          destination_branch: "main"
           pr_title: "Prepare release ${{ needs.job_compute_release_name.outputs.release_name }}"
