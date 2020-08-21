@@ -115,20 +115,20 @@ We use the following tagging policy:
 * `API` the Android API to use, like `api-28`, `api-29`
 * `NDK` is the presence or not of the [Android NDK](https://developer.android.com/ndk) in the image
 * `GCLOUD` is the presence or not of the [Google Cloud SDK](https://cloud.google.com/sdk) in the image. (the gcloud sdk is needed for Firebase Test Lab for example).
-* `VERSION` is the image version. Check [Versions](https://github.com/faberNovel/docker-android/tree/master#versions)
+* `VERSION` is the image version. Check [Versions](https://github.com/faberNovel/docker-android/tree/main#versions)
 
 ## 🔢 Versions
 * `snapshot` versions are build on each push on `develop` branch
 * Release versions `v*` on each [GitHub Release](https://github.com/faberNovel/docker-android/releases)
 
 ## 📝 Image description
-Image description (software and their versions) is provided as [md files](https://github.com/faberNovel/docker-android/tree/master/images_description).
+Image description (software and their versions) is provided as [md files](https://github.com/faberNovel/docker-android/tree/main/images_description).
 
 ## ✏️ Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-You can change image settings via its [Dockerfile](https://github.com/faberNovel/docker-android/blob/master/Dockerfile).
-You can build, test, and deploy image using [ci_cd.sh](https://github.com/faberNovel/docker-android/blob/master/ci_cd.sh) script. You need to install docker first.
+You can change image settings via its [Dockerfile](https://github.com/faberNovel/docker-android/blob/main/Dockerfile).
+You can build, test, and deploy image using [ci_cd.sh](https://github.com/faberNovel/docker-android/blob/main/ci_cd.sh) script. You need to install docker first.
 All scripts must be POSIX compliants.
 ```sh
 usage: ./ci_cd.sh [--android-api 29] [--build] [--test]

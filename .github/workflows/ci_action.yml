@@ -3,7 +3,7 @@ on:
   push:
     branches-ignore:
       - develop
-      - master
+      - main
       - 'release/**'
 jobs:
   build_and_test:
