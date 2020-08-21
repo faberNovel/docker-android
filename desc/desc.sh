@@ -35,10 +35,16 @@ if [ -n "$(which gcloud)" ]; then
 fi
 
 echo "## Ruby environment"
-echo "### Default ruby version"
-ruby --version | cut -d' ' -f2-
+echo "### All ruby versions available"
+echo "| Version |"
+echo "|---------|"
+rbenv versions --bare | while read -r version; do
+    echo "| $version |"
+done
 echo "### rbenv"
 rbenv --version | cut -d' ' -f2-
+echo "### Default ruby version"
+ruby --version | cut -d' ' -f2-
 echo "### Installed gems:"
 echo "| Name | Version |"
 echo "|------|---------|"
