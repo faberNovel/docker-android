@@ -1,5 +1,8 @@
 FROM ubuntu:20.04
 
+# Required for Jenv
+SHELL ["/bin/bash", "-c"]
+
 ## Set timezone to UTC by default
 RUN ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime
 
@@ -32,6 +35,16 @@ ENV RBENV_ROOT "/root/.rbenv"
 RUN git clone https://github.com/rbenv/rbenv.git $RBENV_ROOT
 ENV PATH "$PATH:$RBENV_ROOT/bin"
 ENV PATH "$PATH:$RBENV_ROOT/shims"
+
+## Install jenv
+ENV JENV_ROOT "$HOME/.jenv"
+RUN git clone https://github.com/jenv/jenv.git $JENV_ROOT
+ENV PATH "$PATH:$JENV_ROOT/bin"
+RUN mkdir $JENV_ROOT/versions
+ENV JDK_ROOT "/usr/lib/jvm/"
+RUN jenv add ${JDK_ROOT}/java-11-openjdk-amd64
+RUN echo 'export PATH="$JENV_ROOT/bin:$PATH"' >> ~/.bashrc
+RUN echo 'eval "$(jenv init -)"' >> ~/.bashrc
 
 # Install ruby-build (rbenv plugin)
 RUN mkdir -p "$RBENV_ROOT"/plugins
