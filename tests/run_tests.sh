@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Exit immediately if a command returns a non-zero status.
 set -e
@@ -16,11 +16,6 @@ usage() {
     echo " --android-build-tools Used android builds tools"
     echo " --large-test Run large tests on the image (Firebase Test Lab for example)"
     exit 1
-}
-
-setup_bundler() {
-    ruby -v
-    gem install bundler:2.1.4
 }
 
 while true; do
@@ -69,18 +64,28 @@ export MIN_SDK_VERSION=21
 export TARGET_SDK_VERSION="$android_api"
 export NDK_VERSION="21.0.6113669"
 
+exec_test() {
+  cd "$1"
+
+  bundle install
+  bundle exec fastlane android build
+}
+
+ruby -v
+gem install bundler:2.1.4
+eval "$(jenv init -)"
 
 if [ "$android_ndk" = true ]; then
   echo "Running tests with ndk"
-  cd "$script_path"/test-app-ndk
+  exec_test "$script_path"/test-app-ndk
 else
   echo "Running tests"
-  cd "$script_path"/test-app
+  exec_test "$script_path"/test-app
 fi
 
-setup_bundler
-bundle install
-bundle exec fastlane android build
+jenv global 1.8
+exec_test "$script_path"/test-app-jdk-8
+jenv global 11
 
 if [ "$large_test" = true ]; then
     echo "Run android tests on Firebase Test Lab"

@@ -127,7 +127,7 @@ if [ "$test" = true ]; then
         $volume_options \
         --rm \
         "$full_image_name" \
-        sh tests/run_tests.sh $test_options --large-test
+        bash tests/run_tests.sh $test_options --large-test
         set +x
     else
         set -x
@@ -135,7 +135,7 @@ if [ "$test" = true ]; then
         $volume_options \
         --rm \
         "$full_image_name" \
-        sh tests/run_tests.sh $test_options
+        bash tests/run_tests.sh $test_options
         set +x
     fi
 fi
