@@ -32,6 +32,25 @@ CI workflow.
 - Comment https://github.com/faberNovel/docker-android/issues/78 so that we can
 keep track of missing native libraries and add them to the next image version.
 
+## JDK support
+Images support multiple JDK, using [Jenv](https://www.jenv.be/).
+The default JDK is JDK 11, but JDK 8 is also supported (use `jenv global 1.8`).
+To choose a JDK, make sure the script executes on a bash shell, then use Jenv to set the desired version: 
+```
+jobs:
+  my_android_job:
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Jenv
+        run: |
+          eval "$(jenv init -)"
+          jenv global {VERSION}
+
+```
+
 ## 🐙 GitHub Workflow Sample
 Github workflows can run inside Docker images using `container` attribute after `runs-on`:
 ```yml
