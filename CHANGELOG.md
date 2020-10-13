@@ -1,5 +1,17 @@
 # Changelog
 
+## [v1.4.0](https://github.com/faberNovel/docker-android/tree/v1.4.0) (2020-10-13)
+
+[Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.3.0...v1.4.0)
+
+**Closed issues:**
+
+- Add support of different JDK versions [\#93](https://github.com/faberNovel/docker-android/issues/93)
+
+**Merged pull requests:**
+
+- Install jenv to handle JDK versions [\#94](https://github.com/faberNovel/docker-android/pull/94) ([ferrandp](https://github.com/ferrandp))
+
 ## [v1.3.0](https://github.com/faberNovel/docker-android/tree/v1.3.0) (2020-08-21)
 
 [Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.2.0...v1.3.0)
@@ -18,6 +30,7 @@
 
 **Merged pull requests:**
 
+- Prepare release v1.3.0 [\#92](https://github.com/faberNovel/docker-android/pull/92) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Rename master ref to main [\#91](https://github.com/faberNovel/docker-android/pull/91) ([vincentbrison](https://github.com/vincentbrison))
 - Add all available ruby versions in description [\#89](https://github.com/faberNovel/docker-android/pull/89) ([vincentbrison](https://github.com/vincentbrison))
 - Feature/update ruby versions [\#85](https://github.com/faberNovel/docker-android/pull/85) ([vincentbrison](https://github.com/vincentbrison))
