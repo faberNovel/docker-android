@@ -10,6 +10,7 @@
 
 **Merged pull requests:**
 
+- Prepare release v1.4.0 [\#96](https://github.com/faberNovel/docker-android/pull/96) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Install jenv to handle JDK versions [\#94](https://github.com/faberNovel/docker-android/pull/94) ([ferrandp](https://github.com/ferrandp))
 
 ## [v1.3.0](https://github.com/faberNovel/docker-android/tree/v1.3.0) (2020-08-21)
