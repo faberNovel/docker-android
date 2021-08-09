@@ -143,7 +143,7 @@ fi
 if [ "$deploy" = true ]; then
   tasks=$((tasks+1))
   echo "Deploy image $full_image_name"
-  echo "$DOCKERHUB_TOKEN" | docker login --username vincentbrison --password-stdin
+  echo "$DOCKERHUB_TOKEN" | docker login --username botfabernovel --password-stdin
   docker push $full_image_name
 fi
 
