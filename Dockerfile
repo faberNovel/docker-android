@@ -55,11 +55,12 @@ RUN git clone https://github.com/rbenv/ruby-build.git "$RBENV_ROOT"/plugins/ruby
 # Install ruby envs
 RUN echo “install: --no-document” > ~/.gemrc
 ENV RUBY_CONFIGURE_OPTS=--disable-install-doc
+RUN rbenv install 3.1.1
 RUN rbenv install 2.7.1
 RUN rbenv install 2.6.6
 
 # Setup default ruby env
-RUN rbenv global 2.7.1
+RUN rbenv global 3.1.1
 RUN gem install bundler:2.1.4
 
 # Install Google Cloud CLI
