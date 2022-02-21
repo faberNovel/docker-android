@@ -61,7 +61,7 @@ RUN rbenv install 2.6.6
 
 # Setup default ruby env
 RUN rbenv global 3.1.1
-RUN gem install bundler:2.1.4
+RUN gem install bundler:2.3.7
 
 # Install Google Cloud CLI
 ARG gcloud=false
