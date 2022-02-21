@@ -1,5 +1,5 @@
 {
-    "android_api": [ 28, 29, 30],
+    "android_api": [ 28, 29, 30, 32],
     "android_ndk": ["--android-ndk", ""],
     "gcloud": ["--gcloud", ""]
 }
