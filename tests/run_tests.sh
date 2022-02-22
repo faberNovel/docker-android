@@ -45,7 +45,7 @@ if [ "$check_base_tools" = true ]; then
   (
     # Changing HOME environment variable in this subshell
     export HOME="/tmp"
-    rbenv install --skip-existing 2.7.0
+    rbenv install --skip-existing 2.7.1
   )
   ssh -V
 fi
