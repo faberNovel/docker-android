@@ -94,6 +94,7 @@ if [ "$build" = true ]; then
   set -x
   docker build \
     --build-arg android_api=android-$android_api \
+    --build-arg android_build_tools="$android_build_tools" \
     --build-arg android_ndk="$android_ndk" \
     --build-arg gcloud="$gcloud" \
     $ndk_version_build_arg \
