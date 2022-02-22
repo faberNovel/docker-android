@@ -4,7 +4,7 @@
 set -e
 
 # Supported android builds tools
-android_build_tools="30.0.2"
+android_build_tools="32.0.0"
 
 # Usage of this script
 program_name=$0
