@@ -57,13 +57,14 @@ fi
 
 # Setup test app environment variables
 export KOTLIN_VERSION="1.3.71"
-export GRADLE_VERSION="5.6.4"
-export ANDROID_GRADLE_TOOLS_VERSION="3.6.1"
+export GRADLE_VERSION="7.3"
+export ANDROID_GRADLE_TOOLS_VERSION="7.0.3"
 export COMPILE_SDK_VERSION="$android_api"
 export BUILD_TOOLS_VERSION="$android_build_tools"
 export MIN_SDK_VERSION=21
 export TARGET_SDK_VERSION="$android_api"
 export NDK_VERSION="21.0.6113669"
+jenv global 11
 
 exec_test() {
   cd "$1"
@@ -90,16 +91,21 @@ else
   exec_test "$script_path"/test-app
 fi
 
-jenv global 1.8
-exec_test "$script_path"/test-app-jdk-8
-jenv global 11
-
 if [ "$large_test" = true ]; then
     echo "Run android tests on Firebase Test Lab"
     cd "$script_path"/test-firebase-test-lab
 
     bundle install
     bundle exec fastlane android integrated_test
+fi
+
+if (( "$android_api" < 31 )); then
+  export GRADLE_VERSION="5.6.4"
+  export ANDROID_GRADLE_TOOLS_VERSION="3.6.1"
+  jenv global 1.8
+  exec_test "$script_path"/test-app-jdk-8
+
+  jenv global 11
 fi
 
 exit 0
