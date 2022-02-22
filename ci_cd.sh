@@ -3,14 +3,12 @@
 # Exit immediately if a command returns a non-zero status.
 set -e
 
-# Supported android builds tools
-android_build_tools="32.0.0"
-
 # Usage of this script
 program_name=$0
 usage () {
   echo "usage: $program_name [--android-api 29] [--build] [--test]"
   echo "  --android-api <androidVersion> Use specific Android version from \`sdkmanager --list\`"
+  echo "  --build-tools <version>        Use specific build tools version"
   echo "  --android-ndk                  Install Android NDK"
   echo "  --ndk-version <version>        Install a specific Android NDK version from \`sdkmanager --list\`"
   echo "  --gcloud                       Install the latest GCloud SDK version"
@@ -30,6 +28,7 @@ large_test=false
 while true; do
   case "$1" in
     --android-api ) android_api="$2"; shift 2 ;;
+    --build-tools ) android_build_tools="$2"; shift 2 ;;
     --build ) build=true; shift ;;
     --test ) test=true; shift ;;
     --android-ndk ) android_ndk=true; shift ;;
@@ -43,6 +42,10 @@ while true; do
 done
 
 if [ -z "$android_api" ]; then
+  usage
+fi
+
+if [ -z "$android_build_tools" ]; then
   usage
 fi
 

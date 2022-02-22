@@ -44,4 +44,4 @@ jobs:
         env:
           RELEASE_NAME: ${{ needs.job_compute_release_name.outputs.release_name }}
           DOCKERHUB_TOKEN: ${{ secrets.DEV_DOCKERHUB_TOKEN }}
-        run: ./ci_cd.sh --build --test --deploy --android-api ${{ matrix.android_api }} ${{ matrix.android_ndk }} ${{ matrix.gcloud }}
+        run: ./ci_cd.sh --build --test --deploy --android-api ${{ matrix.android_api.api }} --build-tools ${{ matrix.android_api.build_tools }} ${{ matrix.android_ndk }} ${{ matrix.gcloud }}

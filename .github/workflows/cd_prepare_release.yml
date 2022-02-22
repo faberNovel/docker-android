@@ -45,7 +45,7 @@ jobs:
       - name: Build test deploy describe image
         env:
           RELEASE_NAME: ${{ needs.job_compute_release_name.outputs.release_name }}
-        run: ./ci_cd.sh --build --test --desc --android-api ${{ matrix.android_api }} ${{ matrix.android_ndk }} ${{ matrix.gcloud }}
+        run: ./ci_cd.sh --build --test --desc --android-api ${{ matrix.android_api.api }} --build-tools ${{ matrix.android_api.build_tools }} ${{ matrix.android_ndk }} ${{ matrix.gcloud }}
 
       - name: Upload image description
         uses: actions/upload-artifact@v2-preview
