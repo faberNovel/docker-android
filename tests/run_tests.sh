@@ -57,6 +57,7 @@ fi
 
 # Setup test app environment variables
 export KOTLIN_VERSION="1.3.71"
+export GRADLE_VERSION="5.6.4"
 export ANDROID_GRADLE_TOOLS_VERSION="3.6.1"
 export COMPILE_SDK_VERSION="$android_api"
 export BUILD_TOOLS_VERSION="$android_build_tools"
@@ -67,6 +68,12 @@ export NDK_VERSION="21.0.6113669"
 exec_test() {
   cd "$1"
 
+  if grep -q "distributionUrl" ./gradle/wrapper/gradle-wrapper.properties; then
+    file="./gradle/wrapper/gradle-wrapper.properties"
+    tail -n 1 "$file" | wc -c | xargs -I {} truncate "$file" -s -{}
+  fi
+
+  echo "distributionUrl=https\://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-all.zip" >> ./gradle/wrapper/gradle-wrapper.properties
   bundle install
   bundle exec fastlane android build
 }
