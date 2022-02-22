@@ -3,7 +3,6 @@ buildscript {
     ext.kotlin_version = System.getenv("KOTLIN_VERSION")
     repositories {
         google()
-        gradlePluginPortal()
         jcenter()
 
     }
