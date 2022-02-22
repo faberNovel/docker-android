@@ -75,12 +75,12 @@ exec_test() {
   fi
 
   echo "distributionUrl=https\://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-all.zip" >> ./gradle/wrapper/gradle-wrapper.properties
+  gem install bundler:2.3.7
   bundle install
   bundle exec fastlane android build
 }
 
 ruby -v
-gem install bundler:2.1.4
 eval "$(jenv init -)"
 
 if [ "$android_ndk" = true ]; then
