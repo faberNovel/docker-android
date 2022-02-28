@@ -3,14 +3,12 @@
 # Exit immediately if a command returns a non-zero status.
 set -e
 
-# Supported android builds tools
-android_build_tools="30.0.2"
-
 # Usage of this script
 program_name=$0
 usage () {
   echo "usage: $program_name [--android-api 29] [--build] [--test]"
   echo "  --android-api <androidVersion> Use specific Android version from \`sdkmanager --list\`"
+  echo "  --build-tools <version>        Use specific build tools version"
   echo "  --android-ndk                  Install Android NDK"
   echo "  --ndk-version <version>        Install a specific Android NDK version from \`sdkmanager --list\`"
   echo "  --gcloud                       Install the latest GCloud SDK version"
@@ -30,6 +28,7 @@ large_test=false
 while true; do
   case "$1" in
     --android-api ) android_api="$2"; shift 2 ;;
+    --build-tools ) android_build_tools="$2"; shift 2 ;;
     --build ) build=true; shift ;;
     --test ) test=true; shift ;;
     --android-ndk ) android_ndk=true; shift ;;
@@ -43,6 +42,10 @@ while true; do
 done
 
 if [ -z "$android_api" ]; then
+  usage
+fi
+
+if [ -z "$android_build_tools" ]; then
   usage
 fi
 
@@ -91,6 +94,7 @@ if [ "$build" = true ]; then
   set -x
   docker build \
     --build-arg android_api=android-$android_api \
+    --build-arg android_build_tools="$android_build_tools" \
     --build-arg android_ndk="$android_ndk" \
     --build-arg gcloud="$gcloud" \
     $ndk_version_build_arg \

@@ -30,4 +30,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build and test
-        run: ./ci_cd.sh --build --test --android-api ${{ matrix.android_api }} ${{ matrix.android_ndk }} {{ matrix.gcloud }}
+        run: ./ci_cd.sh --build --test --android-api ${{ matrix.android_api.api }} --build-tools ${{ matrix.android_api.build_tools }} ${{ matrix.android_ndk }} {{ matrix.gcloud }}
