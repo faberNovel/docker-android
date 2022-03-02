@@ -6,7 +6,7 @@ set -e
 # Usage of this script
 program_name=$0
 usage () {
-  echo "usage: $program_name [--android-api 29] [--build] [--test]"
+  echo "usage: $program_name [--android-api 29] [--build-tools "29.0.3"] [--build] [--test]"
   echo "  --android-api <androidVersion> Use specific Android version from \`sdkmanager --list\`"
   echo "  --build-tools <version>        Use specific build tools version"
   echo "  --android-ndk                  Install Android NDK"
