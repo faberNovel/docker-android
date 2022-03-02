@@ -42,10 +42,12 @@ while true; do
 done
 
 if [ -z "$android_api" ]; then
+  echo "Missing --android-api parameter"
   usage
 fi
 
 if [ -z "$android_build_tools" ]; then
+  echo "Missing --build-tools parameter"
   usage
 fi
 
