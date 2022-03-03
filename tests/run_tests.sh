@@ -66,15 +66,20 @@ export TARGET_SDK_VERSION="$android_api"
 export NDK_VERSION="21.0.6113669"
 jenv global 11
 
-exec_test() {
-  cd "$1"
-
+setup_gradle_version() {
   if grep -q "distributionUrl" ./gradle/wrapper/gradle-wrapper.properties; then
     file="./gradle/wrapper/gradle-wrapper.properties"
     tail -n 1 "$file" | wc -c | xargs -I {} truncate "$file" -s -{}
   fi
 
   echo "distributionUrl=https\://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-all.zip" >> ./gradle/wrapper/gradle-wrapper.properties
+}
+
+exec_test() {
+  cd "$1"
+  
+  setup_gradle_version
+  
   gem install bundler:2.3.7
   bundle install
   bundle exec fastlane android build
@@ -94,6 +99,8 @@ fi
 if [ "$large_test" = true ]; then
     echo "Run android tests on Firebase Test Lab"
     cd "$script_path"/test-firebase-test-lab
+  
+    setup_gradle_version
 
     bundle install
     bundle exec fastlane android integrated_test
