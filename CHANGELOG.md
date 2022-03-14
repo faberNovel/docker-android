@@ -1,5 +1,21 @@
 # Changelog
 
+## [v1.5.0](https://github.com/faberNovel/docker-android/tree/v1.5.0) (2022-03-14)
+
+[Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.4.1...v1.5.0)
+
+**Merged pull requests:**
+
+- Feature/fix activity exported [\#103](https://github.com/faberNovel/docker-android/pull/103) ([ferrandp](https://github.com/ferrandp))
+- Setup correctly gradle version for large test [\#102](https://github.com/faberNovel/docker-android/pull/102) ([ferrandp](https://github.com/ferrandp))
+- Fix daily CI job [\#101](https://github.com/faberNovel/docker-android/pull/101) ([ferrandp](https://github.com/ferrandp))
+- Feature/bump versions [\#100](https://github.com/faberNovel/docker-android/pull/100) ([ferrandp](https://github.com/ferrandp))
+- Prepare release v1.4.1 [\#98](https://github.com/faberNovel/docker-android/pull/98) ([github-actions[bot]](https://github.com/apps/github-actions))
+
+## [v1.4.1](https://github.com/faberNovel/docker-android/tree/v1.4.1) (2021-06-08)
+
+[Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.4.0...v1.4.1)
+
 ## [v1.4.0](https://github.com/faberNovel/docker-android/tree/v1.4.0) (2020-10-13)
 
 [Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.3.0...v1.4.0)
