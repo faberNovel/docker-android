@@ -45,7 +45,7 @@ if [ "$check_base_tools" = true ]; then
   (
     # Changing HOME environment variable in this subshell
     export HOME="/tmp"
-    rbenv install --skip-existing 2.7.0
+    rbenv install --skip-existing 2.7.1
   )
   ssh -V
 fi
@@ -57,22 +57,35 @@ fi
 
 # Setup test app environment variables
 export KOTLIN_VERSION="1.3.71"
-export ANDROID_GRADLE_TOOLS_VERSION="3.6.1"
+export GRADLE_VERSION="7.3"
+export ANDROID_GRADLE_TOOLS_VERSION="7.0.3"
 export COMPILE_SDK_VERSION="$android_api"
 export BUILD_TOOLS_VERSION="$android_build_tools"
 export MIN_SDK_VERSION=21
 export TARGET_SDK_VERSION="$android_api"
 export NDK_VERSION="21.0.6113669"
+jenv global 11
+
+setup_gradle_version() {
+  if grep -q "distributionUrl" ./gradle/wrapper/gradle-wrapper.properties; then
+    file="./gradle/wrapper/gradle-wrapper.properties"
+    tail -n 1 "$file" | wc -c | xargs -I {} truncate "$file" -s -{}
+  fi
+
+  echo "distributionUrl=https\://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-all.zip" >> ./gradle/wrapper/gradle-wrapper.properties
+}
 
 exec_test() {
   cd "$1"
-
+  
+  setup_gradle_version
+  
+  gem install bundler:2.3.7
   bundle install
   bundle exec fastlane android build
 }
 
 ruby -v
-gem install bundler:2.1.4
 eval "$(jenv init -)"
 
 if [ "$android_ndk" = true ]; then
@@ -83,16 +96,23 @@ else
   exec_test "$script_path"/test-app
 fi
 
-jenv global 1.8
-exec_test "$script_path"/test-app-jdk-8
-jenv global 11
-
 if [ "$large_test" = true ]; then
     echo "Run android tests on Firebase Test Lab"
     cd "$script_path"/test-firebase-test-lab
+  
+    setup_gradle_version
 
     bundle install
     bundle exec fastlane android integrated_test
+fi
+
+if (( "$android_api" < 31 )); then
+  export GRADLE_VERSION="5.6.4"
+  export ANDROID_GRADLE_TOOLS_VERSION="3.6.1"
+  jenv global 1.8
+  exec_test "$script_path"/test-app-jdk-8
+
+  jenv global 11
 fi
 
 exit 0

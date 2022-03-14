@@ -55,12 +55,13 @@ RUN git clone https://github.com/rbenv/ruby-build.git "$RBENV_ROOT"/plugins/ruby
 # Install ruby envs
 RUN echo “install: --no-document” > ~/.gemrc
 ENV RUBY_CONFIGURE_OPTS=--disable-install-doc
+RUN rbenv install 3.1.1
 RUN rbenv install 2.7.1
 RUN rbenv install 2.6.6
 
 # Setup default ruby env
-RUN rbenv global 2.7.1
-RUN gem install bundler:2.1.4
+RUN rbenv global 3.1.1
+RUN gem install bundler:2.3.7
 
 # Install Google Cloud CLI
 ARG gcloud=false
@@ -92,11 +93,11 @@ RUN if [ "$gcloud" = true ] ; \
 ## Install Android SDK
 ARG sdk_version=commandlinetools-linux-6200805_latest.zip
 ARG android_home=/opt/android/sdk
-ARG android_api=android-29
-ARG android_build_tools=29.0.3
+ARG android_api=android-32
+ARG android_build_tools=32.0.0
 ARG android_ndk=false
-ARG ndk_version=21.0.6113669
-ARG cmake=3.10.2.4988404
+ARG ndk_version=23.1.7779620
+ARG cmake=3.18.1
 RUN mkdir -p ${android_home} && \
     wget --quiet --output-document=/tmp/${sdk_version} https://dl.google.com/android/repository/${sdk_version} && \
     unzip -q /tmp/${sdk_version} -d ${android_home} && \

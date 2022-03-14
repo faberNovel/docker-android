@@ -1,5 +1,32 @@
 {
-    "android_api": [ 28, 29, 30],
-    "android_ndk": ["--android-ndk", ""],
-    "gcloud": ["--gcloud", ""]
+    "android_api": [
+        {
+            "api": 28,
+            "build_tools": "30.0.3"
+        },
+        {
+            "api": 29,
+            "build_tools": "30.0.3"
+        },
+        {
+            "api": 30,
+            "build_tools": "30.0.3"
+        },
+        {
+            "api": 31,
+            "build_tools": "32.0.0"
+        },
+        {
+            "api": 32,
+            "build_tools": "32.0.0"
+        }
+    ],
+    "android_ndk": [
+        "--android-ndk",
+        ""
+    ],
+    "gcloud": [
+        "--gcloud",
+        ""
+    ]
 }
