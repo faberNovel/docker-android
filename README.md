@@ -79,12 +79,14 @@ jobs:
         ImageOS: ubuntu20
 
     - name: Gradle cache
-      uses: actions/cache@v1.2.0
+      uses: actions/cache@v3
       with:
-        path: /root/.gradle
-        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+        path: |
+          /root/.gradle/caches
+          /root/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
         restore-keys: |
-          ${{ runner.os }}-gradle
+          ${{ runner.os }}-gradle-
 
     - name: Fastlane
       run: bundle exec fastlane my_lane
