@@ -27,6 +27,11 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   # - fastlane-plugin-badge (curb)
   libcurl4 libcurl4-openssl-dev
 
+## Setup minimal SSH for Github
+RUN mkdir -p $HOME/.ssh
+RUN echo "Host github.com" >> $HOME/.ssh/config
+RUN echo "UpdateHostKeys yes" >> $HOME/.ssh/config
+
 ## Clean dependencies
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
