@@ -25,7 +25,10 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   ssh \
   # Fastlane plugins dependencies
   # - fastlane-plugin-badge (curb)
-  libcurl4 libcurl4-openssl-dev
+  libcurl4 libcurl4-openssl-dev \
+  # ruby-setup dependencies
+  libyaml-0-2 \
+  libgmp-dev
 
 ## Setup minimal SSH for Github
 RUN mkdir -p $HOME/.ssh

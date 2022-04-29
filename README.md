@@ -71,13 +71,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2.1.0
 
-    - name: Ruby cache
-      uses: actions/cache@v1.2.0
+    - name: Ruby Setup
+      uses: ruby/setup-ruby@v1
       with:
-        path: vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-gems-
+        bundler-cache: true
+      env:
+        ImageOS: ubuntu20
 
     - name: Gradle cache
       uses: actions/cache@v1.2.0
@@ -86,11 +85,6 @@ jobs:
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
         restore-keys: |
           ${{ runner.os }}-gradle
-
-    - name: Bundle install
-      run: |
-        bundle config path vendor/bundle
-        bundle check || bundle install
 
     - name: Fastlane
       run: bundle exec fastlane my_lane
