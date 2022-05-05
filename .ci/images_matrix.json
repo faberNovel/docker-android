@@ -14,7 +14,8 @@
         },
         {
             "api": 31,
-            "build_tools": "30.0.3"
+            "build_tools": "30.0.3",
+            "__comment": "build-tools 31 are corrupted. Use 30.0.3 instead"
         },
         {
             "api": 32,
