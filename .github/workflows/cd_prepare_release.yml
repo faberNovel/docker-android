@@ -74,7 +74,7 @@ jobs:
           path: images_description
 
       - name: Commit changes
-        uses: actions-x/commit@v1
+        uses: actions-x/commit@v6
         with:
           message: Add changelog and images description
 
