@@ -28,7 +28,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   libcurl4 libcurl4-openssl-dev \
   # ruby-setup dependencies
   libyaml-0-2 \
-  libgmp-dev
+  libgmp-dev \
+  file
 
 ## Clean dependencies
 RUN apt-get clean
