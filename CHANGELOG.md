@@ -1,5 +1,32 @@
 # Changelog
 
+## [v1.6.0](https://github.com/faberNovel/docker-android/tree/v1.6.0) (2022-05-06)
+
+[Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.5.0...v1.6.0)
+
+**Merged pull requests:**
+
+- Bump actionx/commit version [\#108](https://github.com/faberNovel/docker-android/pull/108) ([flolom](https://github.com/flolom))
+- Setup minimal SSH configuration for Github [\#107](https://github.com/faberNovel/docker-android/pull/107) ([nicolasygrand](https://github.com/nicolasygrand))
+- Update gradle cache readme / Fix build tools [\#106](https://github.com/faberNovel/docker-android/pull/106) ([flolom](https://github.com/flolom))
+- Add setup-ruby support [\#105](https://github.com/faberNovel/docker-android/pull/105) ([flolom](https://github.com/flolom))
+
+## [v1.5.0](https://github.com/faberNovel/docker-android/tree/v1.5.0) (2022-03-14)
+
+[Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.4.1...v1.5.0)
+
+**Merged pull requests:**
+
+- Feature/fix activity exported [\#103](https://github.com/faberNovel/docker-android/pull/103) ([ferrandp](https://github.com/ferrandp))
+- Setup correctly gradle version for large test [\#102](https://github.com/faberNovel/docker-android/pull/102) ([ferrandp](https://github.com/ferrandp))
+- Fix daily CI job [\#101](https://github.com/faberNovel/docker-android/pull/101) ([ferrandp](https://github.com/ferrandp))
+- Feature/bump versions [\#100](https://github.com/faberNovel/docker-android/pull/100) ([ferrandp](https://github.com/ferrandp))
+- Prepare release v1.4.1 [\#98](https://github.com/faberNovel/docker-android/pull/98) ([github-actions[bot]](https://github.com/apps/github-actions))
+
+## [v1.4.1](https://github.com/faberNovel/docker-android/tree/v1.4.1) (2021-06-08)
+
+[Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.4.0...v1.4.1)
+
 ## [v1.4.0](https://github.com/faberNovel/docker-android/tree/v1.4.0) (2020-10-13)
 
 [Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.3.0...v1.4.0)
@@ -127,6 +154,7 @@
 
 - Move to latest Ubuntu LTS [\#44](https://github.com/faberNovel/docker-android/pull/44) ([vincentbrison](https://github.com/vincentbrison))
 - Feature/prepare documentation for public release [\#43](https://github.com/faberNovel/docker-android/pull/43) ([vincentbrison](https://github.com/vincentbrison))
+- Fix daily runner [\#31](https://github.com/faberNovel/docker-android/pull/31) ([sjcqs](https://github.com/sjcqs))
 
 ## [v1.0.0-alpha04](https://github.com/faberNovel/docker-android/tree/v1.0.0-alpha04) (2020-04-30)
 
@@ -157,7 +185,6 @@
 - Fix large tests environment variables declaration [\#38](https://github.com/faberNovel/docker-android/pull/38) ([sjcqs](https://github.com/sjcqs))
 - Feature/update release cd [\#37](https://github.com/faberNovel/docker-android/pull/37) ([vincentbrison](https://github.com/vincentbrison))
 - Create PR on push on releases branch [\#35](https://github.com/faberNovel/docker-android/pull/35) ([vincentbrison](https://github.com/vincentbrison))
-- Fix daily runner [\#31](https://github.com/faberNovel/docker-android/pull/31) ([sjcqs](https://github.com/sjcqs))
 - Feature/image description [\#30](https://github.com/faberNovel/docker-android/pull/30) ([vincentbrison](https://github.com/vincentbrison))
 - Test Firebase Test Lab Integration [\#28](https://github.com/faberNovel/docker-android/pull/28) ([sjcqs](https://github.com/sjcqs))
 - Install google cloud sdk [\#25](https://github.com/faberNovel/docker-android/pull/25) ([sjcqs](https://github.com/sjcqs))
