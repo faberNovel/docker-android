@@ -97,11 +97,11 @@ RUN if [ "$gcloud" = true ] ; \
 ## Install Android SDK
 ARG sdk_version=commandlinetools-linux-6200805_latest.zip
 ARG android_home=/opt/android/sdk
-ARG android_api=android-32
-ARG android_build_tools=32.0.0
+ARG android_api=android-33
+ARG android_build_tools=33.0.1
 ARG android_ndk=false
-ARG ndk_version=23.1.7779620
-ARG cmake=3.18.1
+ARG ndk_version=25.1.8937393
+ARG cmake=3.22.1
 RUN mkdir -p ${android_home} && \
     wget --quiet --output-document=/tmp/${sdk_version} https://dl.google.com/android/repository/${sdk_version} && \
     unzip -q /tmp/${sdk_version} -d ${android_home} && \
