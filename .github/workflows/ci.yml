@@ -7,9 +7,9 @@ on:
       - 'release/**'
 jobs:
   generate_matrix:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     container:
-      image: docker://alpine/git:v2.24.3
+      image: docker://alpine/git:v2.36.3
     outputs:
       matrix: ${{ steps.read.outputs.matrix }}
     steps:
@@ -19,7 +19,7 @@ jobs:
         run: .ci/extract_github_action_matrix_as.sh matrix
   build_and_test:
     needs: generate_matrix
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     container:
       image: docker://docker:stable-git
       options: --name=runner

@@ -4,7 +4,7 @@ on:
     - cron: '0 22 * * *'
 jobs:
   job_build_and_test:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     container:
       image: docker://docker:stable-git
       options: --name=runner
