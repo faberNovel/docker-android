@@ -294,10 +294,10 @@
 | libnss3:amd64 | 2:3.49.1-1ubuntu1.8 | amd64 | Network Security Service libraries |
 | libogg0:amd64 | 1.3.4-0ubuntu1 | amd64 | Ogg bitstream library |
 | libp11-kit0:amd64 | 0.23.20-1ubuntu0.1 | amd64 | library for loading and coordinating access to PKCS#11 modules - runtime |
-| libpam-modules:amd64 | 1.3.1-5ubuntu4.3 | amd64 | Pluggable Authentication Modules for PAM |
-| libpam-modules-bin | 1.3.1-5ubuntu4.3 | amd64 | Pluggable Authentication Modules for PAM - helper binaries |
-| libpam-runtime | 1.3.1-5ubuntu4.3 | all | Runtime support for the PAM library |
-| libpam0g:amd64 | 1.3.1-5ubuntu4.3 | amd64 | Pluggable Authentication Modules library |
+| libpam-modules:amd64 | 1.3.1-5ubuntu4.4 | amd64 | Pluggable Authentication Modules for PAM |
+| libpam-modules-bin | 1.3.1-5ubuntu4.4 | amd64 | Pluggable Authentication Modules for PAM - helper binaries |
+| libpam-runtime | 1.3.1-5ubuntu4.4 | all | Runtime support for the PAM library |
+| libpam0g:amd64 | 1.3.1-5ubuntu4.4 | amd64 | Pluggable Authentication Modules library |
 | libpango-1.0-0:amd64 | 1.44.7-2ubuntu4 | amd64 | Layout and rendering of internationalized text |
 | libpangocairo-1.0-0:amd64 | 1.44.7-2ubuntu4 | amd64 | Layout and rendering of internationalized text |
 | libpangoft2-1.0-0:amd64 | 1.44.7-2ubuntu4 | amd64 | Layout and rendering of internationalized text |

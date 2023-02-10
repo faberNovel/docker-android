@@ -11,6 +11,7 @@
 **Merged pull requests:**
 
 - Add Android API 33 [\#116](https://github.com/faberNovel/docker-android/pull/116) ([RomainGF](https://github.com/RomainGF))
+- Prepare release v1.6.1 [\#114](https://github.com/faberNovel/docker-android/pull/114) ([github-actions[bot]](https://github.com/apps/github-actions))
 
 ## [v1.6.1](https://github.com/faberNovel/docker-android/tree/v1.6.1) (2022-06-14)
 
