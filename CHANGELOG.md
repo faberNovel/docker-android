@@ -1,5 +1,17 @@
 # Changelog
 
+## [v1.7.0](https://github.com/faberNovel/docker-android/tree/v1.7.0) (2023-02-09)
+
+[Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.6.1...v1.7.0)
+
+**Closed issues:**
+
+- Add Docker Image for Android API 33 [\#115](https://github.com/faberNovel/docker-android/issues/115)
+
+**Merged pull requests:**
+
+- Add Android API 33 [\#116](https://github.com/faberNovel/docker-android/pull/116) ([RomainGF](https://github.com/RomainGF))
+
 ## [v1.6.1](https://github.com/faberNovel/docker-android/tree/v1.6.1) (2022-06-14)
 
 [Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.6.0...v1.6.1)
