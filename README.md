@@ -34,7 +34,7 @@ keep track of missing native libraries and add them to the next image version.
 
 ## JDK support
 Images support multiple JDK, using [Jenv](https://www.jenv.be/).
-The default JDK is JDK 11, but JDK 8 is also supported for Android API 30 or lower (use `jenv global 1.8`).
+The default JDK is JDK 17, but JDK 11 and 8 are also supported (i.e. use `jenv global 1.8` to set JDK to verion 8).
 To choose a JDK, make sure the script executes on a bash shell, then use Jenv to set the desired version: 
 ```
 jobs:
