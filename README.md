@@ -121,7 +121,7 @@ jobs:
 ```
 
 ## 📦 Container Registry
-docker-android images are hosted on [DockerHub](https://hub.docker.com/repository/docker/fabernovel/android).
+docker-android images are hosted on [DockerHub](https://hub.docker.com/r/fabernovel/android).
 
 ## 🔤 Naming
 We provide stable and snapshot variants for latest Android API levels, including or not native SDK.
