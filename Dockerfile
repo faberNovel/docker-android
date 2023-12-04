@@ -13,6 +13,7 @@ ENV LANG=en_US.UTF-8
 
 ## Install dependencies
 RUN apt-get update && apt-get install --no-install-recommends -y \
+  openjdk-17-jdk \
   openjdk-11-jdk \
   openjdk-8-jdk \
   git \
@@ -49,6 +50,7 @@ RUN mkdir $JENV_ROOT/versions
 ENV JDK_ROOT "/usr/lib/jvm/"
 RUN jenv add ${JDK_ROOT}/java-8-openjdk-amd64
 RUN jenv add ${JDK_ROOT}/java-11-openjdk-amd64
+RUN jenv add ${JDK_ROOT}/java-17-openjdk-amd64
 RUN echo 'export PATH="$JENV_ROOT/bin:$PATH"' >> ~/.bashrc
 RUN echo 'eval "$(jenv init -)"' >> ~/.bashrc
 
@@ -97,10 +99,10 @@ RUN if [ "$gcloud" = true ] ; \
 ## Install Android SDK
 ARG sdk_version=commandlinetools-linux-6200805_latest.zip
 ARG android_home=/opt/android/sdk
-ARG android_api=android-33
-ARG android_build_tools=33.0.1
+ARG android_api=android-34
+ARG android_build_tools=34.0.0
 ARG android_ndk=false
-ARG ndk_version=25.1.8937393
+ARG ndk_version=26.1.10909125
 ARG cmake=3.22.1
 RUN mkdir -p ${android_home} && \
     wget --quiet --output-document=/tmp/${sdk_version} https://dl.google.com/android/repository/${sdk_version} && \

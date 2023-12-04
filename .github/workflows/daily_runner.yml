@@ -10,7 +10,7 @@ jobs:
       options: --name=runner
     strategy:
       matrix:
-        android_api: [{ "api": 30, "build_tools": "30.0.3" }, { "api": 31, "build_tools": "32.0.0" }]
+        android_api: [{ "api": 33, "build_tools": "33.0.1" }, { "api": 34, "build_tools": "34.0.0" }]
         android_ndk: ["--android-ndk"]
     steps:
       - name: Checkout

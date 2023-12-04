@@ -1,5 +1,19 @@
 # Changelog
 
+## [v1.8.0](https://github.com/faberNovel/docker-android/tree/v1.8.0) (2023-12-04)
+
+[Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.7.0...v1.8.0)
+
+**Implemented enhancements:**
+
+- Create and use a dedicated dockerhub user to deploy images [\#18](https://github.com/faberNovel/docker-android/issues/18)
+
+**Merged pull requests:**
+
+- Add support for API 34 [\#125](https://github.com/faberNovel/docker-android/pull/125) ([flolom](https://github.com/flolom))
+- README: fix Docker Hub reference [\#124](https://github.com/faberNovel/docker-android/pull/124) ([perlun](https://github.com/perlun))
+- Added openjdk-17-jdk to the Dockerfile [\#123](https://github.com/faberNovel/docker-android/pull/123) ([AngeloAvv](https://github.com/AngeloAvv))
+
 ## [v1.7.0](https://github.com/faberNovel/docker-android/tree/v1.7.0) (2023-02-09)
 
 [Full Changelog](https://github.com/faberNovel/docker-android/compare/v1.6.1...v1.7.0)
@@ -11,6 +25,7 @@
 **Merged pull requests:**
 
 - Add Android API 33 [\#116](https://github.com/faberNovel/docker-android/pull/116) ([RomainGF](https://github.com/RomainGF))
+- Prepare release v1.6.1 [\#114](https://github.com/faberNovel/docker-android/pull/114) ([github-actions[bot]](https://github.com/apps/github-actions))
 
 ## [v1.6.1](https://github.com/faberNovel/docker-android/tree/v1.6.1) (2022-06-14)
 
