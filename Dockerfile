@@ -13,6 +13,7 @@ ENV LANG=en_US.UTF-8
 
 ## Install dependencies
 RUN apt-get update && apt-get install --no-install-recommends -y \
+  openjdk-21-jdk \
   openjdk-17-jdk \
   openjdk-11-jdk \
   openjdk-8-jdk \
@@ -50,6 +51,7 @@ RUN mkdir $JENV_ROOT/versions
 ENV JDK_ROOT "/usr/lib/jvm/"
 RUN jenv add ${JDK_ROOT}/java-8-openjdk-amd64
 RUN jenv add ${JDK_ROOT}/java-11-openjdk-amd64
+RUN jenv add ${JDK_ROOT}/java-21-openjdk-amd64
 RUN jenv add ${JDK_ROOT}/java-17-openjdk-amd64
 RUN echo 'export PATH="$JENV_ROOT/bin:$PATH"' >> ~/.bashrc
 RUN echo 'eval "$(jenv init -)"' >> ~/.bashrc
