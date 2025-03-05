@@ -56,14 +56,14 @@ if [ "$gcloud" = true ]; then
 fi
 
 # Setup test app environment variables
-export KOTLIN_VERSION="1.9.10"
-export GRADLE_VERSION="8.3"
-export ANDROID_GRADLE_TOOLS_VERSION="8.1.1"
+export KOTLIN_VERSION="2.1.10"
+export GRADLE_VERSION="8.10"
+export ANDROID_GRADLE_TOOLS_VERSION="8.7.3"
 export COMPILE_SDK_VERSION="$android_api"
 export BUILD_TOOLS_VERSION="$android_build_tools"
 export MIN_SDK_VERSION=21
 export TARGET_SDK_VERSION="$android_api"
-export NDK_VERSION="21.0.6113669"
+export NDK_VERSION="26.1.10909125"
 
 setup_gradle_version() {
   if grep -q "distributionUrl" ./gradle/wrapper/gradle-wrapper.properties; then
@@ -87,7 +87,7 @@ exec_test() {
 ruby -v
 eval "$(jenv init -)"
 
-jenv global 17
+jenv global 21
 if [ "$android_ndk" = true ]; then
   echo "Running tests with ndk"
   exec_test "$script_path"/test-app-ndk
