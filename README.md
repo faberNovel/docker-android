@@ -26,7 +26,7 @@ The image is providing standard tools to build and test Android application:
 ## Fastlane first-class support
 Images are built to have first class support for Fastlane.
 Ruby versions in [`normal maintenance`](https://www.ruby-lang.org/en/downloads/branches/) mode are installed using [rbenv](https://github.com/rbenv/rbenv).
-If you are using a Fastlane plugin which requires a native library: 
+If you are using a Fastlane plugin which requires a native library:
 - Install it using `apt-get update && apt-get -y install <lib>` in your
 CI workflow.
 - Comment https://github.com/faberNovel/docker-android/issues/78 so that we can
@@ -34,8 +34,8 @@ keep track of missing native libraries and add them to the next image version.
 
 ## JDK support
 Images support multiple JDK, using [Jenv](https://www.jenv.be/).
-The default JDK is JDK 17, but JDK 11 and 8 are also supported (i.e. use `jenv global 1.8` to set JDK to verion 8).
-To choose a JDK, make sure the script executes on a bash shell, then use Jenv to set the desired version: 
+The default JDK is JDK 21, but JDK 17, 11 and 8 are also supported (i.e. use `jenv global 1.8` to set JDK to verion 8).
+To choose a JDK, make sure the script executes on a bash shell, then use Jenv to set the desired version:
 ```
 jobs:
   my_android_job:
