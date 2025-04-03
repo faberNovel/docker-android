@@ -20,6 +20,10 @@
         {
             "api": 34,
             "build_tools": "34.0.0"
+        },
+        {
+            "api": 35,
+            "build_tools": "35.0.0"
         }
     ],
     "android_ndk": [
