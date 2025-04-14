@@ -42,7 +42,8 @@ RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 
 ## Install rbenv
-ENV RBENV_ROOT "/root/.rbenv"
+ARG rbenv_root="/root/.rbenv"
+ENV RBENV_ROOT "${rbenv_root}"
 RUN git clone https://github.com/rbenv/rbenv.git $RBENV_ROOT
 ENV PATH "$PATH:$RBENV_ROOT/bin"
 ENV PATH "$PATH:$RBENV_ROOT/shims"
