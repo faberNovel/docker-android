@@ -65,7 +65,7 @@ RUN mkdir -p "$RBENV_ROOT"/plugins
 RUN git clone https://github.com/rbenv/ruby-build.git "$RBENV_ROOT"/plugins/ruby-build
 
 # Install ruby envs
-RUN echo “install: --no-document” > ~/.gemrc
+RUN echo "install: --no-document" > ~/.gemrc
 ENV RUBY_CONFIGURE_OPTS=--disable-install-doc
 RUN rbenv install 3.1.1
 RUN rbenv install 2.7.1
