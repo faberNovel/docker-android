@@ -63,7 +63,7 @@ on:
 
 jobs:
   my_android_job:
-    runs-on: ubuntu-22.04 # Works also with self hosted runner supporting docker
+    runs-on: ubuntu-24.04 # Works also with self hosted runner supporting docker
     container:
       image: docker://fabernovel/android:api-29-v1.1.0
 
@@ -76,7 +76,7 @@ jobs:
       with:
         bundler-cache: true
       env:
-        ImageOS: ubuntu20
+        ImageOS: ubuntu24
 
     - name: Gradle cache
       uses: actions/cache@v3
@@ -105,7 +105,7 @@ on:
 
 jobs:
   my_android_job:
-    runs-on: ubuntu-22.04 # Works also with self hosted runner supporting docker
+    runs-on: ubuntu-24.04 # Works also with self hosted runner supporting docker
 
   steps:
     - name: Checkout

@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:latest
 
 # Required for Jenv
 SHELL ["/bin/bash", "-c"]
