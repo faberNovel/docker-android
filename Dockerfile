@@ -81,7 +81,9 @@ ARG gcloud_url=https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
 ARG gcloud_home=/usr/local/gcloud
 ARG gcloud_install_script=${gcloud_home}/google-cloud-sdk/install.sh
 ARG gcloud_bin=${gcloud_home}/google-cloud-sdk/bin
-ENV PATH=${gcloud_bin}:${PATH}
+# Set the path to venv
+ENV VENV_PATH=/opt/venv
+ENV PATH=${VENV_PATH}/bin:${gcloud_bin}:${PATH}
 RUN if [ "$gcloud" = true ] ; \
   then \
     echo "Installing GCloud SDK"; \
@@ -90,13 +92,15 @@ RUN if [ "$gcloud" = true ] ; \
       python3 \
       python3-dev \
       python3-setuptools \
-      python3-pip && \
+      python3-pip \
+      python3-venv && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
+    python3 -m venv ${VENV_PATH} && \
     mkdir -p ${gcloud_home} && \
     wget --quiet --output-document=/tmp/gcloud-sdk.tar.gz ${gcloud_url} && \
     tar -C ${gcloud_home} -xvf /tmp/gcloud-sdk.tar.gz && \
     ${gcloud_install_script} && \
-    pip3 uninstall crcmod && \
+    pip3 uninstall --yes crcmod && \
     pip3 install --no-cache-dir -U crcmod; \
   else \
     echo "Skipping GCloud SDK installation"; \
