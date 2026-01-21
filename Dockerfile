@@ -112,7 +112,7 @@ ARG android_home=/opt/android/sdk
 ARG android_api=android-36
 ARG android_build_tools=36.0.0
 ARG android_ndk=false
-ARG ndk_version=26.1.10909125
+ARG ndk_version=26.2.11394342
 ARG cmake=3.22.1
 RUN mkdir -p ${android_home} && \
     wget --quiet --output-document=/tmp/${sdk_version} https://dl.google.com/android/repository/${sdk_version} && \
