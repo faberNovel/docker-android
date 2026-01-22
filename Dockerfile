@@ -22,6 +22,7 @@ RUN apt-get clean && \
   openjdk-11-jdk \
   openjdk-8-jdk \
   git \
+  curl \
   wget \
   build-essential \
   zlib1g-dev \
