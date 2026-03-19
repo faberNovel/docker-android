@@ -42,17 +42,17 @@ RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 
 ## Install rbenv
-ENV RBENV_ROOT "/root/.rbenv"
+ENV RBENV_ROOT="/root/.rbenv"
 RUN git clone https://github.com/rbenv/rbenv.git $RBENV_ROOT
-ENV PATH "$PATH:$RBENV_ROOT/bin"
-ENV PATH "$PATH:$RBENV_ROOT/shims"
+ENV PATH="$PATH:$RBENV_ROOT/bin"
+ENV PATH="$PATH:$RBENV_ROOT/shims"
 
 ## Install jenv
-ENV JENV_ROOT "$HOME/.jenv"
+ENV JENV_ROOT="$HOME/.jenv"
 RUN git clone https://github.com/jenv/jenv.git $JENV_ROOT
-ENV PATH "$PATH:$JENV_ROOT/bin"
+ENV PATH="$PATH:$JENV_ROOT/bin"
 RUN mkdir $JENV_ROOT/versions
-ENV JDK_ROOT "/usr/lib/jvm"
+ENV JDK_ROOT="/usr/lib/jvm"
 RUN jenv add ${JDK_ROOT}/java-8-openjdk-amd64
 RUN jenv add ${JDK_ROOT}/java-11-openjdk-amd64
 RUN jenv add ${JDK_ROOT}/java-17-openjdk-amd64
@@ -120,7 +120,7 @@ RUN mkdir -p ${android_home} && \
     rm /tmp/${sdk_version}
 
 # Set environmental variables
-ENV ANDROID_HOME ${android_home}
+ENV ANDROID_HOME=${android_home}
 ENV PATH=${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools:${PATH}
 
 RUN mkdir ~/.android && echo '### User Sources for Android SDK Manager' > ~/.android/repositories.cfg
